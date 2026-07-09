@@ -1,0 +1,67 @@
+{
+  "name": "ascii-orb",
+  "version": "0.0.0",
+  "description": "Animated ASCII orb component for React — 16 variants, ripples, fully customizable.",
+  "keywords": [
+    "react",
+    "ascii",
+    "orb",
+    "animation",
+    "ascii-art",
+    "component",
+    "sphere"
+  ],
+  "license": "MIT",
+  "author": "Adrian Martin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriancodes/ascii-orb.git"
+  },
+  "homepage": "https://github.com/adriancodes/ascii-orb#readme",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core.d.ts",
+        "default": "./dist/core.js"
+      },
+      "require": {
+        "types": "./dist/core.d.cts",
+        "default": "./dist/core.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepack": "pnpm build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

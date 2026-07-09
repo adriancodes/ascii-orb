@@ -1,0 +1,842 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders abyss exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--foreground) / 0.063) ×18",
+    "hsl(var(--foreground) / 0.250) ×2",
+    "hsl(var(--foreground) / 0.313) ×1",
+    "hsl(var(--foreground) / 0.375) ×1",
+    "hsl(var(--foreground) / 0.438) ×2",
+    "hsl(var(--foreground) / 0.500) ×2",
+    "hsl(var(--foreground) / 0.563) ×5",
+    "hsl(var(--foreground) / 0.625) ×2",
+    "hsl(var(--foreground) / 0.688) ×10",
+    "hsl(var(--foreground) / 0.750) ×12",
+    "hsl(var(--foreground) / 0.813) ×10",
+    "hsl(var(--foreground) / 0.875) ×4",
+    "hsl(var(--foreground) / 0.938) ×6",
+    "hsl(var(--foreground) / 1.000) ×35",
+    "hsl(var(--muted-foreground) / 0.063) ×122",
+    "hsl(var(--muted-foreground) / 0.188) ×6",
+    "hsl(var(--muted-foreground) / 0.250) ×2",
+    "hsl(var(--muted-foreground) / 0.313) ×16",
+    "hsl(var(--muted-foreground) / 0.375) ×27",
+    "hsl(var(--muted-foreground) / 0.438) ×56",
+    "hsl(var(--muted-foreground) / 0.500) ×50",
+    "hsl(var(--muted-foreground) / 0.563) ×32",
+    "hsl(var(--muted-foreground) / 0.625) ×35",
+    "hsl(var(--muted-foreground) / 0.688) ×17",
+    "hsl(var(--muted-foreground) / 0.750) ×3",
+    "transparent ×36",
+  ],
+  "text": "             ,:--:,.            
+         -++++======+=:         
+      ,=+===+++=------=+=,      
+     =*+++*#####**++=---=+-     
+    +++*####*++***###+=---==    
+   +*++###*=---===*####+=--=-   
+  :*+=*##+=======++++###*=--=,  
+  -+==*##+===+++*+++++*#*=-:=:  
+  =+==+##+===+*+*+++==+*#+-:-:  
+  :+=-=*##*+++=++++=--+*#+--=,  
+   =+==+*####*++======***=-=-   
+    =+=--=*#####*++*###+==+=    
+     =+=--==+++***#**+=-=+-     
+      ,=+=--::::--==--===,      
+         :===----==++=-         
+             ,::::,             ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders aether exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×25",
+    "hsl(var(--accent) / 0.125) ×5",
+    "hsl(var(--accent) / 0.188) ×5",
+    "hsl(var(--accent) / 0.250) ×9",
+    "hsl(var(--accent) / 0.313) ×8",
+    "hsl(var(--accent) / 0.375) ×9",
+    "hsl(var(--accent) / 0.438) ×4",
+    "hsl(var(--accent) / 0.500) ×4",
+    "hsl(var(--accent) / 0.563) ×5",
+    "hsl(var(--accent) / 0.625) ×7",
+    "hsl(var(--accent) / 0.688) ×14",
+    "hsl(var(--accent) / 0.750) ×31",
+    "hsl(var(--accent) / 0.813) ×33",
+    "hsl(var(--accent) / 0.875) ×18",
+    "hsl(var(--accent) / 0.938) ×12",
+    "hsl(var(--foreground) / 0.063) ×23",
+    "hsl(var(--foreground) / 0.125) ×9",
+    "hsl(var(--foreground) / 0.188) ×16",
+    "hsl(var(--foreground) / 0.250) ×29",
+    "hsl(var(--foreground) / 0.313) ×11",
+    "hsl(var(--foreground) / 0.375) ×6",
+    "hsl(var(--foreground) / 0.438) ×4",
+    "hsl(var(--foreground) / 0.500) ×35",
+    "hsl(var(--foreground) / 0.563) ×47",
+    "hsl(var(--foreground) / 0.625) ×50",
+    "hsl(var(--foreground) / 0.688) ×36",
+    "hsl(var(--foreground) / 0.750) ×17",
+    "hsl(var(--foreground) / 0.813) ×1",
+    "hsl(var(--foreground) / 0.938) ×2",
+    "hsl(var(--foreground) / 1.000) ×5",
+    "transparent ×32",
+  ],
+  "text": "      .,:; .:IttttI;, ;;:,      
+    .:; :1fLLCCCLLLLCLt: ;:,    
+   :; iCCLffLLCCCLLfLLLLLi ;:   
+ .:;,fCCCCCGG8888GCLLLffLCf,;:. 
+.:;;LCLCG88GG88GG888GCLLLLLf,;: 
+:;,CGCC888GGCLGCLCCGGGGGCLfft.;,
+; tGCCG8GCCGGGCGCGCCCG##8LffLI :
+; fCCC8#8GCGG88G8GGGCCCGCLffLt :
+; fGCC888GGCCG8G8G8GGCCCGCfff1 :
+: 1GCC8##8GGCLCCG88CLLLCCCLLL; :
+:;,LCCCGG88GCCGCCCGGCCCCCLLLf.;,
+.:;:LCLffLCG88#8G88GGGCCLLLf:;: 
+ .:;:fLffLCCCGGGCCGGCLLffLt,;:. 
+   :; ;LCCCLffffffffLLLLf; ;:   
+    .:; :tLLfffffffLLLt: ;:,    
+      .,:; .:;I1t1i:. ;;:,      ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders eclipse exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--foreground) / 0.063) ×26",
+    "hsl(var(--foreground) / 0.125) ×2",
+    "hsl(var(--foreground) / 0.188) ×1",
+    "hsl(var(--foreground) / 0.375) ×4",
+    "hsl(var(--foreground) / 0.438) ×1",
+    "hsl(var(--foreground) / 0.500) ×6",
+    "hsl(var(--foreground) / 0.563) ×4",
+    "hsl(var(--foreground) / 0.625) ×7",
+    "hsl(var(--foreground) / 0.688) ×15",
+    "hsl(var(--foreground) / 0.750) ×22",
+    "hsl(var(--foreground) / 0.813) ×18",
+    "hsl(var(--foreground) / 0.875) ×7",
+    "hsl(var(--foreground) / 0.938) ×11",
+    "hsl(var(--foreground) / 1.000) ×33",
+    "hsl(var(--muted-foreground) / 0.063) ×104",
+    "hsl(var(--muted-foreground) / 0.125) ×1",
+    "hsl(var(--muted-foreground) / 0.188) ×8",
+    "hsl(var(--muted-foreground) / 0.250) ×2",
+    "hsl(var(--muted-foreground) / 0.313) ×3",
+    "hsl(var(--muted-foreground) / 0.375) ×3",
+    "hsl(var(--muted-foreground) / 0.438) ×5",
+    "hsl(var(--muted-foreground) / 0.500) ×12",
+    "hsl(var(--muted-foreground) / 0.563) ×34",
+    "hsl(var(--muted-foreground) / 0.625) ×43",
+    "hsl(var(--muted-foreground) / 0.688) ×34",
+    "hsl(var(--muted-foreground) / 0.750) ×23",
+    "hsl(var(--muted-foreground) / 0.813) ×22",
+    "hsl(var(--muted-foreground) / 0.875) ×17",
+    "hsl(var(--muted-foreground) / 0.938) ×12",
+    "transparent ×32",
+  ],
+  "text": "            .-=++=-:            
+        .=*##***+++***+.        
+      -******#**++===+***:      
+     +#***#@@@@@@#**+++++*+     
+   .***#@@@@######@@##*+=+**.   
+   *#*#@@@#*+++++*##@@@#*==*+   
+  =##*#@@#***+**+***#@@@#*=+*-  
+  *#**#@@*++****#*#***#@#*==+=  
+  +#**#@@*++**#*#******#@*==+=  
+  =#***@@@##***#****++*#@#+=*:  
+   **++*#@@@@##*****+*###*+*+   
+   .**+=+*#@@@@######@#*++**.   
+    .*#*++***#####@@##*+**+     
+      -***++======+++++**-      
+        .=+*+++++++***=.        
+            .-====-.            ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders ember exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×38",
+    "hsl(var(--accent) / 0.125) ×13",
+    "hsl(var(--accent) / 0.188) ×20",
+    "hsl(var(--accent) / 0.250) ×16",
+    "hsl(var(--accent) / 0.313) ×5",
+    "hsl(var(--accent) / 0.375) ×9",
+    "hsl(var(--accent) / 0.438) ×7",
+    "hsl(var(--accent) / 0.500) ×11",
+    "hsl(var(--accent) / 0.563) ×41",
+    "hsl(var(--accent) / 0.625) ×64",
+    "hsl(var(--accent) / 0.688) ×54",
+    "hsl(var(--accent) / 0.750) ×37",
+    "hsl(var(--accent) / 0.813) ×26",
+    "hsl(var(--foreground) / 0.938) ×5",
+    "hsl(var(--foreground) / 1.000) ×27",
+    "hsl(var(--primary) / 0.063) ×14",
+    "hsl(var(--primary) / 0.125) ×9",
+    "hsl(var(--primary) / 0.188) ×10",
+    "hsl(var(--primary) / 0.250) ×12",
+    "hsl(var(--primary) / 0.375) ×2",
+    "hsl(var(--primary) / 0.563) ×3",
+    "hsl(var(--primary) / 0.625) ×2",
+    "hsl(var(--primary) / 0.688) ×4",
+    "hsl(var(--primary) / 0.750) ×14",
+    "hsl(var(--primary) / 0.813) ×16",
+    "hsl(var(--primary) / 0.875) ×19",
+    "hsl(var(--primary) / 0.938) ×6",
+    "transparent ×28",
+  ],
+  "text": "       .:  :-=++*++=:. ::.      
+    ..: -+*x******xxx**=.::.    
+   .:.+Xx****************=.:.   
+ .: -*XXXXXXX#%#XX#X**+++**- :  
+.: =x**X%@@%#X#%#%@@#X**+***- . 
+::-X#X#@@%#x***xxx#XX#XXX**++::.
+: *#X#%@#x**x*xXX#****#@@X*+*+ .
+::*XX%@@#x**x#%%@%x****XXx*+*+.:
+::x#X#%#X**xX#@%@#XxxxxX#X*+++ :
+: +x*x#@%#xXx*XX*xxx***xXx***= :
+::-***xX#%%#xXx***XXxxXXX****::.
+.: =x***x#%%%%####%@%#x**+**- : 
+ .: -xx*****xXxX##Xx******+- :. 
+  .::.=*x*+++**+***+++***=.::.  
+    .::.-+*****+++****+-.::.    
+      ..:  :-=++++=-:  ::.      ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders glacier exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--foreground) / 0.063) ×30",
+    "hsl(var(--foreground) / 0.125) ×4",
+    "hsl(var(--foreground) / 0.188) ×5",
+    "hsl(var(--foreground) / 0.250) ×13",
+    "hsl(var(--foreground) / 0.313) ×5",
+    "hsl(var(--foreground) / 0.375) ×8",
+    "hsl(var(--foreground) / 0.438) ×2",
+    "hsl(var(--foreground) / 0.500) ×4",
+    "hsl(var(--foreground) / 0.563) ×4",
+    "hsl(var(--foreground) / 0.625) ×8",
+    "hsl(var(--foreground) / 0.688) ×25",
+    "hsl(var(--foreground) / 0.750) ×20",
+    "hsl(var(--foreground) / 0.813) ×26",
+    "hsl(var(--foreground) / 0.875) ×18",
+    "hsl(var(--foreground) / 0.938) ×18",
+    "hsl(var(--foreground) / 1.000) ×7",
+    "hsl(var(--primary) / 0.063) ×32",
+    "hsl(var(--primary) / 0.125) ×7",
+    "hsl(var(--primary) / 0.188) ×17",
+    "hsl(var(--primary) / 0.250) ×19",
+    "hsl(var(--primary) / 0.313) ×14",
+    "hsl(var(--primary) / 0.375) ×5",
+    "hsl(var(--primary) / 0.438) ×9",
+    "hsl(var(--primary) / 0.500) ×31",
+    "hsl(var(--primary) / 0.563) ×44",
+    "hsl(var(--primary) / 0.625) ×46",
+    "hsl(var(--primary) / 0.688) ×40",
+    "hsl(var(--primary) / 0.750) ×16",
+    "hsl(var(--primary) / 0.813) ×3",
+    "transparent ×32",
+  ],
+  "text": "       ,::  ,;iIIi;,  ::,.      
+    .,: ,itLLLLLLLLLLti, ::.    
+   ,: :tLttLLCCLtttttttLt; :,   
+  ,:.1LLLLLCG##GCLLLLtttLL1.:,  
+ :;,tLLCG#GGCCGGCCGGGLLttttI.:, 
+,:.tLLLG#GGCCLLLLLCGGGGCLt11I :.
+: ;CLLCGGCCCCLCCCCCLCG##Ct1tt; ,
+: 1CLCG#GCCCCGGGGGGGCCLCLt11tI :
+: tCCCGGGCLCCCGG#GGGCLLCCLt1t; :
+: iCCLCG#GCLCCCGC#GLLtLCCLttt: ,
+,:.tLLLCCCCCCCCGCCCCLLLCLLtL1 :.
+ :;,tLttttLGG##GGCCCCCCLLtLt,:, 
+  ::.1LtttLCCCCCCCCCLLttttI.:,  
+   ,: :tLLLLtt1I1ttttttt1: :,   
+    .,: ,itLtt111ttLLti, ::.    
+       ,::  ,:;ii;;,  ::,.      ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders ion exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×26",
+    "hsl(var(--accent) / 0.125) ×11",
+    "hsl(var(--accent) / 0.188) ×20",
+    "hsl(var(--accent) / 0.250) ×2",
+    "hsl(var(--accent) / 0.313) ×2",
+    "hsl(var(--accent) / 0.375) ×2",
+    "hsl(var(--accent) / 0.438) ×1",
+    "hsl(var(--accent) / 0.500) ×4",
+    "hsl(var(--accent) / 0.563) ×1",
+    "hsl(var(--accent) / 0.625) ×3",
+    "hsl(var(--accent) / 0.688) ×10",
+    "hsl(var(--accent) / 0.750) ×18",
+    "hsl(var(--accent) / 0.813) ×17",
+    "hsl(var(--accent) / 0.875) ×29",
+    "hsl(var(--accent) / 0.938) ×13",
+    "hsl(var(--foreground) / 0.938) ×4",
+    "hsl(var(--foreground) / 1.000) ×20",
+    "hsl(var(--primary) / 0.063) ×32",
+    "hsl(var(--primary) / 0.125) ×15",
+    "hsl(var(--primary) / 0.188) ×22",
+    "hsl(var(--primary) / 0.250) ×3",
+    "hsl(var(--primary) / 0.313) ×5",
+    "hsl(var(--primary) / 0.375) ×7",
+    "hsl(var(--primary) / 0.438) ×4",
+    "hsl(var(--primary) / 0.500) ×6",
+    "hsl(var(--primary) / 0.563) ×10",
+    "hsl(var(--primary) / 0.625) ×26",
+    "hsl(var(--primary) / 0.688) ×56",
+    "hsl(var(--primary) / 0.750) ×43",
+    "hsl(var(--primary) / 0.813) ×31",
+    "hsl(var(--primary) / 0.875) ×30",
+    "hsl(var(--primary) / 0.938) ×11",
+    "transparent ×28",
+  ],
+  "text": "       .,, :s23hh32X; ;::.      
+     ,: s3HHHHGHHHHGSGhs.;:.    
+   ,: 2S#GHMMHHHHHHHHHHHMA :,   
+  ::rH###999999#####GHhhMHhi:,  
+ : XSSG#B@@B9#999B@@B#HMhMHMi , 
+,;iS##9B&B#SHMGSGSBB999#GHHHh:, 
+: 399B@@B#GGSGH9SB#HHS9BBSHMM2 ,
+:,M##9@@9GHHG#&B@B9SHMHS9#M3h5 ,
+:,hSS9&&#GHG#&&@@&9SHHG9B9H3h5 ,
+: 5SGG#BB9##SS9###GHHGS99SMhHA ,
+,;iHGMHSB&&9###GMGSSSS##GhhHM;:.
+ : XGGHHS9BBB&B###B&&B#HhhHHr , 
+  :;rHSGGGGHHGS##99#SHhhMGMi;:  
+   ,: XMGHMh3hMHHHMh33hHMX ;,   
+     ,: shGGHMMMMMMMHH3s ;:.    
+       ,,: :sA22522s; ::,.      ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders lattice exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×38",
+    "hsl(var(--accent) / 0.125) ×16",
+    "hsl(var(--accent) / 0.188) ×4",
+    "hsl(var(--accent) / 0.250) ×3",
+    "hsl(var(--accent) / 0.375) ×1",
+    "hsl(var(--accent) / 0.438) ×3",
+    "hsl(var(--accent) / 0.563) ×4",
+    "hsl(var(--accent) / 0.625) ×1",
+    "hsl(var(--accent) / 0.688) ×12",
+    "hsl(var(--accent) / 0.750) ×25",
+    "hsl(var(--accent) / 0.813) ×32",
+    "hsl(var(--accent) / 0.875) ×16",
+    "hsl(var(--accent) / 0.938) ×4",
+    "hsl(var(--foreground) / 0.938) ×7",
+    "hsl(var(--foreground) / 1.000) ×49",
+    "hsl(var(--primary) / 0.063) ×48",
+    "hsl(var(--primary) / 0.125) ×16",
+    "hsl(var(--primary) / 0.188) ×2",
+    "hsl(var(--primary) / 0.250) ×2",
+    "hsl(var(--primary) / 0.313) ×6",
+    "hsl(var(--primary) / 0.375) ×4",
+    "hsl(var(--primary) / 0.438) ×5",
+    "hsl(var(--primary) / 0.500) ×6",
+    "hsl(var(--primary) / 0.563) ×12",
+    "hsl(var(--primary) / 0.625) ×36",
+    "hsl(var(--primary) / 0.688) ×37",
+    "hsl(var(--primary) / 0.750) ×43",
+    "hsl(var(--primary) / 0.813) ×23",
+    "hsl(var(--primary) / 0.875) ×16",
+    "hsl(var(--primary) / 0.938) ×13",
+    "transparent ×28",
+  ],
+  "text": "           -+X]][[[x-  :.       
+      . +]}}{{{{[[{{}}]+.:.     
+    . X}{]]]{{{{][]]]{{]]X .    
+  . =]{{{}}}%@%%#}}}}{]X[{{-    
+ . x}{]{#@@@@@@%%%@@@@}][[]{=   
+.:=}}{#@@@@#}{{{{{##%%%%}{{{]-  
+. [#}#@@@#{{}]]{]}{{{}}%@%{[]X  
+.:{}}%@@%}{]]{}}%}}{]]]}%%{X[[  
+.:{#}%@@%}{]{{##%%}}{]{#@%{X[[  
+. [#}#@@@#{]]]{}{}{]]{}%@#]]}X  
+ :={{]{#%%#}}##}{{}{}%%%}][{{-. 
+ . +{{]]{%@@@@@%%%%@@%#{[[{{+ . 
+  . +}}{{}}##}}}}###}{[X[{]= .  
+   .. X}}][[[X[[[]][XX[{{x.:.   
+     .. +[]{]]]{][[]{{[+ :.     
+        .  -xXX[[Xx+-  ..       ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders nova exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×10",
+    "hsl(var(--accent) / 0.125) ×7",
+    "hsl(var(--accent) / 0.188) ×15",
+    "hsl(var(--accent) / 0.250) ×26",
+    "hsl(var(--accent) / 0.313) ×17",
+    "hsl(var(--accent) / 0.375) ×4",
+    "hsl(var(--accent) / 0.438) ×6",
+    "hsl(var(--accent) / 0.500) ×8",
+    "hsl(var(--accent) / 0.563) ×10",
+    "hsl(var(--accent) / 0.625) ×17",
+    "hsl(var(--accent) / 0.688) ×47",
+    "hsl(var(--accent) / 0.750) ×43",
+    "hsl(var(--accent) / 0.813) ×25",
+    "hsl(var(--accent) / 0.875) ×19",
+    "hsl(var(--foreground) / 0.063) ×14",
+    "hsl(var(--foreground) / 0.125) ×7",
+    "hsl(var(--foreground) / 0.188) ×5",
+    "hsl(var(--foreground) / 0.250) ×11",
+    "hsl(var(--foreground) / 0.313) ×11",
+    "hsl(var(--foreground) / 0.375) ×1",
+    "hsl(var(--foreground) / 0.438) ×2",
+    "hsl(var(--foreground) / 0.563) ×1",
+    "hsl(var(--foreground) / 0.625) ×1",
+    "hsl(var(--foreground) / 0.688) ×3",
+    "hsl(var(--foreground) / 0.750) ×13",
+    "hsl(var(--foreground) / 0.813) ×36",
+    "hsl(var(--foreground) / 0.875) ×28",
+    "hsl(var(--foreground) / 0.938) ×20",
+    "hsl(var(--foreground) / 1.000) ×77",
+    "transparent ×28",
+  ],
+  "text": "      ,:: ,=*xX$$$X*=: ;::.     
+    ,::,*$$$XXX$$XX$#%$*:;:,.   
+  ,:::x$$$$XX$$$$XXXX$$$$x:;:,  
+ ,: +$$$$$#%@%@@@@%###$XXX$= :, 
+,: *####%@@@@@@@@@@@@@@%XxX#+ :.
+:;+$$$%@@@@%%####$$$#%@@@$X$$=:,
+;,X$$#@@@@%$$$$$#$$XxX#@@@#$$x.:
+;;###@@@@%####%@@#XXX$#%%%$XXX::
+:;$$$%@@%$$$$$#@%%$XX$$#%%#XxX::
+:,$%$#@@%$XXXXXX$X$$###@@@#X$X,:
+:;+%%#%@@@%#$$$$$#%#%%@@%$xX#=;:
+,;.*###%@@@@@@@@@@@@%%%$x*X#+ :,
+.,; +$$XX$#%%%%%%##$$$x*x$$+ ;,.
+ .,:;:x#$XxXxXXX$XXX**x$$*:;:,  
+   .::;:*$%#$$$XXxxx$$X+:;;:.   
+     .,:: ,=*xXXXXx+;, ;:,.     ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders oracle exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×33",
+    "hsl(var(--accent) / 0.125) ×9",
+    "hsl(var(--accent) / 0.188) ×14",
+    "hsl(var(--accent) / 0.250) ×8",
+    "hsl(var(--accent) / 0.313) ×2",
+    "hsl(var(--accent) / 0.375) ×1",
+    "hsl(var(--accent) / 0.438) ×1",
+    "hsl(var(--accent) / 0.500) ×5",
+    "hsl(var(--accent) / 0.625) ×7",
+    "hsl(var(--accent) / 0.688) ×19",
+    "hsl(var(--accent) / 0.750) ×23",
+    "hsl(var(--accent) / 0.813) ×30",
+    "hsl(var(--accent) / 0.875) ×21",
+    "hsl(var(--accent) / 0.938) ×11",
+    "hsl(var(--foreground) / 0.938) ×8",
+    "hsl(var(--foreground) / 1.000) ×38",
+    "hsl(var(--primary) / 0.063) ×28",
+    "hsl(var(--primary) / 0.125) ×17",
+    "hsl(var(--primary) / 0.188) ×23",
+    "hsl(var(--primary) / 0.250) ×4",
+    "hsl(var(--primary) / 0.313) ×7",
+    "hsl(var(--primary) / 0.375) ×3",
+    "hsl(var(--primary) / 0.438) ×6",
+    "hsl(var(--primary) / 0.500) ×16",
+    "hsl(var(--primary) / 0.563) ×40",
+    "hsl(var(--primary) / 0.625) ×51",
+    "hsl(var(--primary) / 0.688) ×24",
+    "hsl(var(--primary) / 0.750) ×24",
+    "hsl(var(--primary) / 0.813) ×11",
+    "transparent ×28",
+  ],
+  "text": "       ... .:;iI1I;:, ,,.       
+     .. :ItLLt111ttLCLI: ,.     
+   .. ;CCL1I1tt11111t111t; ,.   
+  .,,1LLLCCCCOQOCOCCL1ii1L1,,.  
+ .,:CCLCQ###QOQ#Q####Ct11111,.. 
+.,,LCLC###QC11tLtCCOCOQOCt1tI,. 
+, IQOQ##QCt1tt1LtCLI1tC##O1I1; .
+,.tCLO##Ot111LQO#CL111tCQC1i1I .
+..tCLC##OLttLOOQQCLtttLOQO1i1i .
+. iLLLQ#QOCLLtLLtLt1tLCOOC11L; .
+.,,tt1tO##QOCCLL1LLCOCOCL11t1,..
+ .,:tLttLO####QQQQ###QCtIIt1:,. 
+  .,:LCt1tttLCLCOOOCL1ii1t1,,.  
+   ., ;tttIiIIII11IiiI1t1; ,.   
+     ., :Itttt1III11ttI: ,..    
+       ... .:;iiii;:, ,,.       ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders pulse exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×19",
+    "hsl(var(--accent) / 0.125) ×11",
+    "hsl(var(--accent) / 0.188) ×19",
+    "hsl(var(--accent) / 0.250) ×18",
+    "hsl(var(--accent) / 0.375) ×2",
+    "hsl(var(--accent) / 0.438) ×2",
+    "hsl(var(--accent) / 0.500) ×4",
+    "hsl(var(--accent) / 0.625) ×1",
+    "hsl(var(--accent) / 0.688) ×7",
+    "hsl(var(--accent) / 0.750) ×14",
+    "hsl(var(--accent) / 0.813) ×25",
+    "hsl(var(--accent) / 0.875) ×19",
+    "hsl(var(--accent) / 0.938) ×9",
+    "hsl(var(--foreground) / 0.938) ×3",
+    "hsl(var(--foreground) / 1.000) ×51",
+    "hsl(var(--primary) / 0.063) ×14",
+    "hsl(var(--primary) / 0.125) ×6",
+    "hsl(var(--primary) / 0.188) ×18",
+    "hsl(var(--primary) / 0.250) ×18",
+    "hsl(var(--primary) / 0.313) ×3",
+    "hsl(var(--primary) / 0.375) ×3",
+    "hsl(var(--primary) / 0.438) ×5",
+    "hsl(var(--primary) / 0.500) ×7",
+    "hsl(var(--primary) / 0.563) ×4",
+    "hsl(var(--primary) / 0.625) ×12",
+    "hsl(var(--primary) / 0.688) ×42",
+    "hsl(var(--primary) / 0.750) ×54",
+    "hsl(var(--primary) / 0.813) ×46",
+    "hsl(var(--primary) / 0.875) ×32",
+    "hsl(var(--primary) / 0.938) ×16",
+    "transparent ×28",
+  ],
+  "text": "      ':I ,[fUOwm0Yn)l +i;'     
+    "I!;nwbppdbbpqwqdaqnl+i:    
+  'IiIuqqZQQOpkkpwZO0Owbpul~I'  
+ ,! \\mZQQwdko&$$@W#obmOOZmQ) l' 
+,i nobwp*B$$@%$$$@$$$&*kwQQw* I 
+!+|bkb*B$%WM*bqo*phoa*B$&qLmd}l,
+~:Lbqo$$$oqmphho*kbLCp&$$*mZbz I
++?dhk8$$@#hkh#$@$*kdpqpaM*pOOXll
+i+b**B$$8ahoMW8$$B#kddbo&&hZLXll
+i,OMh*@$$Wkwmbbdp*bqpdk#8Md00X'l
+l+|kdwaB$@#hhbwqdhMW##MW*d0Qw)iI
+,i xbpwb*8@$$$%B$$$@%W*kwLQqf !"
+ :i /kobqqk*&&MMWM*bqm0JYLZ| i, 
+  ,!+!YakwOOZOLJJLOZZQCLZzl+!,  
+   \`:!~ItLwmZZO00OZZZmQxl+i;'   
+      ,I! :}nJ00CXn/[: ~!:'     ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders quasar exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--foreground) / 0.063) ×22",
+    "hsl(var(--foreground) / 0.125) ×11",
+    "hsl(var(--foreground) / 0.188) ×17",
+    "hsl(var(--foreground) / 0.250) ×21",
+    "hsl(var(--foreground) / 0.313) ×5",
+    "hsl(var(--foreground) / 0.375) ×2",
+    "hsl(var(--foreground) / 0.500) ×2",
+    "hsl(var(--foreground) / 0.563) ×3",
+    "hsl(var(--foreground) / 0.625) ×4",
+    "hsl(var(--foreground) / 0.688) ×8",
+    "hsl(var(--foreground) / 0.750) ×38",
+    "hsl(var(--foreground) / 0.813) ×28",
+    "hsl(var(--foreground) / 0.875) ×25",
+    "hsl(var(--foreground) / 0.938) ×16",
+    "hsl(var(--foreground) / 1.000) ×53",
+    "hsl(var(--primary) / 0.063) ×10",
+    "hsl(var(--primary) / 0.125) ×7",
+    "hsl(var(--primary) / 0.188) ×15",
+    "hsl(var(--primary) / 0.250) ×16",
+    "hsl(var(--primary) / 0.313) ×3",
+    "hsl(var(--primary) / 0.375) ×7",
+    "hsl(var(--primary) / 0.438) ×6",
+    "hsl(var(--primary) / 0.500) ×6",
+    "hsl(var(--primary) / 0.563) ×19",
+    "hsl(var(--primary) / 0.625) ×40",
+    "hsl(var(--primary) / 0.688) ×49",
+    "hsl(var(--primary) / 0.750) ×28",
+    "hsl(var(--primary) / 0.813) ×17",
+    "hsl(var(--primary) / 0.875) ×6",
+    "transparent ×28",
+  ],
+  "text": "      ... .:=*xXXx*=;. ,,..     
+    ..,.=xXx*xxxXXXXXXx+.,,.    
+  ..,.+xxxx***xxxxxxXx*xX+.,..  
+ ., ;xx*xXX$$$$###$$$Xx**xx; .. 
+., =$XXX$#@@@@#@@@#@@@#x*xxx; ..
+,,;xxX$@@@#$$XxxXXX$####$Xxxx;,.
+,.xXx$@@@#XxxxxXXxXXxXX$@@$xx+ .
+,:XXX$@@#$XXXX##@#$XXxxX##X**x..
+,,XXX$@#$xxxxX$@@@$Xx*x$##x+**.,
+,.x$X$@@#XxxXX$X$$xxxx$@@#xxX*.,
+.,;$$$$@@@##$$XxX$XXX#@@$x*xx:,.
+., +XXX$#@@@@##$##@@@@$x**xx= ,.
+ ., =XX**xxX$X$$##$$X*+*xx*; ,. 
+  .,,.+XXxxxxxXxxx*++*xxx+,,,.  
+   ..,,.=xXXx*****xxxx*=.,,..   
+      .., .:=+*xx*+=:. ,,..     ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders rift exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×27",
+    "hsl(var(--accent) / 0.125) ×8",
+    "hsl(var(--accent) / 0.188) ×5",
+    "hsl(var(--accent) / 0.313) ×1",
+    "hsl(var(--accent) / 0.438) ×1",
+    "hsl(var(--accent) / 0.500) ×1",
+    "hsl(var(--accent) / 0.563) ×6",
+    "hsl(var(--accent) / 0.625) ×4",
+    "hsl(var(--accent) / 0.688) ×11",
+    "hsl(var(--accent) / 0.750) ×28",
+    "hsl(var(--accent) / 0.813) ×23",
+    "hsl(var(--accent) / 0.875) ×8",
+    "hsl(var(--accent) / 0.938) ×5",
+    "hsl(var(--foreground) / 0.938) ×9",
+    "hsl(var(--foreground) / 1.000) ×29",
+    "hsl(var(--primary) / 0.063) ×47",
+    "hsl(var(--primary) / 0.125) ×24",
+    "hsl(var(--primary) / 0.188) ×20",
+    "hsl(var(--primary) / 0.250) ×5",
+    "hsl(var(--primary) / 0.313) ×7",
+    "hsl(var(--primary) / 0.375) ×4",
+    "hsl(var(--primary) / 0.438) ×4",
+    "hsl(var(--primary) / 0.500) ×5",
+    "hsl(var(--primary) / 0.563) ×13",
+    "hsl(var(--primary) / 0.625) ×38",
+    "hsl(var(--primary) / 0.688) ×35",
+    "hsl(var(--primary) / 0.750) ×49",
+    "hsl(var(--primary) / 0.813) ×21",
+    "hsl(var(--primary) / 0.875) ×25",
+    "hsl(var(--primary) / 0.938) ×17",
+    "transparent ×32",
+  ],
+  "text": "        ..  :==+++=-. ...       
+      . :=+**#****###*+- ..     
+    . -*#*++**#*****++***- .    
+  ...+***##%%@@@%###*++++*+...  
+ ..:***#%@@%%%%%%%@@%#*+++**:.  
+ ..*#*#%@@%#**#***##%%%#****+ . 
+. =#*#%@%####********#@@%#++*-  
+. *###@@@#***#####****#%%*+=++ .
+. *##%@@%#***###%######%%#+=+= .
+. +%##%@@@#**+***###***#%#++*=  
+ .:*#**#%%%%####**##**#%#**#*.. 
+ .::**+++*#%@@@%%%%%%%#**+**:.. 
+  ..:*#*+***#%%#%%%##*****+:..  
+    . -*##*++++++++++++**- ..   
+     .. :+**++++++**#*+: ..     
+        ..  :-=++=-:. ...       ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders sigil exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×26",
+    "hsl(var(--accent) / 0.125) ×10",
+    "hsl(var(--accent) / 0.188) ×15",
+    "hsl(var(--accent) / 0.250) ×3",
+    "hsl(var(--accent) / 0.375) ×2",
+    "hsl(var(--accent) / 0.438) ×2",
+    "hsl(var(--accent) / 0.563) ×2",
+    "hsl(var(--accent) / 0.625) ×1",
+    "hsl(var(--accent) / 0.688) ×10",
+    "hsl(var(--accent) / 0.750) ×22",
+    "hsl(var(--accent) / 0.813) ×22",
+    "hsl(var(--accent) / 0.875) ×20",
+    "hsl(var(--accent) / 0.938) ×11",
+    "hsl(var(--foreground) / 0.938) ×7",
+    "hsl(var(--foreground) / 1.000) ×61",
+    "hsl(var(--primary) / 0.063) ×37",
+    "hsl(var(--primary) / 0.125) ×16",
+    "hsl(var(--primary) / 0.188) ×19",
+    "hsl(var(--primary) / 0.250) ×3",
+    "hsl(var(--primary) / 0.313) ×4",
+    "hsl(var(--primary) / 0.375) ×4",
+    "hsl(var(--primary) / 0.438) ×7",
+    "hsl(var(--primary) / 0.500) ×2",
+    "hsl(var(--primary) / 0.563) ×12",
+    "hsl(var(--primary) / 0.625) ×21",
+    "hsl(var(--primary) / 0.688) ×45",
+    "hsl(var(--primary) / 0.750) ×49",
+    "hsl(var(--primary) / 0.813) ×21",
+    "hsl(var(--primary) / 0.875) ×18",
+    "hsl(var(--primary) / 0.938) ×12",
+    "transparent ×28",
+  ],
+  "text": "        .. :*xXXooX*- :::.      
+     .: *oOOOOooooOO00o*.::     
+   .: x00OooooOoXoooooooOx.:.   
+  : +O0OO00QQQ##00Q0OoXxoOo- .  
+ : *0OO0######Q######QOooooo+ . 
+.:+000Q###Q0OXooOO0QQQ#Q0Oooo-. 
+: oQ0Q###0OOooXOo0OooO0##QoXox .
+::O00####0oooO00#OOoooO0#QoXoo .
+::OQ0Q##0OoooO0QQ0OOooOQ#QoXoX .
+: X0OO###0OOoOOOoOoXoO0Q#0ooOx .
+.:-OOoo0###QQ00OoOO00QQQ0ooOo-:.
+ : *OoXo0Q#####QQQ####QOooOO+ . 
+  : +O0OOoOOO000QQQQ0oXXoOo- :  
+   .:.xOOoXXxXXXoooXxXoOO*.:.   
+     .: +XOOooooXXooOOX+ ::.    
+       ..: -*xXXXxx*- ::.       ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders veil exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×21",
+    "hsl(var(--accent) / 0.125) ×7",
+    "hsl(var(--accent) / 0.188) ×10",
+    "hsl(var(--accent) / 0.250) ×3",
+    "hsl(var(--accent) / 0.313) ×3",
+    "hsl(var(--accent) / 0.375) ×6",
+    "hsl(var(--accent) / 0.438) ×3",
+    "hsl(var(--accent) / 0.500) ×5",
+    "hsl(var(--accent) / 0.563) ×6",
+    "hsl(var(--accent) / 0.625) ×15",
+    "hsl(var(--accent) / 0.688) ×20",
+    "hsl(var(--accent) / 0.750) ×40",
+    "hsl(var(--accent) / 0.813) ×25",
+    "hsl(var(--accent) / 0.875) ×18",
+    "hsl(var(--accent) / 0.938) ×3",
+    "hsl(var(--foreground) / 0.063) ×71",
+    "hsl(var(--foreground) / 0.125) ×24",
+    "hsl(var(--foreground) / 0.188) ×14",
+    "hsl(var(--foreground) / 0.250) ×3",
+    "hsl(var(--foreground) / 0.313) ×4",
+    "hsl(var(--foreground) / 0.375) ×8",
+    "hsl(var(--foreground) / 0.438) ×40",
+    "hsl(var(--foreground) / 0.500) ×42",
+    "hsl(var(--foreground) / 0.563) ×48",
+    "hsl(var(--foreground) / 0.625) ×31",
+    "hsl(var(--foreground) / 0.688) ×8",
+    "hsl(var(--foreground) / 0.750) ×2",
+    "transparent ×32",
+  ],
+  "text": "        ..  .:----:.  :..       
+     .. .-=++++++=====-. :.     
+    . :=+==++++++======+=: .    
+  .: =+++++*****++++=====+- ..  
+ .:.=++**##****+++**++++==== .  
+ : =+++****+++++=+*****++===- . 
+. -*++****+*+++*+*+++***++===:  
+. =******++++********++++==-=- .
+. =*++**+++++***#****+++++=--: .
+. -++++****++******+++++++===:  
+ : ====++*******+**++==+===== . 
+ .:.-====++**#**+++*++++==+=..  
+  .: =++++++++++++++++===+= ..  
+    . :+++===============: .    
+     .. .-============-. :.     
+        ..   ::---:.  :..       ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders void exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--foreground) / 0.063) ×16",
+    "hsl(var(--foreground) / 0.125) ×1",
+    "hsl(var(--foreground) / 0.188) ×2",
+    "hsl(var(--foreground) / 0.250) ×1",
+    "hsl(var(--foreground) / 0.313) ×1",
+    "hsl(var(--foreground) / 0.375) ×2",
+    "hsl(var(--foreground) / 0.438) ×1",
+    "hsl(var(--foreground) / 0.500) ×1",
+    "hsl(var(--foreground) / 0.563) ×7",
+    "hsl(var(--foreground) / 0.625) ×9",
+    "hsl(var(--foreground) / 0.688) ×3",
+    "hsl(var(--foreground) / 0.750) ×3",
+    "hsl(var(--foreground) / 0.938) ×8",
+    "hsl(var(--foreground) / 1.000) ×29",
+    "hsl(var(--muted-foreground) / 0.063) ×121",
+    "hsl(var(--muted-foreground) / 0.125) ×5",
+    "hsl(var(--muted-foreground) / 0.188) ×3",
+    "hsl(var(--muted-foreground) / 0.250) ×11",
+    "hsl(var(--muted-foreground) / 0.313) ×30",
+    "hsl(var(--muted-foreground) / 0.375) ×39",
+    "hsl(var(--muted-foreground) / 0.438) ×63",
+    "hsl(var(--muted-foreground) / 0.500) ×44",
+    "hsl(var(--muted-foreground) / 0.563) ×42",
+    "hsl(var(--muted-foreground) / 0.625) ×18",
+    "hsl(var(--muted-foreground) / 0.688) ×12",
+    "transparent ×40",
+  ],
+  "text": "             .::::.             
+         :-===--------:         
+      .===-------:::::-=-.      
+     -+===+*###*++==-:::-=-     
+    -=-=*##+=====+##*=--:---    
+   -=-=*##=-::----+*##*=-::-:   
+  .==-=##=-----=-====*##=-:--.  
+  -=--=**=---=========+**-::-:  
+  :=--=#*=--====+===--=+*=::-.  
+  .=--=+##*+=======---=**=::-.  
+   -=---+###+===------=+=-:-:   
+    -=-:--=*###*===+***=--=-    
+     -=--:---==+++*++=---=-     
+      .-=--::.:::---::---.      
+         :---:::---==-:         
+             ..::..             ",
+}
+`;
+
+exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders wraith exactly as before 1`] = `
+{
+  "colors": [
+    "hsl(var(--accent) / 0.063) ×24",
+    "hsl(var(--accent) / 0.125) ×3",
+    "hsl(var(--accent) / 0.188) ×4",
+    "hsl(var(--accent) / 0.250) ×9",
+    "hsl(var(--accent) / 0.313) ×8",
+    "hsl(var(--accent) / 0.375) ×5",
+    "hsl(var(--accent) / 0.438) ×4",
+    "hsl(var(--accent) / 0.500) ×3",
+    "hsl(var(--accent) / 0.563) ×7",
+    "hsl(var(--accent) / 0.625) ×16",
+    "hsl(var(--accent) / 0.688) ×20",
+    "hsl(var(--accent) / 0.750) ×24",
+    "hsl(var(--accent) / 0.813) ×26",
+    "hsl(var(--accent) / 0.875) ×22",
+    "hsl(var(--accent) / 0.938) ×8",
+    "hsl(var(--foreground) / 0.063) ×43",
+    "hsl(var(--foreground) / 0.125) ×15",
+    "hsl(var(--foreground) / 0.188) ×19",
+    "hsl(var(--foreground) / 0.250) ×15",
+    "hsl(var(--foreground) / 0.313) ×16",
+    "hsl(var(--foreground) / 0.375) ×5",
+    "hsl(var(--foreground) / 0.438) ×27",
+    "hsl(var(--foreground) / 0.500) ×46",
+    "hsl(var(--foreground) / 0.563) ×48",
+    "hsl(var(--foreground) / 0.625) ×42",
+    "hsl(var(--foreground) / 0.688) ×17",
+    "transparent ×36",
+  ],
+  "text": "       .\`\`  .':;::\`.  ''.       
+     .\` .:;iiiIiiiiiii:. '\`     
+   .' .;iiiiIIIiii;;;iii;\` '.   
+  .' ;iiiiIttfttIIiiiiiiii; '.  
+ .'.;iitfffttttIiItttIii;ii; '. 
+.' ;iiitffttIiiIiItttttIii;;: \`.
+\` :IIItfftttIiIIitItttffti;;;\` .
+\` ;ttttftIiiItttfftttIIIi;;;;: \`
+\` ;ttttttiiiItttLtfttIiIIi;;;' \`
+\` :tIIIttttIItIttttIiiiiii;;;\` .
+.' ;iiiiItttttttItIiiiiIiiii; \`.
+ .'.;;;;;iIttfftIIttIIiiiii;.'. 
+  .' ;iiiiIIIIIIiiIIIii;;i: '.  
+   .' \`iIiii;;;;;;;;;iii;\` '.   
+     .' .:;i;;;;;iiii;:. '\`.    
+       .\`\`  .\`':::\`.  '\`.       ",
+}
+`;

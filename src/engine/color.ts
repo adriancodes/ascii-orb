@@ -1,11 +1,14 @@
 import { clamp } from "./math";
 import type { OrbColorizer, OrbColorizerInput, OrbPalette } from "./types";
 
+// Concrete mid-luminance colors so a bare <AsciiOrb /> is visible on both
+// light and dark pages with zero host CSS. Theme by passing `palette` —
+// any CSS color works, including `hsl(var(--your-token))`.
 export const defaultPalette: OrbPalette = {
-  foreground: "--foreground",
-  primary: "--primary",
-  accent: "--accent",
-  mutedForeground: "--muted-foreground"
+  foreground: "#6b7280",
+  primary: "#64748b",
+  accent: "#7c3aed",
+  mutedForeground: "#57606a"
 };
 
 export function mergePalette(palette?: Partial<OrbPalette>): OrbPalette {

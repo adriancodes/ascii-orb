@@ -60,12 +60,23 @@ export type AsciiOrbProps = {
   ariaHidden?: boolean;
 };
 
-const DEFAULT_PRE_CLASSNAME =
-  "m-0 select-none font-mono tracking-tight text-[13px] leading-[13px] sm:text-[15px] sm:leading-[15px]";
+// All presentation is inline so the component needs no host CSS, no
+// Tailwind, and no stylesheet import. Caller `style` merges over the base.
+const CENTERING_STYLE: CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
+};
 
-function cx(...values: Array<string | undefined | false | null>): string {
-  return values.filter(Boolean).join(" ");
-}
+const PRE_BASE_STYLE: CSSProperties = {
+  margin: 0,
+  fontFamily:
+    'ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace',
+  fontSize: 13,
+  lineHeight: "13px",
+  letterSpacing: "-0.02em",
+  userSelect: "none"
+};
 
 function useSystemReducedMotion(enabled: boolean): boolean {
   const [reduced, setReduced] = useState(false);
@@ -399,24 +410,28 @@ export function AsciiOrb({
   const boundedCoverage = Math.max(0.2, Math.min(1, coverage));
 
   return (
-    <div className={cx("flex h-full w-full items-center justify-center", containerClassName)}>
+    <div
+      className={containerClassName}
+      style={{ ...CENTERING_STYLE, height: "100%", width: "100%" }}
+    >
       <div
         ref={containerRef}
-        className="flex items-center justify-center"
         style={{
+          ...CENTERING_STYLE,
           width: `${(boundedCoverage * 100).toFixed(2)}%`,
           height: `${(boundedCoverage * 100).toFixed(2)}%`
         }}
       >
         <pre
           ref={preRef}
-          className={cx(
-            DEFAULT_PRE_CLASSNAME,
-            enableRipples && !shouldReduceMotion && "cursor-crosshair",
-            className
-          )}
+          className={className}
           onClick={onOrbClick}
-          style={style}
+          style={{
+            ...PRE_BASE_STYLE,
+            cursor:
+              enableRipples && !shouldReduceMotion ? "crosshair" : undefined,
+            ...style
+          }}
           aria-hidden={ariaHidden}
         />
       </div>

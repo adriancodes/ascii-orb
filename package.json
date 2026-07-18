@@ -1,6 +1,6 @@
 {
   "name": "ascii-orb",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Animated ASCII orb component for React — 16 variants, ripples, fully customizable.",
   "keywords": [
     "react",

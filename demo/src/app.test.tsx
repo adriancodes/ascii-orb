@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-import { beforeAll, beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render } from "@testing-library/react";
+import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { orbVariants } from "ascii-orb";
 import { App } from "./app";
 
@@ -30,7 +30,9 @@ beforeEach(() => {
 describe("showcase (landing view)", () => {
   it("renders every built-in variant live with its label", () => {
     const { container } = render(<App />);
-    expect(container.querySelectorAll("pre").length).toBe(orbVariants.length);
+    expect(container.querySelectorAll('pre[aria-hidden="true"]').length).toBe(
+      orbVariants.length
+    );
     expect(container.textContent).toContain("Eclipse");
     expect(container.textContent).toContain("Glacier");
     expect(container.textContent).toContain("npm install ascii-orb");
@@ -88,13 +90,54 @@ describe("showcase (landing view)", () => {
       /#(?:f8f8f2|8be9fd|bd93f9|6272a4)/
     );
   });
+
+  it("opens a chosen orb with copyable implementation code", async () => {
+    const { container } = render(<App />);
+    const editLink = container.querySelector<HTMLAnchorElement>(
+      'a[href="#playground/ion"]'
+    )!;
+
+    window.location.hash = editLink.hash;
+    fireEvent(window, new HashChangeEvent("hashchange"));
+
+    const variantSelect = container.querySelector<HTMLSelectElement>(
+      'select:not([aria-label="color scheme"])'
+    )!;
+    const implementation = container.querySelector("section pre code")!;
+    expect(variantSelect.value).toBe("ion");
+    expect(implementation.textContent).toContain('variant="ion"');
+    expect(implementation.textContent).toContain("fps={30}");
+
+    fireEvent.change(variantSelect, { target: { value: "nebula" } });
+    fireEvent.click(container.querySelectorAll('input[type="radio"]')[2]);
+    expect(implementation.textContent).toContain("defineOrbVariant");
+    expect(implementation.textContent).toContain(
+      "customVariants={customVariants}"
+    );
+    expect(implementation.textContent).toContain("fps={60}");
+
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText }
+    });
+    fireEvent.click(container.querySelector("section button")!);
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith(implementation.textContent)
+    );
+    expect(container.querySelector("section button")!.textContent).toBe(
+      "copied"
+    );
+  });
 });
 
 describe("playground (#playground)", () => {
   it("shows one orb with variant picker, palette controls, and fps toggle", () => {
     window.location.hash = "#playground";
     const { container } = render(<App />);
-    expect(container.querySelectorAll("pre").length).toBe(1);
+    expect(container.querySelectorAll('pre[aria-hidden="true"]').length).toBe(
+      1
+    );
 
     const options = [...container.querySelectorAll("option")].map(
       (o) => o.value

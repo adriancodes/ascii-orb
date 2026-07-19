@@ -55,4 +55,18 @@ describe("rippleContribution", () => {
     expect(onRing).toBeGreaterThan(offRing);
     expect(rippleContribution(0.5, 0, 5, [ripple])).toBe(0);
   });
+
+  it("draws a dark trough behind the bright expanding crest", () => {
+    const ripple = createRipple({
+      x: 0,
+      y: 0,
+      timeSeconds: 0,
+      duration: 2,
+      speed: 1,
+      strength: 1
+    });
+
+    expect(rippleContribution(0.5, 0, 0.5, [ripple])).toBeGreaterThan(0);
+    expect(rippleContribution(0.39, 0, 0.5, [ripple])).toBeLessThan(0);
+  });
 });

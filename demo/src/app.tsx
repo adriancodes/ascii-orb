@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { orbVariants, type OrbVariantId } from "ascii-orb";
 import { Playground } from "./playground";
 import { Showcase } from "./showcase";
 import { COLOR_SCHEMES, type ColorScheme } from "./theme";
@@ -15,8 +16,17 @@ function useHashRoute(): string {
 
 export function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("default");
-  return useHashRoute() === "#playground" ? (
-    <Playground theme={COLOR_SCHEMES[colorScheme]} />
+  const hash = useHashRoute();
+  const requestedVariant = hash.slice("#playground/".length);
+  const playgroundVariant: OrbVariantId =
+    orbVariants.find((variant) => variant === requestedVariant) ?? "aether";
+
+  return hash.startsWith("#playground") ? (
+    <Playground
+      key={playgroundVariant}
+      initialVariant={playgroundVariant}
+      theme={COLOR_SCHEMES[colorScheme]}
+    />
   ) : (
     <Showcase
       colorScheme={colorScheme}

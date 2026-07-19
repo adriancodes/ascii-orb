@@ -72,16 +72,15 @@ export function rippleContribution(
     const linearFade = clamp(1 - age / duration, 0, 1);
     const envelope = linearFade * linearFade;
     const leadingRing = Math.exp(-Math.pow(distance - radius, 2) / 0.013);
-    // A secondary ring trailing slightly inside the leading edge produces
-    // a faint "wake" — reads as a real expanding disturbance rather than
-    // a hard circular line.
-    const wakeRadius = radius - 0.09;
-    const wakeRing =
-      wakeRadius > 0
-        ? Math.exp(-Math.pow(distance - wakeRadius, 2) / 0.022) * 0.4
+    // A dark trough behind the bright crest makes the wave readable against
+    // the orb's own animated texture instead of looking like extra turbulence.
+    const troughRadius = radius - 0.11;
+    const trailingTrough =
+      troughRadius > 0
+        ? Math.exp(-Math.pow(distance - troughRadius, 2) / 0.009) * 0.78
         : 0;
 
-    value += (leadingRing + wakeRing) * envelope * strength;
+    value += (leadingRing - trailingTrough) * envelope * strength;
   }
 
   return value;

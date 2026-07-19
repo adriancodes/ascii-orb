@@ -38,10 +38,64 @@ const PALETTE_ROLES = [
 
 const FPS_CHOICES = [12, 30, 60] as const;
 
-export function Playground({ theme }: { theme: DemoTheme }) {
-  const [variant, setVariant] = useState<OrbVariantId>("aether");
+function createImplementationCode(
+  variant: OrbVariantId,
+  palette: OrbPalette,
+  fps: number
+): string {
+  const isCustom = variant === "nebula";
+  const customVariant = isCustom
+    ? `
+const customVariants = {
+  nebula: defineOrbVariant({
+    baseVariant: "aether",
+    colorVariant: "veil",
+    meta: { label: "Nebula", description: "Aether physics, veil colors." },
+    config: { spin: 0.34, turbulence: 0.56, haloBoost: 0.43 }
+  })
+};
+`
+    : "";
+
+  return `import { AsciiOrb${isCustom ? ", defineOrbVariant" : ""} } from "ascii-orb";
+${customVariant}
+export function MyOrb() {
+  return (
+    <AsciiOrb
+      variant="${variant}"
+${isCustom ? "      customVariants={customVariants}\n" : ""}      palette={{
+        foreground: "${palette.foreground}",
+        primary: "${palette.primary}",
+        accent: "${palette.accent}",
+        mutedForeground: "${palette.mutedForeground}"
+      }}
+      fps={${fps}}
+    />
+  );
+}`;
+}
+
+export function Playground({
+  initialVariant,
+  theme
+}: {
+  initialVariant: OrbVariantId;
+  theme: DemoTheme;
+}) {
+  const [variant, setVariant] = useState<OrbVariantId>(initialVariant);
   const [palette, setPalette] = useState<OrbPalette>(theme.palette);
   const [fps, setFps] = useState<number>(30);
+  const [copied, setCopied] = useState(false);
+  const implementationCode = createImplementationCode(variant, palette, fps);
+
+  const copyImplementation = async () => {
+    try {
+      await navigator.clipboard.writeText(implementationCode);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <main
@@ -102,7 +156,10 @@ export function Playground({ theme }: { theme: DemoTheme }) {
             </div>
             <select
               value={String(variant)}
-              onChange={(e) => setVariant(e.target.value)}
+              onChange={(e) => {
+                setVariant(e.target.value);
+                setCopied(false);
+              }}
               style={{
                 width: "100%",
                 background: theme.ui.surface,
@@ -153,9 +210,10 @@ export function Playground({ theme }: { theme: DemoTheme }) {
                 <input
                   type="color"
                   value={palette[role]}
-                  onChange={(e) =>
-                    setPalette((p) => ({ ...p, [role]: e.target.value }))
-                  }
+                  onChange={(e) => {
+                    setPalette((p) => ({ ...p, [role]: e.target.value }));
+                    setCopied(false);
+                  }}
                 />
               </label>
             ))}
@@ -185,7 +243,10 @@ export function Playground({ theme }: { theme: DemoTheme }) {
                     type="radio"
                     name="fps"
                     checked={fps === choice}
-                    onChange={() => setFps(choice)}
+                    onChange={() => {
+                      setFps(choice);
+                      setCopied(false);
+                    }}
                   />{" "}
                   {choice}
                 </label>
@@ -194,6 +255,50 @@ export function Playground({ theme }: { theme: DemoTheme }) {
           </fieldset>
         </aside>
       </div>
+      <section
+        style={{
+          ...cardStyle,
+          background: theme.ui.surface,
+          border: `1px solid ${theme.ui.border}`,
+          marginTop: 20
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between"
+          }}
+        >
+          <strong>implementation</strong>
+          <button
+            type="button"
+            onClick={() => void copyImplementation()}
+            style={{
+              background: "transparent",
+              color: theme.ui.accent,
+              border: `1px solid ${theme.ui.accent}`,
+              borderRadius: 6,
+              padding: "5px 10px",
+              fontFamily: "inherit",
+              cursor: "pointer"
+            }}
+          >
+            {copied ? "copied" : "copy"}
+          </button>
+        </div>
+        <pre
+          style={{
+            margin: "12px 0 0",
+            color: theme.ui.text,
+            fontFamily: "inherit",
+            fontSize: 12,
+            overflowX: "auto"
+          }}
+        >
+          <code>{implementationCode}</code>
+        </pre>
+      </section>
     </main>
   );
 }

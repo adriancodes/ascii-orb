@@ -84,7 +84,7 @@ export function Showcase({
           </select>
         </label>
         <p style={{ color: scheme.ui.muted, margin: "12px 0 0", fontSize: 12 }}>
-          click any orb to ripple
+          click an orb to ripple · use its edit link to customize it
         </p>
       </header>
       <section
@@ -130,6 +130,12 @@ export function Showcase({
                 >
                   {meta.description}
                 </div>
+                <a
+                  href={`#playground/${variant}`}
+                  style={{ color: scheme.ui.accent, fontSize: 12 }}
+                >
+                  edit in playground →
+                </a>
               </figcaption>
             </figure>
           );

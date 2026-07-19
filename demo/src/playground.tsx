@@ -6,7 +6,12 @@ import {
   type OrbPalette,
   type OrbVariantId
 } from "ascii-orb";
-import { ACCENT, cardStyle, mutedStyle, pageStyle } from "./theme";
+import {
+  cardStyle,
+  mutedStyle,
+  pageStyle,
+  type DemoTheme
+} from "./theme";
 
 // A custom variant in the picker doubles as living documentation for
 // defineOrbVariant: aether physics wearing veil's colors.
@@ -40,24 +45,49 @@ const PALETTE_ROLES = [
 
 const FPS_CHOICES = [12, 30, 60] as const;
 
-export function Playground() {
+export function Playground({ theme }: { theme: DemoTheme }) {
   const [variant, setVariant] = useState<OrbVariantId>("aether");
-  const [palette, setPalette] = useState<OrbPalette>(DEFAULT_PALETTE);
+  const [palette, setPalette] = useState<OrbPalette>(
+    theme.palette ?? DEFAULT_PALETTE
+  );
   const [fps, setFps] = useState<number>(30);
 
   return (
-    <main style={{ ...pageStyle, display: "flex", flexDirection: "column" }}>
+    <main
+      style={{
+        ...pageStyle,
+        display: "flex",
+        flexDirection: "column",
+        background: theme.ui.background,
+        color: theme.ui.text
+      }}
+    >
       <header style={{ marginBottom: 16 }}>
-        <a href="#" style={{ color: ACCENT }}>
+        <a href="#" style={{ color: theme.ui.accent }}>
           ← showcase
         </a>
         <h1 style={{ margin: "8px 0 0", fontSize: 22 }}>playground</h1>
-        <p style={{ ...mutedStyle, margin: "4px 0 0", fontSize: 13 }}>
+        <p
+          style={{
+            ...mutedStyle,
+            color: theme.ui.muted,
+            margin: "4px 0 0",
+            fontSize: 13
+          }}
+        >
           click the orb for ripples
         </p>
       </header>
       <div style={{ display: "flex", gap: 20, flex: 1, minHeight: "65vh" }}>
-        <div style={{ ...cardStyle, flex: 1, minWidth: 0 }}>
+        <div
+          style={{
+            ...cardStyle,
+            flex: 1,
+            minWidth: 0,
+            background: theme.ui.surface,
+            border: `1px solid ${theme.ui.border}`
+          }}
+        >
           <AsciiOrb
             variant={variant}
             customVariants={customVariants}
@@ -69,7 +99,14 @@ export function Playground() {
           style={{ width: 260, display: "flex", flexDirection: "column", gap: 20 }}
         >
           <label style={{ display: "block" }}>
-            <div style={{ ...mutedStyle, fontSize: 12, marginBottom: 6 }}>
+            <div
+              style={{
+                ...mutedStyle,
+                color: theme.ui.muted,
+                fontSize: 12,
+                marginBottom: 6
+              }}
+            >
               variant
             </div>
             <select
@@ -77,9 +114,9 @@ export function Playground() {
               onChange={(e) => setVariant(e.target.value)}
               style={{
                 width: "100%",
-                background: "#161b22",
-                color: "#e6edf3",
-                border: "1px solid #21262d",
+                background: theme.ui.surface,
+                color: theme.ui.text,
+                border: `1px solid ${theme.ui.border}`,
                 borderRadius: 6,
                 padding: "8px 10px",
                 fontFamily: "inherit"
@@ -93,8 +130,21 @@ export function Playground() {
             </select>
           </label>
 
-          <fieldset style={{ border: "1px solid #21262d", borderRadius: 6, padding: 12 }}>
-            <legend style={{ ...mutedStyle, fontSize: 12, padding: "0 6px" }}>
+          <fieldset
+            style={{
+              border: `1px solid ${theme.ui.border}`,
+              borderRadius: 6,
+              padding: 12
+            }}
+          >
+            <legend
+              style={{
+                ...mutedStyle,
+                color: theme.ui.muted,
+                fontSize: 12,
+                padding: "0 6px"
+              }}
+            >
               palette
             </legend>
             {PALETTE_ROLES.map((role) => (
@@ -120,8 +170,21 @@ export function Playground() {
             ))}
           </fieldset>
 
-          <fieldset style={{ border: "1px solid #21262d", borderRadius: 6, padding: 12 }}>
-            <legend style={{ ...mutedStyle, fontSize: 12, padding: "0 6px" }}>
+          <fieldset
+            style={{
+              border: `1px solid ${theme.ui.border}`,
+              borderRadius: 6,
+              padding: 12
+            }}
+          >
+            <legend
+              style={{
+                ...mutedStyle,
+                color: theme.ui.muted,
+                fontSize: 12,
+                padding: "0 6px"
+              }}
+            >
               fps
             </legend>
             <div style={{ display: "flex", gap: 12 }}>

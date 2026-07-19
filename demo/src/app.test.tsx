@@ -67,6 +67,18 @@ describe("showcase (landing view)", () => {
     expect(
       after.ui.every((style, index) => style !== before.ui[index])
     ).toBe(true);
+
+    const showcaseBackground = container.querySelector("main")!.style.background;
+    window.location.hash = "#playground";
+    fireEvent(window, new HashChangeEvent("hashchange"));
+
+    expect(container.textContent).toContain("playground");
+    expect(container.querySelector("main")!.style.background).toBe(
+      showcaseBackground
+    );
+    expect(container.querySelector("pre")!.innerHTML).toMatch(
+      /#(?:fed7aa|ea580c|facc15|9a3412)/
+    );
   });
 });
 

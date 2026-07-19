@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Playground } from "./playground";
 import { Showcase } from "./showcase";
+import { COLOR_SCHEMES, type ColorScheme } from "./theme";
 
 function useHashRoute(): string {
   const [hash, setHash] = useState(() => window.location.hash);
@@ -13,5 +14,13 @@ function useHashRoute(): string {
 }
 
 export function App() {
-  return useHashRoute() === "#playground" ? <Playground /> : <Showcase />;
+  const [colorScheme, setColorScheme] = useState<ColorScheme>("default");
+  return useHashRoute() === "#playground" ? (
+    <Playground theme={COLOR_SCHEMES[colorScheme]} />
+  ) : (
+    <Showcase
+      colorScheme={colorScheme}
+      onColorSchemeChange={setColorScheme}
+    />
+  );
 }

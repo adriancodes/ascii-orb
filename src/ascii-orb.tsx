@@ -391,24 +391,25 @@ export function AsciiOrb({
           : current.length >= keepCount
             ? [...current.slice(current.length - keepCount), ripple]
             : [...current, ripple];
+      drawFrame();
     },
-    [maxRipples, rippleDuration, rippleSpeed, rippleStrength]
+    [drawFrame, maxRipples, rippleDuration, rippleSpeed, rippleStrength]
   );
 
   const canRipple = enableRipples && !shouldReduceMotion;
   const onOrbClick = useCallback(
-    (event: MouseEvent<HTMLDivElement>) => {
+    (event: MouseEvent<HTMLPreElement>) => {
       if (!canRipple) return;
       const bounds = event.currentTarget.getBoundingClientRect();
-      addRipple(
-        ((event.clientX - bounds.left) / bounds.width) * 2 - 1,
-        ((event.clientY - bounds.top) / bounds.height) * 2 - 1
-      );
+      const localX = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
+      const localY = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
+      if ((localX * (xScale ?? 1.08)) ** 2 + localY ** 2 > 1.2 ** 2) return;
+      addRipple(localX, localY);
     },
-    [addRipple, canRipple]
+    [addRipple, canRipple, xScale]
   );
   const onOrbKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLDivElement>) => {
+    (event: KeyboardEvent<HTMLPreElement>) => {
       if (!canRipple || (event.key !== "Enter" && event.key !== " ")) return;
       event.preventDefault();
       addRipple(0, 0);
@@ -429,26 +430,26 @@ export function AsciiOrb({
     >
       <div
         ref={containerRef}
-        aria-label={canRipple ? "Ripple ASCII orb" : undefined}
-        onClick={canRipple ? onOrbClick : undefined}
-        onKeyDown={canRipple ? onOrbKeyDown : undefined}
-        role={canRipple ? "button" : undefined}
-        tabIndex={canRipple ? 0 : undefined}
         style={{
           ...CENTERING_STYLE,
           width: `${(boundedCoverage * 100).toFixed(2)}%`,
-          height: `${(boundedCoverage * 100).toFixed(2)}%`,
-          cursor: canRipple ? "crosshair" : undefined
+          height: `${(boundedCoverage * 100).toFixed(2)}%`
         }}
       >
         <pre
           ref={preRef}
+          aria-hidden={canRipple ? undefined : ariaHidden}
+          aria-label={canRipple ? "Ripple ASCII orb" : undefined}
           className={className}
+          onClick={canRipple ? onOrbClick : undefined}
+          onKeyDown={canRipple ? onOrbKeyDown : undefined}
+          role={canRipple ? "button" : undefined}
           style={{
             ...PRE_BASE_STYLE,
+            cursor: canRipple ? "crosshair" : undefined,
             ...style
           }}
-          aria-hidden={ariaHidden}
+          tabIndex={canRipple ? 0 : undefined}
         />
       </div>
     </div>

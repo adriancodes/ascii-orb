@@ -59,15 +59,21 @@ describe("zero-config <AsciiOrb />", () => {
     expect(pre.style.fontSize).toBe("17px");
   });
 
-  it("makes the full preview an accessible ripple target", () => {
+  it("makes only the rendered orb an accessible ripple target", () => {
     const { getByRole } = render(
       <AsciiOrb reducedMotion="never" width={24} height={12} />
     );
     const target = getByRole("button", { name: "Ripple ASCII orb" });
 
-    expect(target.tagName).toBe("DIV");
+    expect(target.tagName).toBe("PRE");
     expect(target.tabIndex).toBe(0);
-    fireEvent.click(target, { clientX: 12, clientY: 6 });
+    target.getBoundingClientRect = () =>
+      ({ left: 0, top: 0, width: 100, height: 100 }) as DOMRect;
+    const before = target.innerHTML;
+    fireEvent.click(target, { clientX: 0, clientY: 0 });
+    expect(target.innerHTML).toBe(before);
+    fireEvent.click(target, { clientX: 50, clientY: 50 });
+    expect(target.innerHTML).not.toBe(before);
     fireEvent.keyDown(target, { key: "Enter" });
   });
 });

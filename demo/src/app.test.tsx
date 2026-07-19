@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { beforeAll, beforeEach, describe, expect, it } from "vitest";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { orbVariants } from "ascii-orb";
 import { App } from "./app";
 
@@ -38,6 +38,26 @@ describe("showcase (landing view)", () => {
     for (const pre of container.querySelectorAll("pre")) {
       expect(pre.textContent!.trim().length).toBeGreaterThan(0);
     }
+  });
+
+  it("recolors every orb with a selected color scheme", () => {
+    const { container } = render(<App />);
+    const before = [...container.querySelectorAll("pre")].map(
+      (pre) => pre.innerHTML
+    );
+
+    fireEvent.change(
+      container.querySelector('select[aria-label="color scheme"]')!,
+      {
+        target: { value: "ember" }
+      }
+    );
+
+    const after = [...container.querySelectorAll("pre")].map(
+      (pre) => pre.innerHTML
+    );
+    expect(after).toHaveLength(orbVariants.length);
+    expect(after.every((orb, index) => orb !== before[index])).toBe(true);
   });
 });
 

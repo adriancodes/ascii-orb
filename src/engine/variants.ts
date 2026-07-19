@@ -461,14 +461,26 @@ export function getVariantConfig(
   };
 }
 
+// Merge overrides onto a base config, dropping values that would render the
+// orb invisible or corrupt the math: non-finite numbers (NaN propagates
+// through every cell) and empty character sets fall back to the base value.
 export function createVariantConfig(
   baseVariant: OrbVariant,
   overrides: Partial<OrbVariantConfig>
 ): OrbVariantConfig {
-  return {
-    ...orbVariantTable[baseVariant].config,
-    ...overrides
-  };
+  const base = orbVariantTable[baseVariant].config;
+  const merged: OrbVariantConfig = { ...base };
+  for (const key of Object.keys(base) as Array<keyof OrbVariantConfig>) {
+    const value = overrides[key];
+    if (key === "chars") {
+      if (typeof value === "string" && value.length > 0) {
+        merged.chars = value;
+      }
+    } else if (typeof value === "number" && Number.isFinite(value)) {
+      merged[key] = value;
+    }
+  }
+  return merged;
 }
 
 export function defineOrbVariant(definition: OrbVariantDefinition): OrbVariantDefinition {
@@ -540,10 +552,7 @@ export function resolveVariantDefinition(
     id: variantId,
     baseVariant,
     colorVariant,
-    config: {
-      ...orbVariantTable[baseVariant].config,
-      ...configOverride
-    },
+    config: createVariantConfig(baseVariant, configOverride),
     colors: orbVariantTable[colorVariant].colors,
     meta: meta ?? {
       label: variantId,

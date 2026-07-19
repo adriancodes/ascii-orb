@@ -101,4 +101,14 @@ describe("variant listings", () => {
       expect(meta.description.length).toBeGreaterThan(0);
     }
   });
+
+  it("replaces non-finite numeric config overrides with the base variant's values", () => {
+    const base = orbVariantConfig.aether;
+    const resolved = resolveVariantDefinition("junk", {
+      junk: { spin: NaN, turbulence: Infinity, haloBoost: -Infinity }
+    });
+    expect(resolved.config.spin).toBe(base.spin);
+    expect(resolved.config.turbulence).toBe(base.turbulence);
+    expect(resolved.config.haloBoost).toBe(base.haloBoost);
+  });
 });

@@ -11,11 +11,21 @@ export const defaultPalette: OrbPalette = {
   mutedForeground: "#57606a"
 };
 
+// Roles whose value is missing, empty, or whitespace keep the default —
+// an empty string would otherwise flow into color-mix() as broken CSS and
+// render those cells invisible.
 export function mergePalette(palette?: Partial<OrbPalette>): OrbPalette {
-  return {
-    ...defaultPalette,
-    ...palette
-  };
+  const merged: OrbPalette = { ...defaultPalette };
+  if (!palette) {
+    return merged;
+  }
+  for (const role of Object.keys(defaultPalette) as Array<keyof OrbPalette>) {
+    const value = palette[role];
+    if (typeof value === "string" && value.trim().length > 0) {
+      merged[role] = value;
+    }
+  }
+  return merged;
 }
 
 // Quantize alpha to 1/ALPHA_STEPS discrete levels so adjacent cells with

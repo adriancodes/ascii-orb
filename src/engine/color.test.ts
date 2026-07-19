@@ -1,5 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { withAlpha } from "./color";
+import { defaultPalette, mergePalette, withAlpha } from "./color";
+
+describe("mergePalette", () => {
+  it("ignores empty and whitespace-only role values instead of emitting broken CSS", () => {
+    const merged = mergePalette({ accent: "", foreground: "   " });
+    expect(merged.accent).toBe(defaultPalette.accent);
+    expect(merged.foreground).toBe(defaultPalette.foreground);
+  });
+
+  it("ignores undefined role values from a Partial palette", () => {
+    expect(mergePalette({ accent: undefined }).accent).toBe(defaultPalette.accent);
+  });
+});
 
 describe("withAlpha", () => {
   it("wraps a bare CSS variable in hsl() with the alpha", () => {

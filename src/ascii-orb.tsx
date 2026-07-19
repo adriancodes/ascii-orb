@@ -68,6 +68,12 @@ const CENTERING_STYLE: CSSProperties = {
   justifyContent: "center"
 };
 
+// useLayoutEffect warns when server-rendered (React 18 logs it on every SSR
+// pass of a "use client" component); on the server the effect can't run
+// anyway, so swap in useEffect there.
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 const PRE_BASE_STYLE: CSSProperties = {
   margin: 0,
   fontFamily:
@@ -309,7 +315,7 @@ export function AsciiOrb({
     xScale
   ]);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!active) return;
 
     if (shouldReduceMotion) {

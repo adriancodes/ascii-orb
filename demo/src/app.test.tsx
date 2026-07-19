@@ -51,13 +51,21 @@ describe("showcase (landing view)", () => {
         )
       ].map((element) => element.getAttribute("style"));
     const before = { orbs: readOrbMarkup(), ui: readUiStyles() };
+    const themeSelect = container.querySelector<HTMLSelectElement>(
+      'select[aria-label="color scheme"]'
+    )!;
+    expect([...themeSelect.options].map((option) => option.text)).toEqual([
+      "GitHub Dark",
+      "GitHub Light",
+      "Dracula",
+      "Nord",
+      "Solarized Dark",
+      "Monokai",
+      "Tokyo Night",
+      "Catppuccin Mocha"
+    ]);
 
-    fireEvent.change(
-      container.querySelector('select[aria-label="color scheme"]')!,
-      {
-        target: { value: "ember" }
-      }
-    );
+    fireEvent.change(themeSelect, { target: { value: "dracula" } });
 
     const after = { orbs: readOrbMarkup(), ui: readUiStyles() };
     expect(after.orbs).toHaveLength(orbVariants.length);
@@ -77,7 +85,7 @@ describe("showcase (landing view)", () => {
       showcaseBackground
     );
     expect(container.querySelector("pre")!.innerHTML).toMatch(
-      /#(?:fed7aa|ea580c|facc15|9a3412)/
+      /#(?:f8f8f2|8be9fd|bd93f9|6272a4)/
     );
   });
 });

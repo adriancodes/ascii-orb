@@ -69,4 +69,10 @@ describe("rippleContribution", () => {
     expect(rippleContribution(0.5, 0, 0.5, [ripple])).toBeGreaterThan(0);
     expect(rippleContribution(0.39, 0, 0.5, [ripple])).toBeLessThan(0);
   });
+
+  it("keeps the default crest visible long enough to follow", () => {
+    const ripple = createRipple({ x: 0, y: 0, timeSeconds: 0 });
+
+    expect(rippleContribution(0.66, 0, 1.2, [ripple])).toBeGreaterThan(0.05);
+  });
 });

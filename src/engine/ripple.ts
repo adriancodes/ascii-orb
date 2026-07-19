@@ -56,7 +56,7 @@ export function rippleContribution(
 
   for (const ripple of ripples) {
     const duration = ripple.duration ?? 1.9;
-    const speed = ripple.speed ?? 1.25;
+    const speed = ripple.speed ?? 0.55;
     const strength = ripple.strength ?? 0.56;
 
     const age = timeSeconds - ripple.start;

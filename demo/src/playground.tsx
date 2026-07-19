@@ -175,6 +175,7 @@ export function Playground({
             customVariants={customVariants}
             palette={palette}
             fps={fps}
+            reducedMotion="never"
           />
         </div>
         <aside

@@ -5,6 +5,8 @@ import { orbVariants } from "ascii-orb";
 import { App } from "./app";
 
 beforeAll(() => {
+  window.requestAnimationFrame = () => 0;
+  window.cancelAnimationFrame = () => {};
   globalThis.ResizeObserver = class {
     observe() {}
     unobserve() {}
@@ -33,7 +35,8 @@ describe("showcase (landing view)", () => {
     expect(
       container.querySelector('header h1[aria-label="ascii-orb"]')
     ).not.toBeNull();
-    expect(container.querySelectorAll('pre[aria-hidden="true"]').length).toBe(
+    expect(container.querySelector('figure pre[role="button"]')).not.toBeNull();
+    expect(container.querySelectorAll('figure pre[role="button"]').length).toBe(
       orbVariants.length
     );
     expect(container.textContent).toContain("Eclipse");
@@ -144,7 +147,7 @@ describe("playground (#playground)", () => {
     expect(
       container.querySelector('header h1[aria-label="ascii-orb"]')
     ).not.toBeNull();
-    expect(container.querySelectorAll('pre[aria-hidden="true"]').length).toBe(
+    expect(container.querySelectorAll('pre[role="button"]').length).toBe(
       1
     );
 

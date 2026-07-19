@@ -86,6 +86,7 @@ export function Showcase({
                   palette={scheme.palette}
                   rippleDuration={2.4}
                   rippleStrength={1.2}
+                  reducedMotion="never"
                   width={40}
                   height={19}
                   style={{ fontSize: 10, lineHeight: "10px" }}

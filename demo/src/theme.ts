@@ -142,7 +142,7 @@ export const COLOR_SCHEMES = {
   string,
   {
     label: string;
-    palette: OrbPalette | undefined;
+    palette: OrbPalette;
     ui: Record<
       "background" | "surface" | "border" | "text" | "muted" | "accent",
       string

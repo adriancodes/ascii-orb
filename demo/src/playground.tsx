@@ -29,13 +29,6 @@ const customVariants = {
 
 const variantIds = listVariantIds(customVariants);
 
-const DEFAULT_PALETTE: OrbPalette = {
-  foreground: "#6b7280",
-  primary: "#64748b",
-  accent: "#7c3aed",
-  mutedForeground: "#57606a"
-};
-
 const PALETTE_ROLES = [
   "foreground",
   "primary",
@@ -47,9 +40,7 @@ const FPS_CHOICES = [12, 30, 60] as const;
 
 export function Playground({ theme }: { theme: DemoTheme }) {
   const [variant, setVariant] = useState<OrbVariantId>("aether");
-  const [palette, setPalette] = useState<OrbPalette>(
-    theme.palette ?? DEFAULT_PALETTE
-  );
+  const [palette, setPalette] = useState<OrbPalette>(theme.palette);
   const [fps, setFps] = useState<number>(30);
 
   return (

@@ -5,11 +5,11 @@ import {
   type DemoTheme
 } from "./theme";
 
-const ASCII_ORB = `  ##    ####   ####   ####   ####      ###   ####   ####
- #  #  #      #        ##     ##      #   #  #   #  #   #
- ####   ###   #         ##     ##      #   #  ####   ####
- #  #      #  #         ##     ##      #   #  #  #   #   #
- #  #  ####    ####   ####   ####       ###   #   #  ####`;
+const ASCII_ORB = ` AA   SSS  CCC  III III      OOO  RRR  BBB
+A  A S    C      I   I      O   O R  R B  B
+AAAA  SSS C      I   I      O   O RRR  BBB
+A  A    S C      I   I      O   O R R  B  B
+A  A SSS   CCC  III III      OOO  R  R BBB`;
 
 export function SiteHeader({
   colorScheme,
@@ -36,7 +36,7 @@ export function SiteHeader({
             aria-hidden="true"
             style={{
               display: "block",
-              fontSize: "clamp(6px, 1.1vw, 11px)",
+              fontSize: "clamp(7px, 1.3vw, 14px)",
               lineHeight: 1.05,
               overflow: "hidden",
               whiteSpace: "pre"

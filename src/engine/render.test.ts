@@ -57,6 +57,32 @@ describe("renderOrbFrame", () => {
   });
 
   describe("ripple coordinate space", () => {
+    it("draws the expanding crest at full foreground contrast", () => {
+      const options: OrbRenderOptions = {
+        timeSeconds: 0.4,
+        width: 81,
+        height: 41,
+        variant: "eclipse",
+        palette: { foreground: "#ff00ff" }
+      };
+      const ripple = createRipple({
+        x: 0,
+        y: 0,
+        timeSeconds: 0,
+        duration: 2,
+        strength: 1
+      });
+      const base = renderOrbFrame(options);
+      const rippled = renderOrbFrame({ ...options, ripples: [ripple] });
+
+      const foregroundCells = (frame: OrbFrame) =>
+        frame.flat().filter((cell) => cell.color.includes("#ff00ff 100.00%"))
+          .length;
+      expect(foregroundCells(rippled)).toBeGreaterThan(
+        foregroundCells(base) + 10
+      );
+    });
+
     // Render with and without one ripple; return the mean column of the
     // cells the ripple changed.
     function rippleCentroidCol(xScale: number): number {

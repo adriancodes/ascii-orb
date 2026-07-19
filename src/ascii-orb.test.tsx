@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { beforeAll, describe, expect, it } from "vitest";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { AsciiOrb } from "./index";
 import { defaultPalette } from "./core";
 
@@ -57,5 +57,17 @@ describe("zero-config <AsciiOrb />", () => {
     const pre = container.querySelector("pre")!;
     expect([...pre.classList]).toContain("my-orb");
     expect(pre.style.fontSize).toBe("17px");
+  });
+
+  it("makes the full preview an accessible ripple target", () => {
+    const { getByRole } = render(
+      <AsciiOrb reducedMotion="never" width={24} height={12} />
+    );
+    const target = getByRole("button", { name: "Ripple ASCII orb" });
+
+    expect(target.tagName).toBe("DIV");
+    expect(target.tabIndex).toBe(0);
+    fireEvent.click(target, { clientX: 12, clientY: 6 });
+    fireEvent.keyDown(target, { key: "Enter" });
   });
 });

@@ -23,6 +23,7 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type KeyboardEvent,
   type MouseEvent
 } from "react";
 
@@ -371,19 +372,11 @@ export function AsciiOrb({
     };
   }, [active, drawFrame, fps, shouldReduceMotion]);
 
-  const onOrbClick = useCallback(
-    (event: MouseEvent<HTMLPreElement>) => {
-      if (!enableRipples || shouldReduceMotion) {
-        return;
-      }
-
-      const bounds = event.currentTarget.getBoundingClientRect();
-      const localX = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
-      const localY = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
-
+  const addRipple = useCallback(
+    (x: number, y: number) => {
       const ripple = createRipple({
-        x: localX,
-        y: localY,
+        x,
+        y,
         timeSeconds: timeRef.current,
         duration: rippleDuration,
         speed: rippleSpeed,
@@ -399,14 +392,28 @@ export function AsciiOrb({
             ? [...current.slice(current.length - keepCount), ripple]
             : [...current, ripple];
     },
-    [
-      enableRipples,
-      maxRipples,
-      rippleDuration,
-      rippleSpeed,
-      rippleStrength,
-      shouldReduceMotion
-    ]
+    [maxRipples, rippleDuration, rippleSpeed, rippleStrength]
+  );
+
+  const canRipple = enableRipples && !shouldReduceMotion;
+  const onOrbClick = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => {
+      if (!canRipple) return;
+      const bounds = event.currentTarget.getBoundingClientRect();
+      addRipple(
+        ((event.clientX - bounds.left) / bounds.width) * 2 - 1,
+        ((event.clientY - bounds.top) / bounds.height) * 2 - 1
+      );
+    },
+    [addRipple, canRipple]
+  );
+  const onOrbKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      if (!canRipple || (event.key !== "Enter" && event.key !== " ")) return;
+      event.preventDefault();
+      addRipple(0, 0);
+    },
+    [addRipple, canRipple]
   );
 
   if (!active) {
@@ -422,20 +429,23 @@ export function AsciiOrb({
     >
       <div
         ref={containerRef}
+        aria-label={canRipple ? "Ripple ASCII orb" : undefined}
+        onClick={canRipple ? onOrbClick : undefined}
+        onKeyDown={canRipple ? onOrbKeyDown : undefined}
+        role={canRipple ? "button" : undefined}
+        tabIndex={canRipple ? 0 : undefined}
         style={{
           ...CENTERING_STYLE,
           width: `${(boundedCoverage * 100).toFixed(2)}%`,
-          height: `${(boundedCoverage * 100).toFixed(2)}%`
+          height: `${(boundedCoverage * 100).toFixed(2)}%`,
+          cursor: canRipple ? "crosshair" : undefined
         }}
       >
         <pre
           ref={preRef}
           className={className}
-          onClick={onOrbClick}
           style={{
             ...PRE_BASE_STYLE,
-            cursor:
-              enableRipples && !shouldReduceMotion ? "crosshair" : undefined,
             ...style
           }}
           aria-hidden={ariaHidden}

@@ -1,4 +1,4 @@
-import { getColorForOrb, mergePalette } from "./color";
+import { getColorForOrb, mergePalette, withAlpha } from "./color";
 import { clamp, smoothstep } from "./math";
 import { rippleContribution } from "./ripple";
 import type { OrbFrame, OrbRenderOptions } from "./types";
@@ -130,18 +130,26 @@ export function renderOrbFrame(options: OrbRenderOptions): OrbFrame {
       intensity = gammaLut[(intensity * GAMMA_LUT_MAX) | 0];
 
       const charIndex = Math.floor(intensity * (charRamp.length - 1));
-      const char = intensity > 0.02 ? (charRamp[charIndex] ?? charRamp[charRamp.length - 1]) : " ";
-      const color = getColorForOrb(
-        {
-          variant: resolvedVariant.id,
-          colorVariant: resolvedVariant.colorVariant,
-          intensity,
-          detail,
-          colors: resolvedVariant.colors,
-          palette: resolvedPalette
-        },
-        colorizer
-      );
+      const rippleCrest = !colorizer && ripple > 0.12;
+      const char = rippleCrest
+        ? charRamp[charRamp.length - 1]
+        : intensity > 0.02
+          ? (charRamp[charIndex] ?? charRamp[charRamp.length - 1])
+          : " ";
+      const color =
+        rippleCrest
+          ? withAlpha(resolvedPalette.foreground, 1)
+          : getColorForOrb(
+              {
+                variant: resolvedVariant.id,
+                colorVariant: resolvedVariant.colorVariant,
+                intensity,
+                detail,
+                colors: resolvedVariant.colors,
+                palette: resolvedPalette
+              },
+              colorizer
+            );
 
       line.push({ char, color });
     }

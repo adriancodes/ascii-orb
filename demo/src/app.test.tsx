@@ -40,11 +40,17 @@ describe("showcase (landing view)", () => {
     }
   });
 
-  it("recolors every orb with a selected color scheme", () => {
+  it("rethemes the entire showcase with a selected color scheme", () => {
     const { container } = render(<App />);
-    const before = [...container.querySelectorAll("pre")].map(
-      (pre) => pre.innerHTML
-    );
+    const readOrbMarkup = () =>
+      [...container.querySelectorAll("pre")].map((pre) => pre.innerHTML);
+    const readUiStyles = () =>
+      [
+        ...container.querySelectorAll(
+          "main, header > p:first-of-type, code, a, select, figure, figcaption div"
+        )
+      ].map((element) => element.getAttribute("style"));
+    const before = { orbs: readOrbMarkup(), ui: readUiStyles() };
 
     fireEvent.change(
       container.querySelector('select[aria-label="color scheme"]')!,
@@ -53,11 +59,14 @@ describe("showcase (landing view)", () => {
       }
     );
 
-    const after = [...container.querySelectorAll("pre")].map(
-      (pre) => pre.innerHTML
-    );
-    expect(after).toHaveLength(orbVariants.length);
-    expect(after.every((orb, index) => orb !== before[index])).toBe(true);
+    const after = { orbs: readOrbMarkup(), ui: readUiStyles() };
+    expect(after.orbs).toHaveLength(orbVariants.length);
+    expect(
+      after.orbs.every((orb, index) => orb !== before.orbs[index])
+    ).toBe(true);
+    expect(
+      after.ui.every((style, index) => style !== before.ui[index])
+    ).toBe(true);
   });
 });
 

@@ -403,10 +403,15 @@ export function AsciiOrb({
       const bounds = event.currentTarget.getBoundingClientRect();
       const localX = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
       const localY = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
-      if ((localX * (xScale ?? 1.08)) ** 2 + localY ** 2 > 1.2 ** 2) return;
+      const row = event.currentTarget.children[
+        Math.floor(((localY + 1) / 2) * event.currentTarget.children.length)
+      ];
+      const text = row?.textContent ?? "";
+      const cell = text[Math.floor(((localX + 1) / 2) * text.length)];
+      if (!cell || cell.trim() === "") return;
       addRipple(localX, localY);
     },
-    [addRipple, canRipple, xScale]
+    [addRipple, canRipple]
   );
   const onOrbKeyDown = useCallback(
     (event: KeyboardEvent<HTMLPreElement>) => {

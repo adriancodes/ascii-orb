@@ -84,6 +84,7 @@ export function Showcase({
                 <AsciiOrb
                   variant={variant}
                   palette={scheme.palette}
+                  fps={12}
                   rippleDuration={2.4}
                   rippleStrength={1.2}
                   reducedMotion="never"

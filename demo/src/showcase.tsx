@@ -1,22 +1,25 @@
 import { AsciiOrb, getVariantMeta, orbVariants } from "ascii-orb";
 import {
-  COLOR_SCHEMES,
   cardStyle,
   mutedStyle,
   pageStyle,
-  type ColorScheme
+  type ColorScheme,
+  type DemoTheme
 } from "./theme";
+import { SiteHeader } from "./site-header";
 
 // Landing view: every built-in variant animating live — a visitor sees what
 // the orbs look like before reading a single line of docs.
 export function Showcase({
   colorScheme,
-  onColorSchemeChange
+  onColorSchemeChange,
+  theme
 }: {
   colorScheme: ColorScheme;
   onColorSchemeChange: (scheme: ColorScheme) => void;
+  theme: DemoTheme;
 }) {
-  const scheme = COLOR_SCHEMES[colorScheme];
+  const scheme = theme;
 
   return (
     <main
@@ -26,10 +29,13 @@ export function Showcase({
         color: scheme.ui.text
       }}
     >
-      <header style={{ textAlign: "center", marginBottom: 40 }}>
-        <h1 style={{ margin: 0, fontSize: 30, letterSpacing: "-0.02em" }}>
-          ascii-orb
-        </h1>
+      <SiteHeader
+        colorScheme={colorScheme}
+        currentPage="showcase"
+        onColorSchemeChange={onColorSchemeChange}
+        theme={theme}
+      />
+      <section style={{ textAlign: "center", marginBottom: 40 }}>
         <p
           style={{
             ...mutedStyle,
@@ -50,43 +56,10 @@ export function Showcase({
         >
           npm install ascii-orb
         </code>
-        <p style={{ marginTop: 16 }}>
-          <a href="#playground" style={{ color: scheme.ui.accent }}>
-            open the playground →
-          </a>
-        </p>
-        <label style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-          <span
-            style={{ ...mutedStyle, color: scheme.ui.muted, fontSize: 13 }}
-          >
-            color scheme
-          </span>
-          <select
-            aria-label="color scheme"
-            value={colorScheme}
-            onChange={(event) =>
-              onColorSchemeChange(event.target.value as ColorScheme)
-            }
-            style={{
-              background: scheme.ui.surface,
-              color: scheme.ui.text,
-              border: `1px solid ${scheme.ui.border}`,
-              borderRadius: 6,
-              padding: "6px 10px",
-              fontFamily: "inherit"
-            }}
-          >
-            {Object.entries(COLOR_SCHEMES).map(([id, scheme]) => (
-              <option key={id} value={id}>
-                {scheme.label}
-              </option>
-            ))}
-          </select>
-        </label>
         <p style={{ color: scheme.ui.muted, margin: "12px 0 0", fontSize: 12 }}>
           click an orb to ripple · use its edit link to customize it
         </p>
-      </header>
+      </section>
       <section
         style={{
           display: "grid",

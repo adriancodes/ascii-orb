@@ -30,6 +30,9 @@ beforeEach(() => {
 describe("showcase (landing view)", () => {
   it("renders every built-in variant live with its label", () => {
     const { container } = render(<App />);
+    expect(
+      container.querySelector('header h1[aria-label="ascii-orb"]')
+    ).not.toBeNull();
     expect(container.querySelectorAll('pre[aria-hidden="true"]').length).toBe(
       orbVariants.length
     );
@@ -107,6 +110,9 @@ describe("showcase (landing view)", () => {
     expect(variantSelect.value).toBe("ion");
     expect(implementation.textContent).toContain('variant="ion"');
     expect(implementation.textContent).toContain("fps={30}");
+    expect(implementation.querySelectorAll("[data-token]").length).toBeGreaterThan(
+      5
+    );
 
     fireEvent.change(variantSelect, { target: { value: "nebula" } });
     fireEvent.click(container.querySelectorAll('input[type="radio"]')[2]);
@@ -135,6 +141,9 @@ describe("playground (#playground)", () => {
   it("shows one orb with variant picker, palette controls, and fps toggle", () => {
     window.location.hash = "#playground";
     const { container } = render(<App />);
+    expect(
+      container.querySelector('header h1[aria-label="ascii-orb"]')
+    ).not.toBeNull();
     expect(container.querySelectorAll('pre[aria-hidden="true"]').length).toBe(
       1
     );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   AsciiOrb,
   defineOrbVariant,
@@ -10,8 +10,10 @@ import {
   cardStyle,
   mutedStyle,
   pageStyle,
+  type ColorScheme,
   type DemoTheme
 } from "./theme";
+import { SiteHeader } from "./site-header";
 
 // A custom variant in the picker doubles as living documentation for
 // defineOrbVariant: aether physics wearing veil's colors.
@@ -75,11 +77,43 @@ ${isCustom ? "      customVariants={customVariants}\n" : ""}      palette={{
 }`;
 }
 
+function highlightCode(code: string, theme: DemoTheme): ReactNode[] {
+  const pattern =
+    /("(?:\\.|[^"\\])*")|(\b(?:import|from|export|function|const|return)\b)|(\b\d+(?:\.\d+)?\b)|(<\/?[A-Z]\w*)|(\b(?:variant|customVariants|palette|foreground|primary|accent|mutedForeground|fps)\b(?==))|([{}[\](),;=/>])/g;
+  const colors = [
+    theme.palette.accent,
+    theme.palette.primary,
+    theme.ui.accent,
+    theme.palette.foreground,
+    theme.palette.primary,
+    theme.ui.muted
+  ];
+  const highlighted: ReactNode[] = [];
+  let cursor = 0;
+
+  for (const [index, match] of [...code.matchAll(pattern)].entries()) {
+    highlighted.push(code.slice(cursor, match.index));
+    const token = match.slice(1).findIndex(Boolean);
+    highlighted.push(
+      <span key={index} data-token="syntax" style={{ color: colors[token] }}>
+        {match[0]}
+      </span>
+    );
+    cursor = match.index! + match[0].length;
+  }
+  highlighted.push(code.slice(cursor));
+  return highlighted;
+}
+
 export function Playground({
+  colorScheme,
   initialVariant,
+  onColorSchemeChange,
   theme
 }: {
+  colorScheme: ColorScheme;
   initialVariant: OrbVariantId;
+  onColorSchemeChange: (scheme: ColorScheme) => void;
   theme: DemoTheme;
 }) {
   const [variant, setVariant] = useState<OrbVariantId>(initialVariant);
@@ -107,11 +141,14 @@ export function Playground({
         color: theme.ui.text
       }}
     >
-      <header style={{ marginBottom: 16 }}>
-        <a href="#" style={{ color: theme.ui.accent }}>
-          ← showcase
-        </a>
-        <h1 style={{ margin: "8px 0 0", fontSize: 22 }}>playground</h1>
+      <SiteHeader
+        colorScheme={colorScheme}
+        currentPage="playground"
+        onColorSchemeChange={onColorSchemeChange}
+        theme={theme}
+      />
+      <section style={{ marginBottom: 16 }}>
+        <h2 style={{ margin: 0, fontSize: 22 }}>playground</h2>
         <p
           style={{
             ...mutedStyle,
@@ -122,7 +159,7 @@ export function Playground({
         >
           click the orb for ripples
         </p>
-      </header>
+      </section>
       <div style={{ display: "flex", gap: 20, flex: 1, minHeight: "65vh" }}>
         <div
           style={{
@@ -296,7 +333,9 @@ export function Playground({
             overflowX: "auto"
           }}
         >
-          <code>{implementationCode}</code>
+          <code aria-label="implementation code">
+            {highlightCode(implementationCode, theme)}
+          </code>
         </pre>
       </section>
     </main>

@@ -23,14 +23,17 @@ export function App() {
 
   return hash.startsWith("#playground") ? (
     <Playground
-      key={playgroundVariant}
+      key={`${playgroundVariant}-${colorScheme}`}
       initialVariant={playgroundVariant}
+      colorScheme={colorScheme}
+      onColorSchemeChange={setColorScheme}
       theme={COLOR_SCHEMES[colorScheme]}
     />
   ) : (
     <Showcase
       colorScheme={colorScheme}
       onColorSchemeChange={setColorScheme}
+      theme={COLOR_SCHEMES[colorScheme]}
     />
   );
 }

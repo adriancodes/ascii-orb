@@ -153,7 +153,7 @@ export function renderOrbFrame(options: OrbRenderOptions): OrbFrame {
       const charIndex = Math.floor(intensity * (charRamp.length - 1));
       const rippleCrest = !colorizer && ripple > 0.12;
       const char = rippleCrest
-        ? charRamp[charRamp.length - 1]
+        ? "@"
         : intensity > 0.02
           ? (charRamp[charIndex] ?? charRamp[charRamp.length - 1])
           : " ";

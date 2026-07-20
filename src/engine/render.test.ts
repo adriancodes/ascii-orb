@@ -62,7 +62,7 @@ describe("renderOrbFrame", () => {
         timeSeconds: 0.4,
         width: 81,
         height: 41,
-        variant: "eclipse",
+        variant: "aether",
         palette: { foreground: "#ff00ff" }
       };
       const ripple = createRipple({
@@ -81,6 +81,8 @@ describe("renderOrbFrame", () => {
       expect(foregroundCells(rippled)).toBeGreaterThan(
         foregroundCells(base) + 10
       );
+      expect(frameToText(base)).not.toContain("@");
+      expect(frameToText(rippled)).toContain("@");
     });
 
     it("warps the sphere texture around an expanding ripple", () => {

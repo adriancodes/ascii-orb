@@ -70,9 +70,9 @@ describe("rippleContribution", () => {
     expect(rippleContribution(0.39, 0, 0.5, [ripple])).toBeLessThan(0);
   });
 
-  it("keeps the default crest visible long enough to follow", () => {
+  it("moves the default crest across the orb quickly enough to read as a ripple", () => {
     const ripple = createRipple({ x: 0, y: 0, timeSeconds: 0 });
 
-    expect(rippleContribution(0.66, 0, 1.2, [ripple])).toBeGreaterThan(0.05);
+    expect(rippleContribution(0.75, 0, 0.6, [ripple])).toBeGreaterThan(0.05);
   });
 });

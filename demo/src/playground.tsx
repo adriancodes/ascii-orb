@@ -7,6 +7,7 @@ import {
   type OrbVariantId
 } from "ascii-orb";
 import {
+  COLOR_SCHEMES,
   cardStyle,
   mutedStyle,
   pageStyle,
@@ -15,8 +16,6 @@ import {
 } from "./theme";
 import { SiteHeader } from "./site-header";
 
-// A custom variant in the picker doubles as living documentation for
-// defineOrbVariant: aether physics wearing veil's colors.
 const customVariants = {
   nebula: defineOrbVariant({
     baseVariant: "aether",
@@ -30,21 +29,35 @@ const customVariants = {
 };
 
 const variantIds = listVariantIds(customVariants);
-
 const PALETTE_ROLES = [
   "foreground",
   "primary",
   "accent",
   "mutedForeground"
 ] as const;
-
 const FPS_CHOICES = [12, 30, 60] as const;
 
-function createImplementationCode(
-  variant: OrbVariantId,
-  palette: OrbPalette,
-  fps: number
-): string {
+type MotionPreference = "system" | "always" | "never";
+
+function createImplementationCode({
+  variant,
+  palette,
+  fps,
+  enableRipples,
+  rippleSpeed,
+  rippleStrength,
+  rippleDuration,
+  motion
+}: {
+  variant: OrbVariantId;
+  palette: OrbPalette;
+  fps: number;
+  enableRipples: boolean;
+  rippleSpeed: number;
+  rippleStrength: number;
+  rippleDuration: number;
+  motion: MotionPreference;
+}): string {
   const isCustom = variant === "nebula";
   const customVariant = isCustom
     ? `
@@ -71,7 +84,12 @@ ${isCustom ? "      customVariants={customVariants}\n" : ""}      palette={{
         accent: "${palette.accent}",
         mutedForeground: "${palette.mutedForeground}"
       }}
+      enableRipples={${enableRipples}}
+      rippleSpeed={${rippleSpeed}}
+      rippleStrength={${rippleStrength}}
+      rippleDuration={${rippleDuration}}
       fps={${fps}}
+      reducedMotion="${motion}"
     />
   );
 }`;
@@ -79,7 +97,7 @@ ${isCustom ? "      customVariants={customVariants}\n" : ""}      palette={{
 
 function highlightCode(code: string, theme: DemoTheme): ReactNode[] {
   const pattern =
-    /("(?:\\.|[^"\\])*")|(\b(?:import|from|export|function|const|return)\b)|(\b\d+(?:\.\d+)?\b)|(<\/?[A-Z]\w*)|(\b(?:variant|customVariants|palette|foreground|primary|accent|mutedForeground|fps)\b(?==))|([{}[\](),;=/>])/g;
+    /("(?:\\.|[^"\\])*")|(\b(?:import|from|export|function|const|return|true|false)\b)|(\b\d+(?:\.\d+)?\b)|(<\/?[A-Z]\w*)|(\b(?:variant|customVariants|palette|foreground|primary|accent|mutedForeground|enableRipples|rippleSpeed|rippleStrength|rippleDuration|fps|reducedMotion)\b(?==))|([{}[\](),;=/>])/g;
   const colors = [
     theme.palette.accent,
     theme.palette.primary,
@@ -118,16 +136,42 @@ export function Playground({
 }) {
   const [variant, setVariant] = useState<OrbVariantId>(initialVariant);
   const [palette, setPalette] = useState<OrbPalette>(theme.palette);
+  const [palettePreset, setPalettePreset] = useState<ColorScheme | "custom">(
+    colorScheme
+  );
   const [fps, setFps] = useState<number>(30);
-  const [copied, setCopied] = useState(false);
-  const implementationCode = createImplementationCode(variant, palette, fps);
+  const [enableRipples, setEnableRipples] = useState(true);
+  const [rippleSpeed, setRippleSpeed] = useState(1.25);
+  const [rippleStrength, setRippleStrength] = useState(1.1);
+  const [rippleDuration, setRippleDuration] = useState(1.9);
+  const [motion, setMotion] = useState<MotionPreference>("system");
+  const [copyStatus, setCopyStatus] = useState<
+    "idle" | "copied" | "failed"
+  >("idle");
 
+  const implementationCode = createImplementationCode({
+    variant,
+    palette,
+    fps,
+    enableRipples,
+    rippleSpeed,
+    rippleStrength,
+    rippleDuration,
+    motion
+  });
+
+  const markChanged = () => setCopyStatus("idle");
+  const updatePalette = (role: (typeof PALETTE_ROLES)[number], value: string) => {
+    setPalette((current) => ({ ...current, [role]: value }));
+    setPalettePreset("custom");
+    markChanged();
+  };
   const copyImplementation = async () => {
     try {
       await navigator.clipboard.writeText(implementationCode);
-      setCopied(true);
+      setCopyStatus("copied");
     } catch {
-      setCopied(false);
+      setCopyStatus("failed");
     }
   };
 
@@ -135,210 +179,317 @@ export function Playground({
     <main
       style={{
         ...pageStyle,
-        display: "flex",
-        flexDirection: "column",
         background: theme.ui.background,
         color: theme.ui.text
       }}
     >
-      <SiteHeader
-        colorScheme={colorScheme}
-        currentPage="playground"
-        onColorSchemeChange={onColorSchemeChange}
-        theme={theme}
-      />
-      <section style={{ marginBottom: 16 }}>
-        <h2 style={{ margin: 0, fontSize: 22 }}>playground</h2>
-        <p
-          style={{
-            ...mutedStyle,
-            color: theme.ui.muted,
-            margin: "4px 0 0",
-            fontSize: 13
-          }}
-        >
-          click the orb for ripples
-        </p>
-      </section>
-      <div style={{ display: "flex", gap: 20, flex: 1, minHeight: "65vh" }}>
-        <div
+      <div className="page-shell">
+        <SiteHeader
+          colorScheme={colorScheme}
+          currentPage="playground"
+          onColorSchemeChange={onColorSchemeChange}
+          theme={theme}
+        />
+
+        <section className="section-heading playground-heading">
+          <div>
+            <span className="eyebrow" style={{ color: theme.ui.accent }}>
+              Customize
+            </span>
+            <h2>Build your orb</h2>
+          </div>
+          <p style={{ ...mutedStyle, color: theme.ui.muted }}>
+            Every control updates the live preview and implementation code.
+          </p>
+        </section>
+
+        <div className="playground-layout">
+          <section
+            className="playground-preview"
+            style={{
+              ...cardStyle,
+              background: theme.ui.surface,
+              border: `1px solid ${theme.ui.border}`
+            }}
+          >
+            <div className="playground-preview__stage">
+              <AsciiOrb
+                variant={variant}
+                customVariants={customVariants}
+                palette={palette}
+                fps={fps}
+                enableRipples={enableRipples}
+                rippleSpeed={rippleSpeed}
+                rippleStrength={rippleStrength}
+                rippleDuration={rippleDuration}
+                reducedMotion={motion}
+              />
+            </div>
+            <div className="playground-preview__caption">
+              <strong>{variant}</strong>
+              <span style={{ color: theme.ui.muted }}>
+                {enableRipples
+                  ? "Click or tap inside the orb to test the ripple."
+                  : "Ripples are disabled in this configuration."}
+              </span>
+            </div>
+          </section>
+
+          <aside
+            className="playground-controls"
+            aria-label="orb controls"
+          >
+            <fieldset style={{ borderColor: theme.ui.border }}>
+              <legend style={{ color: theme.ui.muted }}>Orb</legend>
+              <label className="control-row control-row--stacked">
+                <span>Variant</span>
+                <select
+                  value={String(variant)}
+                  onChange={(event) => {
+                    setVariant(event.target.value);
+                    markChanged();
+                  }}
+                  style={{
+                    background: theme.ui.surface,
+                    borderColor: theme.ui.border,
+                    color: theme.ui.text
+                  }}
+                >
+                  {variantIds.map((id) => (
+                    <option key={id} value={id}>
+                      {id}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </fieldset>
+
+            <fieldset style={{ borderColor: theme.ui.border }}>
+              <legend style={{ color: theme.ui.muted }}>Orb palette</legend>
+              <label className="control-row control-row--stacked">
+                <span>Palette preset</span>
+                <select
+                  aria-label="orb palette preset"
+                  value={palettePreset}
+                  onChange={(event) => {
+                    const preset = event.target.value as ColorScheme;
+                    setPalettePreset(preset);
+                    setPalette(COLOR_SCHEMES[preset].palette);
+                    markChanged();
+                  }}
+                  style={{
+                    background: theme.ui.surface,
+                    borderColor: theme.ui.border,
+                    color: theme.ui.text
+                  }}
+                >
+                  {palettePreset === "custom" ? (
+                    <option value="custom" disabled>
+                      Custom
+                    </option>
+                  ) : null}
+                  {Object.entries(COLOR_SCHEMES).map(([id, preset]) => (
+                    <option key={id} value={id}>
+                      {preset.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {PALETTE_ROLES.map((role) => (
+                <label className="palette-row" key={role}>
+                  <span>{role}</span>
+                  <input
+                    aria-label={`${role} color`}
+                    type="color"
+                    value={
+                      /^#[0-9a-f]{6}$/i.test(palette[role])
+                        ? palette[role]
+                        : "#000000"
+                    }
+                    onChange={(event) => updatePalette(role, event.target.value)}
+                  />
+                  <input
+                    aria-label={`${role} hex`}
+                    className="hex-input"
+                    type="text"
+                    value={palette[role]}
+                    onChange={(event) => updatePalette(role, event.target.value)}
+                    style={{
+                      background: theme.ui.surface,
+                      borderColor: theme.ui.border,
+                      color: theme.ui.text
+                    }}
+                  />
+                </label>
+              ))}
+              <button
+                className="button button--secondary touch-target"
+                onClick={() => {
+                  setPalette(theme.palette);
+                  setPalettePreset(colorScheme);
+                  markChanged();
+                }}
+                style={{ borderColor: theme.ui.border, color: theme.ui.text }}
+                type="button"
+              >
+                Reset palette
+              </button>
+            </fieldset>
+
+            <fieldset style={{ borderColor: theme.ui.border }}>
+              <legend style={{ color: theme.ui.muted }}>Ripple</legend>
+              <label className="toggle-row touch-target">
+                <span>Enable ripples</span>
+                <input
+                  checked={enableRipples}
+                  onChange={(event) => {
+                    setEnableRipples(event.target.checked);
+                    markChanged();
+                  }}
+                  type="checkbox"
+                />
+              </label>
+              <label className="range-row">
+                <span>
+                  Ripple speed <output>{rippleSpeed.toFixed(2)}</output>
+                </span>
+                <input
+                  aria-label="Ripple speed"
+                  max="2.5"
+                  min="0.25"
+                  onChange={(event) => {
+                    setRippleSpeed(Number(event.target.value));
+                    markChanged();
+                  }}
+                  step="0.05"
+                  type="range"
+                  value={rippleSpeed}
+                />
+              </label>
+              <label className="range-row">
+                <span>
+                  Ripple strength <output>{rippleStrength.toFixed(1)}</output>
+                </span>
+                <input
+                  aria-label="Ripple strength"
+                  max="2"
+                  min="0.2"
+                  onChange={(event) => {
+                    setRippleStrength(Number(event.target.value));
+                    markChanged();
+                  }}
+                  step="0.1"
+                  type="range"
+                  value={rippleStrength}
+                />
+              </label>
+              <label className="range-row">
+                <span>
+                  Ripple duration <output>{rippleDuration.toFixed(1)}s</output>
+                </span>
+                <input
+                  aria-label="Ripple duration"
+                  max="4"
+                  min="0.5"
+                  onChange={(event) => {
+                    setRippleDuration(Number(event.target.value));
+                    markChanged();
+                  }}
+                  step="0.1"
+                  type="range"
+                  value={rippleDuration}
+                />
+              </label>
+            </fieldset>
+
+            <fieldset style={{ borderColor: theme.ui.border }}>
+              <legend style={{ color: theme.ui.muted }}>Motion</legend>
+              <label className="control-row control-row--stacked">
+                <span>Motion preference</span>
+                <select
+                  aria-label="motion preference"
+                  onChange={(event) => {
+                    setMotion(event.target.value as MotionPreference);
+                    markChanged();
+                  }}
+                  style={{
+                    background: theme.ui.surface,
+                    borderColor: theme.ui.border,
+                    color: theme.ui.text
+                  }}
+                  value={motion}
+                >
+                  <option value="system">Follow system</option>
+                  <option value="never">Always animate</option>
+                  <option value="always">Static</option>
+                </select>
+              </label>
+              <div className="fps-choices" role="group" aria-label="fps">
+                {FPS_CHOICES.map((choice) => (
+                  <label className="touch-target" key={choice}>
+                    <input
+                      type="radio"
+                      name="fps"
+                      checked={fps === choice}
+                      onChange={() => {
+                        setFps(choice);
+                        markChanged();
+                      }}
+                    />{" "}
+                    {choice} FPS
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          </aside>
+        </div>
+
+        <section
+          className="implementation-card"
           style={{
             ...cardStyle,
-            flex: 1,
-            minWidth: 0,
             background: theme.ui.surface,
             border: `1px solid ${theme.ui.border}`
           }}
         >
-          <AsciiOrb
-            variant={variant}
-            customVariants={customVariants}
-            palette={palette}
-            fps={fps}
-            reducedMotion="never"
-          />
-        </div>
-        <aside
-          style={{ width: 260, display: "flex", flexDirection: "column", gap: 20 }}
-        >
-          <label style={{ display: "block" }}>
-            <div
-              style={{
-                ...mutedStyle,
-                color: theme.ui.muted,
-                fontSize: 12,
-                marginBottom: 6
-              }}
-            >
-              variant
+          <div className="implementation-card__header">
+            <div>
+              <span className="eyebrow" style={{ color: theme.ui.accent }}>
+                Ship it
+              </span>
+              <h2>Implementation</h2>
             </div>
-            <select
-              value={String(variant)}
-              onChange={(e) => {
-                setVariant(e.target.value);
-                setCopied(false);
-              }}
-              style={{
-                width: "100%",
-                background: theme.ui.surface,
-                color: theme.ui.text,
-                border: `1px solid ${theme.ui.border}`,
-                borderRadius: 6,
-                padding: "8px 10px",
-                fontFamily: "inherit"
-              }}
+            <button
+              aria-label="Copy implementation"
+              className="button button--secondary touch-target"
+              onClick={() => void copyImplementation()}
+              style={{ borderColor: theme.ui.accent, color: theme.ui.accent }}
+              type="button"
             >
-              {variantIds.map((id) => (
-                <option key={id} value={id}>
-                  {id}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <fieldset
+              Copy code
+            </button>
+          </div>
+          <div aria-live="polite" className="copy-status" role="status">
+            {copyStatus === "copied"
+              ? "Implementation copied."
+              : copyStatus === "failed"
+                ? "Copy failed. Select the code manually."
+                : ""}
+          </div>
+          <pre
+            className="implementation-code"
             style={{
+              background: theme.ui.background,
               border: `1px solid ${theme.ui.border}`,
-              borderRadius: 6,
-              padding: 12
+              color: theme.ui.text
             }}
           >
-            <legend
-              style={{
-                ...mutedStyle,
-                color: theme.ui.muted,
-                fontSize: 12,
-                padding: "0 6px"
-              }}
-            >
-              palette
-            </legend>
-            {PALETTE_ROLES.map((role) => (
-              <label
-                key={role}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  fontSize: 12,
-                  margin: "6px 0"
-                }}
-              >
-                {role}
-                <input
-                  type="color"
-                  value={palette[role]}
-                  onChange={(e) => {
-                    setPalette((p) => ({ ...p, [role]: e.target.value }));
-                    setCopied(false);
-                  }}
-                />
-              </label>
-            ))}
-          </fieldset>
-
-          <fieldset
-            style={{
-              border: `1px solid ${theme.ui.border}`,
-              borderRadius: 6,
-              padding: 12
-            }}
-          >
-            <legend
-              style={{
-                ...mutedStyle,
-                color: theme.ui.muted,
-                fontSize: 12,
-                padding: "0 6px"
-              }}
-            >
-              fps
-            </legend>
-            <div style={{ display: "flex", gap: 12 }}>
-              {FPS_CHOICES.map((choice) => (
-                <label key={choice} style={{ fontSize: 13 }}>
-                  <input
-                    type="radio"
-                    name="fps"
-                    checked={fps === choice}
-                    onChange={() => {
-                      setFps(choice);
-                      setCopied(false);
-                    }}
-                  />{" "}
-                  {choice}
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        </aside>
+            <code aria-label="implementation code">
+              {highlightCode(implementationCode, theme)}
+            </code>
+          </pre>
+        </section>
       </div>
-      <section
-        style={{
-          ...cardStyle,
-          background: theme.ui.surface,
-          border: `1px solid ${theme.ui.border}`,
-          marginTop: 20
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between"
-          }}
-        >
-          <strong>implementation</strong>
-          <button
-            type="button"
-            onClick={() => void copyImplementation()}
-            style={{
-              background: "transparent",
-              color: theme.ui.accent,
-              border: `1px solid ${theme.ui.accent}`,
-              borderRadius: 6,
-              padding: "5px 10px",
-              fontFamily: "inherit",
-              cursor: "pointer"
-            }}
-          >
-            {copied ? "copied" : "copy"}
-          </button>
-        </div>
-        <pre
-          style={{
-            margin: "12px 0 0",
-            color: theme.ui.text,
-            fontFamily: "inherit",
-            fontSize: 12,
-            overflowX: "auto"
-          }}
-        >
-          <code aria-label="implementation code">
-            {highlightCode(implementationCode, theme)}
-          </code>
-        </pre>
-      </section>
     </main>
   );
 }

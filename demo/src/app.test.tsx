@@ -30,18 +30,19 @@ beforeEach(() => {
 });
 
 describe("showcase (landing view)", () => {
-  it("renders every built-in variant live with its label", () => {
+  it("renders an interactive hero and every built-in variant as a selector", () => {
     const { container } = render(<App />);
     expect(
       container.querySelector('header h1[aria-label="ascii-orb"]')
     ).not.toBeNull();
-    expect(container.querySelector('figure pre[role="button"]')).not.toBeNull();
-    expect(container.querySelectorAll('figure pre[role="button"]').length).toBe(
+    expect(container.querySelector('[data-testid="hero-orb"] pre')).not.toBeNull();
+    expect(container.querySelectorAll("button[data-variant]").length).toBe(
       orbVariants.length
     );
     expect(container.textContent).toContain("Eclipse");
     expect(container.textContent).toContain("Glacier");
     expect(container.textContent).toContain("npm install ascii-orb");
+    expect(container.textContent).toContain("Click or tap inside the orb");
     // every orb actually drew characters
     for (const pre of container.querySelectorAll("pre")) {
       expect(pre.textContent!.trim().length).toBeGreaterThan(0);
@@ -51,11 +52,15 @@ describe("showcase (landing view)", () => {
   it("rethemes the entire showcase with a selected color scheme", () => {
     const { container } = render(<App />);
     const readOrbMarkup = () =>
-      [...container.querySelectorAll("pre")].map((pre) => pre.innerHTML);
+      [
+        ...container.querySelectorAll(
+          '.hero-orb pre, button[data-variant] pre'
+        )
+      ].map((pre) => pre.innerHTML);
     const readUiStyles = () =>
       [
         ...container.querySelectorAll(
-          "main, header > p:first-of-type, code, a, select, figure, figcaption div"
+          "main, header, select, .showcase-hero, figure, .feature-strip > div"
         )
       ].map((element) => element.getAttribute("style"));
     const before = { orbs: readOrbMarkup(), ui: readUiStyles() };
@@ -76,7 +81,7 @@ describe("showcase (landing view)", () => {
     fireEvent.change(themeSelect, { target: { value: "dracula" } });
 
     const after = { orbs: readOrbMarkup(), ui: readUiStyles() };
-    expect(after.orbs).toHaveLength(orbVariants.length);
+    expect(after.orbs).toHaveLength(orbVariants.length + 1);
     expect(
       after.orbs.every((orb, index) => orb !== before.orbs[index])
     ).toBe(true);
@@ -97,6 +102,37 @@ describe("showcase (landing view)", () => {
     );
   });
 
+  it("selects a variant in the hero and copies the install command", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText }
+    });
+    const { container } = render(<App />);
+
+    fireEvent.click(container.querySelector('button[data-variant="pulse"]')!);
+    expect(container.querySelector('[data-testid="hero-orb"]')!.textContent).toContain(
+      "Pulse"
+    );
+    expect(
+      container.querySelector<HTMLAnchorElement>('[data-testid="hero-customize"]')!
+        .hash
+    ).toBe("#playground/pulse");
+    expect(container.querySelector(".usage-code")!.textContent).toContain(
+      'variant="pulse"'
+    );
+
+    fireEvent.click(
+      container.querySelector('button[aria-label="Copy install command"]')!
+    );
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith("npm install ascii-orb")
+    );
+    expect(container.querySelector('[role="status"]')!.textContent).toContain(
+      "Install command copied"
+    );
+  });
+
   it("opens a chosen orb with copyable implementation code", async () => {
     const { container } = render(<App />);
     const editLink = container.querySelector<HTMLAnchorElement>(
@@ -113,6 +149,7 @@ describe("showcase (landing view)", () => {
     expect(variantSelect.value).toBe("ion");
     expect(implementation.textContent).toContain('variant="ion"');
     expect(implementation.textContent).toContain("fps={30}");
+    expect(implementation.textContent).toContain("rippleSpeed={1.25}");
     expect(implementation.querySelectorAll("[data-token]").length).toBeGreaterThan(
       5
     );
@@ -130,26 +167,26 @@ describe("showcase (landing view)", () => {
       configurable: true,
       value: { writeText }
     });
-    fireEvent.click(container.querySelector("section button")!);
+    fireEvent.click(
+      container.querySelector('button[aria-label="Copy implementation"]')!
+    );
     await waitFor(() =>
       expect(writeText).toHaveBeenCalledWith(implementation.textContent)
     );
-    expect(container.querySelector("section button")!.textContent).toBe(
-      "copied"
+    expect(container.querySelector('[role="status"]')!.textContent).toContain(
+      "Implementation copied"
     );
   });
 });
 
 describe("playground (#playground)", () => {
-  it("shows one orb with variant picker, palette controls, and fps toggle", () => {
+  it("shows one orb with palette, ripple, motion, and fps controls", () => {
     window.location.hash = "#playground";
     const { container } = render(<App />);
     expect(
       container.querySelector('header h1[aria-label="ascii-orb"]')
     ).not.toBeNull();
-    expect(container.querySelectorAll('pre[role="button"]').length).toBe(
-      1
-    );
+    expect(container.querySelectorAll("pre").length).toBeGreaterThan(0);
 
     const options = [...container.querySelectorAll("option")].map(
       (o) => o.value
@@ -161,5 +198,9 @@ describe("playground (#playground)", () => {
 
     expect(container.querySelectorAll('input[type="color"]').length).toBe(4);
     expect(container.textContent!.toLowerCase()).toContain("fps");
+    expect(container.textContent).toContain("Ripple speed");
+    expect(container.textContent).toContain("Ripple strength");
+    expect(container.textContent).toContain("Ripple duration");
+    expect(container.querySelector('select[aria-label="motion preference"]')).not.toBeNull();
   });
 });

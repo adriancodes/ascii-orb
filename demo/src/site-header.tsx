@@ -5,11 +5,15 @@ import {
   type DemoTheme
 } from "./theme";
 
-const ASCII_ORB = ` AA   SSS  CCC  III III      OOO  RRR  BBB
-A  A S    C      I   I      O   O R  R B  B
-AAAA  SSS C      I   I      O   O RRR  BBB
-A  A    S C      I   I      O   O R R  B  B
-A  A SSS   CCC  III III      OOO  R  R BBB`;
+const ASCII_ORB = `+----------------+
+|   ASCII-ORB    |
++----------------+`;
+
+const externalLinks = [
+  ["docs", "https://github.com/adriancodes/ascii-orb#readme"],
+  ["github", "https://github.com/adriancodes/ascii-orb"],
+  ["npm", "https://www.npmjs.com/package/ascii-orb"]
+] as const;
 
 export function SiteHeader({
   colorScheme,
@@ -24,41 +28,28 @@ export function SiteHeader({
 }) {
   return (
     <header
+      className="site-header"
       style={{
-        borderBottom: `1px solid ${theme.ui.border}`,
-        marginBottom: 32,
-        paddingBottom: 20
+        borderBottom: `1px solid ${theme.ui.border}`
       }}
     >
-      <h1 aria-label="ascii-orb" style={{ margin: 0 }}>
+      <h1 aria-label="ascii-orb" className="site-header__brand">
         <a href="#" aria-label="ascii-orb home" style={{ color: theme.ui.text }}>
           <span
             aria-hidden="true"
-            style={{
-              display: "block",
-              fontSize: "clamp(7px, 1.3vw, 14px)",
-              lineHeight: 1.05,
-              overflow: "hidden",
-              whiteSpace: "pre"
-            }}
+            className="site-header__wordmark"
           >
             {ASCII_ORB}
           </span>
         </a>
       </h1>
       <div
-        style={{
-          alignItems: "center",
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 16,
-          justifyContent: "space-between",
-          marginTop: 16
-        }}
+        className="site-header__bar"
       >
-        <nav aria-label="primary" style={{ display: "flex", gap: 16 }}>
+        <nav aria-label="primary" className="site-header__nav">
           <a
             aria-current={currentPage === "showcase" ? "page" : undefined}
+            className="touch-target"
             href="#"
             style={{ color: theme.ui.accent }}
           >
@@ -66,15 +57,28 @@ export function SiteHeader({
           </a>
           <a
             aria-current={currentPage === "playground" ? "page" : undefined}
+            className="touch-target"
             href="#playground"
             style={{ color: theme.ui.accent }}
           >
             playground
           </a>
+          {externalLinks.map(([label, href]) => (
+            <a
+              className="touch-target"
+              href={href}
+              key={label}
+              rel="noreferrer"
+              style={{ color: theme.ui.muted }}
+              target="_blank"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
         <label style={{ alignItems: "center", display: "inline-flex", gap: 8 }}>
           <span style={{ ...mutedStyle, color: theme.ui.muted, fontSize: 13 }}>
-            color scheme
+            site theme
           </span>
           <select
             aria-label="color scheme"

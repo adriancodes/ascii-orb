@@ -7,6 +7,8 @@ import { resolveVariantDefinition } from "./variants";
 const GAMMA_LUT_SIZE = 1024;
 const GAMMA_LUT_MAX = GAMMA_LUT_SIZE - 1;
 const GAMMA_EXPONENT = 0.84;
+const RIPPLE_SAMPLE_STEP = 0.025;
+const RIPPLE_REFRACTION = 0.28;
 const gammaLut = new Float32Array(GAMMA_LUT_SIZE);
 for (let i = 0; i < GAMMA_LUT_SIZE; i += 1) {
   gammaLut[i] = Math.pow(i / GAMMA_LUT_MAX, GAMMA_EXPONENT);
@@ -82,34 +84,55 @@ export function renderOrbFrame(options: OrbRenderOptions): OrbFrame {
         continue;
       }
 
-      const z = Math.sqrt(Math.max(0, 1 - Math.min(1, r2)));
+      const ripple = rippleContribution(x, ySphere, timeSeconds, orbSpaceRipples);
+      const rippleDx =
+        orbSpaceRipples.length === 0
+          ? 0
+          : rippleContribution(x + RIPPLE_SAMPLE_STEP, ySphere, timeSeconds, orbSpaceRipples) -
+            rippleContribution(x - RIPPLE_SAMPLE_STEP, ySphere, timeSeconds, orbSpaceRipples);
+      const rippleDy =
+        orbSpaceRipples.length === 0
+          ? 0
+          : rippleContribution(x, ySphere + RIPPLE_SAMPLE_STEP, timeSeconds, orbSpaceRipples) -
+            rippleContribution(x, ySphere - RIPPLE_SAMPLE_STEP, timeSeconds, orbSpaceRipples);
+      const surfaceX = x - rippleDx * RIPPLE_REFRACTION;
+      const surfaceY = ySphere - rippleDy * RIPPLE_REFRACTION;
+      const surfaceR2 = surfaceX * surfaceX + surfaceY * surfaceY;
+      const z = Math.sqrt(Math.max(0, 1 - Math.min(1, surfaceR2)));
 
-      const ux = x * c - z * s;
-      const uz = x * s + z * c;
-      const angle = Math.atan2(ySphere, x);
+      const ux = surfaceX * c - z * s;
+      const uz = surfaceX * s + z * c;
+      const angle = Math.atan2(surfaceY, surfaceX);
 
       const bands =
         0.5 +
         0.5 *
-        Math.sin(ux * config.bandFreq + ySphere * (5.6 + config.turbulence) + timeSeconds * 2.3);
+        Math.sin(ux * config.bandFreq + surfaceY * (5.6 + config.turbulence) + timeSeconds * 2.3);
       const swirls =
         0.5 +
         0.5 *
-        Math.cos(angle * 8.2 - timeSeconds * 2 + uz * 5.1 + Math.sin(ySphere * 5.2));
+        Math.cos(angle * 8.2 - timeSeconds * 2 + uz * 5.1 + Math.sin(surfaceY * 5.2));
       const fragmented =
         0.5 +
         0.5 * Math.sin(angle * config.swirlFreq + timeSeconds * (1.1 + config.turbulence) + r * 8.8);
       const wisps =
         0.5 +
         0.5 *
-        Math.cos((x + ySphere) * (4.6 + config.turbulence) - timeSeconds * (1.7 + config.turbulence));
+        Math.cos(
+          (surfaceX + surfaceY) * (4.6 + config.turbulence) -
+            timeSeconds * (1.7 + config.turbulence)
+        );
 
       const detail = 0.34 * bands + 0.28 * swirls + 0.2 * fragmented + 0.18 * wisps;
 
       const lightX = -0.36;
       const lightY = -0.14;
       const lightZ = 0.92;
-      const lambert = clamp((x * lightX + ySphere * lightY + z * lightZ) * 0.5 + 0.5, 0, 1);
+      const lambert = clamp(
+        (surfaceX * lightX + surfaceY * lightY + z * lightZ) * 0.5 + 0.5,
+        0,
+        1
+      );
 
       const bodyMask = clamp(1 - smoothstep(0.85, 1, r), 0, 1);
       const innerOrb =
@@ -118,8 +141,6 @@ export function renderOrbFrame(options: OrbRenderOptions): OrbFrame {
       const shellWave = Math.exp(-Math.pow(r - ringRadius, 2) / 0.016) * config.rimBoost;
       const rimGlow = smoothstep(0.72, 0.995, r) * config.rimBoost;
       const halo = r > 1 ? clamp(1 - smoothstep(1, 1.2, r), 0, 1) * config.haloBoost : 0;
-      const ripple = rippleContribution(x, ySphere, timeSeconds, orbSpaceRipples);
-
       let intensity =
         (0.15 + lambert * 0.43 + detail * 0.32 + innerOrb + shellWave + rimGlow + ripple) * bodyMask +
         halo;

@@ -83,6 +83,31 @@ describe("renderOrbFrame", () => {
       );
     });
 
+    it("warps the sphere texture around an expanding ripple", () => {
+      const options: OrbRenderOptions = {
+        timeSeconds: 0.4,
+        width: 81,
+        height: 41,
+        variant: "ion",
+        colorizer: ({ detail }) => detail.toFixed(6)
+      };
+      const ripple = createRipple({
+        x: 0,
+        y: 0,
+        timeSeconds: 0,
+        duration: 2,
+        strength: 1
+      });
+      const base = renderOrbFrame(options);
+      const rippled = renderOrbFrame({ ...options, ripples: [ripple] });
+      const rippledCells = rippled.flat();
+
+      const warpedCells = base.flat().filter((cell, index) => {
+        return cell.color !== rippledCells[index].color;
+      });
+      expect(warpedCells.length).toBeGreaterThan(20);
+    });
+
     // Render with and without one ripple; return the mean column of the
     // cells the ripple changed.
     function rippleCentroidCol(xScale: number): number {

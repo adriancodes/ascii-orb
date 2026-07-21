@@ -44,6 +44,18 @@ describe("renderOrbFrame", () => {
     expect(frame[8][16].char).not.toBe(" ");
   });
 
+  it("leaves transparent space around every variant's halo", () => {
+    for (const variant of orbVariants) {
+      const frame = renderOrbFrame({ ...BASE_OPTIONS, variant });
+      const edge = [
+        ...frame[0],
+        ...frame.at(-1)!,
+        ...frame.flatMap((row) => [row[0], row.at(-1)!])
+      ];
+      expect(edge.every((cell) => cell.color === "transparent")).toBe(true);
+    }
+  });
+
   describe("characterization: chars and colors per built-in variant", () => {
     for (const variant of orbVariants) {
       it(`renders ${variant} exactly as before`, () => {

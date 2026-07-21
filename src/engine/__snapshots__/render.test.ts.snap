@@ -3,207 +3,202 @@
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders abyss exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #57606a 18.75%, transparent) ×6",
-    "color-mix(in srgb, #57606a 25.00%, transparent) ×2",
-    "color-mix(in srgb, #57606a 31.25%, transparent) ×16",
-    "color-mix(in srgb, #57606a 37.50%, transparent) ×27",
-    "color-mix(in srgb, #57606a 43.75%, transparent) ×56",
-    "color-mix(in srgb, #57606a 50.00%, transparent) ×50",
-    "color-mix(in srgb, #57606a 56.25%, transparent) ×32",
-    "color-mix(in srgb, #57606a 6.25%, transparent) ×122",
-    "color-mix(in srgb, #57606a 62.50%, transparent) ×35",
-    "color-mix(in srgb, #57606a 68.75%, transparent) ×17",
-    "color-mix(in srgb, #57606a 75.00%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×35",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×2",
+    "color-mix(in srgb, #57606a 18.75%, transparent) ×1",
+    "color-mix(in srgb, #57606a 25.00%, transparent) ×3",
+    "color-mix(in srgb, #57606a 31.25%, transparent) ×3",
+    "color-mix(in srgb, #57606a 37.50%, transparent) ×12",
+    "color-mix(in srgb, #57606a 43.75%, transparent) ×30",
+    "color-mix(in srgb, #57606a 50.00%, transparent) ×21",
+    "color-mix(in srgb, #57606a 56.25%, transparent) ×25",
+    "color-mix(in srgb, #57606a 6.25%, transparent) ×96",
+    "color-mix(in srgb, #57606a 62.50%, transparent) ×14",
+    "color-mix(in srgb, #57606a 68.75%, transparent) ×7",
+    "color-mix(in srgb, #57606a 75.00%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×16",
+    "color-mix(in srgb, #6b7280 12.50%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×1",
     "color-mix(in srgb, #6b7280 31.25%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×3",
     "color-mix(in srgb, #6b7280 6.25%, transparent) ×18",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×10",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×12",
-    "color-mix(in srgb, #6b7280 81.25%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×9",
+    "color-mix(in srgb, #6b7280 81.25%, transparent) ×2",
     "color-mix(in srgb, #6b7280 87.50%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×6",
-    "transparent ×36",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×4",
+    "transparent ×236",
   ],
-  "text": "             ,:--:,.            
-         -++++======+=:         
-      ,=+===+++=------=+=,      
-     =*+++*#####**++=---=+-     
-    +++*####*++***###+=---==    
-   +*++###*=---===*####+=--=-   
-  :*+=*##+=======++++###*=--=,  
-  -+==*##+===+++*+++++*#*=-:=:  
-  =+==+##+===+*+*+++==+*#+-:-:  
-  :+=-=*##*+++=++++=--+*#+--=,  
-   =+==+*####*++======***=-=-   
-    =+=--=*#####*++*###+==+=    
-     =+=--==+++***#**+=-=+-     
-      ,=+=--::::--==--===,      
-         :===----==++=-         
-             ,::::,             ",
+  "text": "                                
+                                
+                                
+           =++==-===-           
+         ++=+*#*+=---=+         
+       :*+###****##*=--+,       
+      .*=*#*=--==+*##*=-=       
+      -+=*#+==++++++*#+:-:      
+      -+-*#+==*+*++=+#*:-:      
+       +-=###*++=+=-+*+-=       
+       ,+--=*###***##+=+:       
+         +=----=+++=-==         
+           -=----==+=           
+                                
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders aether exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×1",
     "color-mix(in srgb, #6b7280 12.50%, transparent) ×9",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×16",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×29",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×11",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×6",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×35",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×47",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×23",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×50",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×36",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×17",
-    "color-mix(in srgb, #6b7280 81.25%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×9",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×8",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×9",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×25",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×14",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×31",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×33",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×18",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×12",
-    "transparent ×32",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×18",
+    "color-mix(in srgb, #6b7280 31.25%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 37.50%, transparent) ×3",
+    "color-mix(in srgb, #6b7280 50.00%, transparent) ×17",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×30",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×25",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×18",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×19",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×14",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×6",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×20",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×7",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×11",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×19",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×11",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×5",
+    "transparent ×228",
   ],
-  "text": "      .,:; .:IttttI;, ;;:,      
-    .:; :1fLLCCCLLLLCLt: ;:,    
-   :; iCCLffLLCCCLLfLLLLLi ;:   
- .:;,fCCCCCGG8888GCLLLffLCf,;:. 
-.:;;LCLCG88GG88GG888GCLLLLLf,;: 
-:;,CGCC888GGCLGCLCCGGGGGCLfft.;,
-; tGCCG8GCCGGGCGCGCCCG##8LffLI :
-; fCCC8#8GCGG88G8GGGCCCGCLffLt :
-; fGCC888GGCCG8G8G8GGCCCGCfff1 :
-: 1GCC8##8GGCLCCG88CLLLCCCLLL; :
-:;,LCCCGG88GCCGCCCGGCCCCCLLLf.;,
-.:;:LCLffLCG88#8G88GGGCCLLLf:;: 
- .:;:fLffLCCCGGGCCGGCLLffLt,;:. 
-   :; ;LCCCLffffffffLLLLf; ;:   
-    .:; :tLLfffffffLLLt: ;:,    
-      .,:; .:;I1t1i:. ;;:,      ",
+  "text": "                                
+              ..,..             
+          ,:; ,::, ;;:.         
+        : :tLLCCLLLCf: :.       
+      ,;:CCLLCGGCLLLfLL:;,      
+     ,;1CLG8GG8888GGLfLL;;,     
+    .;;GCG88GCCGLCCG88Cff::     
+    ,;fCC88GCGGG8GCGGGCtft;.    
+    ,;fCC88GGC8G8GGGCGCffI;.    
+    .;;GCG88GCCCCGGLLCCLL::     
+     ,;1CffLGG#8G8GGCLLLi;,     
+      ,;:LLLLLCLLLLLLLf:;,      
+        : :LCfffffLLf: :.       
+          ,:; .,:, ;;:.         
+              ....              
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders eclipse exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #57606a 12.50%, transparent) ×1",
-    "color-mix(in srgb, #57606a 18.75%, transparent) ×8",
-    "color-mix(in srgb, #57606a 25.00%, transparent) ×2",
-    "color-mix(in srgb, #57606a 31.25%, transparent) ×3",
-    "color-mix(in srgb, #57606a 37.50%, transparent) ×3",
-    "color-mix(in srgb, #57606a 43.75%, transparent) ×5",
-    "color-mix(in srgb, #57606a 50.00%, transparent) ×12",
-    "color-mix(in srgb, #57606a 56.25%, transparent) ×34",
-    "color-mix(in srgb, #57606a 6.25%, transparent) ×104",
-    "color-mix(in srgb, #57606a 62.50%, transparent) ×43",
-    "color-mix(in srgb, #57606a 68.75%, transparent) ×34",
-    "color-mix(in srgb, #57606a 75.00%, transparent) ×23",
-    "color-mix(in srgb, #57606a 81.25%, transparent) ×22",
-    "color-mix(in srgb, #57606a 87.50%, transparent) ×17",
-    "color-mix(in srgb, #57606a 93.75%, transparent) ×12",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×33",
-    "color-mix(in srgb, #6b7280 12.50%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×4",
+    "color-mix(in srgb, #57606a 12.50%, transparent) ×3",
+    "color-mix(in srgb, #57606a 18.75%, transparent) ×7",
+    "color-mix(in srgb, #57606a 25.00%, transparent) ×1",
+    "color-mix(in srgb, #57606a 37.50%, transparent) ×1",
+    "color-mix(in srgb, #57606a 43.75%, transparent) ×3",
+    "color-mix(in srgb, #57606a 50.00%, transparent) ×7",
+    "color-mix(in srgb, #57606a 56.25%, transparent) ×17",
+    "color-mix(in srgb, #57606a 6.25%, transparent) ×80",
+    "color-mix(in srgb, #57606a 62.50%, transparent) ×18",
+    "color-mix(in srgb, #57606a 68.75%, transparent) ×17",
+    "color-mix(in srgb, #57606a 75.00%, transparent) ×18",
+    "color-mix(in srgb, #57606a 81.25%, transparent) ×4",
+    "color-mix(in srgb, #57606a 87.50%, transparent) ×8",
+    "color-mix(in srgb, #57606a 93.75%, transparent) ×7",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×17",
+    "color-mix(in srgb, #6b7280 12.50%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×3",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 31.25%, transparent) ×1",
     "color-mix(in srgb, #6b7280 43.75%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×6",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×26",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×7",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×15",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×22",
-    "color-mix(in srgb, #6b7280 81.25%, transparent) ×18",
-    "color-mix(in srgb, #6b7280 87.50%, transparent) ×7",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×11",
-    "transparent ×32",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×22",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×6",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×13",
+    "color-mix(in srgb, #6b7280 81.25%, transparent) ×7",
+    "color-mix(in srgb, #6b7280 87.50%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×6",
+    "transparent ×232",
   ],
-  "text": "            .-=++=-:            
-        .=*##***+++***+.        
-      -******#**++===+***:      
-     +#***#@@@@@@#**+++++*+     
-   .***#@@@@######@@##*+=+**.   
-   *#*#@@@#*+++++*##@@@#*==*+   
-  =##*#@@#***+**+***#@@@#*=+*-  
-  *#**#@@*++****#*#***#@#*==+=  
-  +#**#@@*++**#*#******#@*==+=  
-  =#***@@@##***#****++*#@#+=*:  
-   **++*#@@@@##*****+*###*+*+   
-   .**+=+*#@@@@######@#*++**.   
-    .*#*++***#####@@##*+**+     
-      -***++======+++++**-      
-        .=+*+++++++***=.        
-            .-====-.            ",
+  "text": "                                
+                                
+               ..               
+          .*#***++***.          
+        .****#@#**+=++*.        
+       -**@@@####@@#*+=*-       
+      :#*#@@*++++*#@@#+=*.      
+      *#*@@*+***#***#@*=+=      
+      +**#@*+*#*#****##==-      
+      .*+*#@@#****++*#*+*.      
+       -*++*#@@@###@#*+*-       
+        :#*+++++****+**.        
+          .+*+==+++*+.          
+               ..               
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders ember exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×9",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×10",
-    "color-mix(in srgb, #64748b 25.00%, transparent) ×12",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×2",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×3",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×14",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×2",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×4",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×14",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×16",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×19",
-    "color-mix(in srgb, #64748b 93.75%, transparent) ×6",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×27",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×13",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×20",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×16",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×5",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×7",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×9",
+    "color-mix(in srgb, #64748b 25.00%, transparent) ×5",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×1",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×1",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×1",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×1",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×12",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×1",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×1",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×10",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×11",
+    "color-mix(in srgb, #64748b 87.50%, transparent) ×9",
+    "color-mix(in srgb, #64748b 93.75%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×13",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×7",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×12",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×4",
     "color-mix(in srgb, #7c3aed 37.50%, transparent) ×9",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×11",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×41",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×38",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×64",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×54",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×37",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×26",
-    "transparent ×28",
+    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×19",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×46",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×31",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×28",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×11",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×10",
+    "transparent ×228",
   ],
-  "text": "       .:  :-=++*++=:. ::.      
-    ..: -+*x******xxx**=.::.    
-   .:.+Xx****************=.:.   
- .: -*XXXXXXX#%#XX#X**+++**- :  
-.: =x**X%@@%#X#%#%@@#X**+***- . 
-::-X#X#@@%#x***xxx#XX#XXX**++::.
-: *#X#%@#x**x*xXX#****#@@X*+*+ .
-::*XX%@@#x**x#%%@%x****XXx*+*+.:
-::x#X#%#X**xX#@%@#XxxxxX#X*+++ :
-: +x*x#@%#xXx*XX*xxx***xXx***= :
-::-***xX#%%#xXx***XXxxXXX****::.
-.: =x***x#%%%%####%@%#x**+**- : 
- .: -xx*****xXxX##Xx******+- :. 
-  .::.=*x*+++**+***+++***=.::.  
-    .::.-+*****+++****+-.::.    
-      ..:  :-=++++=-:  ::.      ",
+  "text": "                                
+              .....             
+          .: .:---. ::.         
+        : -*******x**= :.       
+      .:=XX***Xx*xx*+**-:.      
+     . +x*#@@#X%#@%X*++*= .     
+    .:=#X%@#x**xxX*xX%X**-:     
+    . *X#@%**x#%@X**x#X+++ .    
+    . *XX%#xxX%%%xxxx#X*++ .    
+    .:=**X%%#*x**xxxxXx**-:     
+     . +x**##%%##%@%x*+*= .     
+      .:=xx*+***xx*++**-:.      
+       .: -****+++***- :.       
+          .: .:--:. ::.         
+               ...              
+                                ",
 }
 `;
 
@@ -211,632 +206,606 @@ exports[`renderOrbFrame > characterization: chars and colors per built-in varian
 {
   "colors": [
     "color-mix(in srgb, #64748b 12.50%, transparent) ×7",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×17",
-    "color-mix(in srgb, #64748b 25.00%, transparent) ×19",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×14",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×5",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×9",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×31",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×44",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×32",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×46",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×40",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×16",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×7",
-    "color-mix(in srgb, #6b7280 12.50%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×5",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×13",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×5",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×8",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×30",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×8",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×25",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×20",
-    "color-mix(in srgb, #6b7280 81.25%, transparent) ×26",
-    "color-mix(in srgb, #6b7280 87.50%, transparent) ×18",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×18",
-    "transparent ×32",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×7",
+    "color-mix(in srgb, #64748b 25.00%, transparent) ×14",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×11",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×2",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×3",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×17",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×19",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×30",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×15",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×22",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 12.50%, transparent) ×9",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×7",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×9",
+    "color-mix(in srgb, #6b7280 31.25%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 37.50%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 50.00%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×21",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×14",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×11",
+    "color-mix(in srgb, #6b7280 81.25%, transparent) ×13",
+    "color-mix(in srgb, #6b7280 87.50%, transparent) ×13",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×9",
+    "transparent ×232",
   ],
-  "text": "       ,::  ,;iIIi;,  ::,.      
-    .,: ,itLLLLLLLLLLti, ::.    
-   ,: :tLttLLCCLtttttttLt; :,   
-  ,:.1LLLLLCG##GCLLLLtttLL1.:,  
- :;,tLLCG#GGCCGGCCGGGLLttttI.:, 
-,:.tLLLG#GGCCLLLLLCGGGGCLt11I :.
-: ;CLLCGGCCCCLCCCCCLCG##Ct1tt; ,
-: 1CLCG#GCCCCGGGGGGGCCLCLt11tI :
-: tCCCGGGCLCCCGG#GGGCLLCCLt1t; :
-: iCCLCG#GCLCCCGC#GLLtLCCLttt: ,
-,:.tLLLCCCCCCCCGCCCCLLLCLLtL1 :.
- :;,tLttttLGG##GGCCCCCCLLtLt,:, 
-  ::.1LtttLCCCCCCCCCLLttttI.:,  
-   ,: :tLLLLtt1I1ttttttt1: :,   
-    .,: ,itLtt111ttLLti, ::.    
-       ,::  ,:;ii;;,  ::,.      ",
+  "text": "                                
+               ...              
+          ,:: .,,. ::,          
+        ,:,1LLLLtLLL1,;:        
+      ,:,LLtLCGCLttttLL,:.      
+     ,;;LLG#GCGGCCGCLttt::.     
+     ::CLCGGCCLLLCCCGCt1t,:     
+    .:1LCG#CCCGGGGCCCCL1tI:.    
+    .:tCCGGCCCGC#GGCLCCtt;:.    
+     ::CLCGGCCLGCGCttCLtL,:     
+     ,;;LtttCG#GGCCCCLtL;:.     
+      ,:,LLLLLLttLLtttt,:.      
+        ,:,tLt1I1tLL1,;:        
+          ,::  ,,. ::,          
+               ...              
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders ion exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×15",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×22",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×8",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×11",
     "color-mix(in srgb, #64748b 25.00%, transparent) ×3",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×5",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×7",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×4",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×6",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×10",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×32",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×26",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×56",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×43",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×31",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×30",
-    "color-mix(in srgb, #64748b 93.75%, transparent) ×11",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×20",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×11",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×20",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×2",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×8",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×2",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×3",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×44",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×12",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×27",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×25",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×13",
+    "color-mix(in srgb, #64748b 87.50%, transparent) ×16",
+    "color-mix(in srgb, #64748b 93.75%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×12",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×6",
     "color-mix(in srgb, #7c3aed 25.00%, transparent) ×2",
     "color-mix(in srgb, #7c3aed 31.25%, transparent) ×2",
     "color-mix(in srgb, #7c3aed 37.50%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×4",
+    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×1",
     "color-mix(in srgb, #7c3aed 56.25%, transparent) ×1",
     "color-mix(in srgb, #7c3aed 6.25%, transparent) ×26",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×10",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×18",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×17",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×29",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×13",
-    "transparent ×28",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×10",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×10",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×7",
+    "transparent ×228",
   ],
-  "text": "       .,, :s23hh32X; ;::.      
-     ,: s3HHHHGHHHHGSGhs.;:.    
-   ,: 2S#GHMMHHHHHHHHHHHMA :,   
-  ::rH###999999#####GHhhMHhi:,  
- : XSSG#B@@B9#999B@@B#HMhMHMi , 
-,;iS##9B&B#SHMGSGSBB999#GHHHh:, 
-: 399B@@B#GGSGH9SB#HHS9BBSHMM2 ,
-:,M##9@@9GHHG#&B@B9SHMHS9#M3h5 ,
-:,hSS9&&#GHG#&&@@&9SHHG9B9H3h5 ,
-: 5SGG#BB9##SS9###GHHGS99SMhHA ,
-,;iHGMHSB&&9###GMGSSSS##GhhHM;:.
- : XGGHHS9BBB&B###B&&B#HhhHHr , 
-  :;rHSGGGGHHGS##99#SHhhMGMi;:  
-   ,: XMGHMh3hMHHHMh33hHMX ;,   
-     ,: shGGHMMMMMMMHH3s ;:.    
-       ,,: :sA22522s; ::,.      ",
+  "text": "                                
+                                
+           ,  ;rsi, :,          
+        , sMHHHHHHGSHs :        
+      .:s##SGGSSGGGHMMHs:.      
+     ,;3SG9@&9999&@9HhhHA:      
+     ;X9#&&9SHMSG9#S99GHHr,     
+    , M#9@BGMG99@#SGG##M35      
+    . hS#&9GG9B&&9SGSB9M35      
+     :XSHGB&9S#SHSGHS#HhHs:     
+     ,;3SHG9BBB9#B@&#HhG2:.     
+      ,;sGGHMhMGSGHh3MHs;,      
+        , sHGHMMMMMHMs :        
+          .,  :ii;  :,          
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders lattice exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×16",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×6",
     "color-mix(in srgb, #64748b 18.75%, transparent) ×2",
     "color-mix(in srgb, #64748b 25.00%, transparent) ×2",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×6",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×4",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×5",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×6",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×12",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×48",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×36",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×37",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×43",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×23",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×16",
-    "color-mix(in srgb, #64748b 93.75%, transparent) ×13",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×49",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×2",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×9",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×4",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×1",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×4",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×50",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×14",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×22",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×26",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×12",
+    "color-mix(in srgb, #64748b 87.50%, transparent) ×6",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×24",
     "color-mix(in srgb, #6b7280 93.75%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×16",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×38",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×6",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×39",
     "color-mix(in srgb, #7c3aed 62.50%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×12",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×25",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×32",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×16",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×4",
-    "transparent ×28",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×14",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×6",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×5",
+    "transparent ×228",
   ],
-  "text": "           -+X]][[[x-  :.       
-      . +]}}{{{{[[{{}}]+.:.     
-    . X}{]]]{{{{][]]]{{]]X .    
-  . =]{{{}}}%@%%#}}}}{]X[{{-    
- . x}{]{#@@@@@@%%%@@@@}][[]{=   
-.:=}}{#@@@@#}{{{{{##%%%%}{{{]-  
-. [#}#@@@#{{}]]{]}{{{}}%@%{[]X  
-.:{}}%@@%}{]]{}}%}}{]]]}%%{X[[  
-.:{#}%@@%}{]{{##%%}}{]{#@%{X[[  
-. [#}#@@@#{]]]{}{}{]]{}%@#]]}X  
- :={{]{#%%#}}##}{{}{}%%%}][{{-. 
- . +{{]]{%@@@@@%%%%@@%#{[[{{+ . 
-  . +}}{{}}##}}}}###}{[X[{]= .  
-   .. X}}][[[X[[[]][XX[{{x.:.   
-     .. +[]{]]]{][[]{{[+ :.     
-        .  -xXX[[Xx+-  ..       ",
+  "text": "                                
+                                
+              -++=. :.          
+          +{}{{{[]{}{+ .        
+       .+}{]]}}}{]{{][{+.       
+       [{]}@@@@@%%@@}[[{X       
+     :x}}%@%#{]{]}}}%%}{{+      
+      {}%@@}{{{}#{}]{#%][[      
+      {}%@@}{{}#%#{]{%%][[      
+     .x}{#@#{]}}{{{{#%}]}+.     
+       [{]{%@@@%%%@@#][{X       
+       :x}}{]][]]}{[[]{+:       
+        . +]]][]][]{]+ .        
+              -==-  .           
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders nova exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×77",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×37",
     "color-mix(in srgb, #6b7280 12.50%, transparent) ×7",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×5",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×11",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×11",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×14",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×7",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 31.25%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 43.75%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 50.00%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×19",
     "color-mix(in srgb, #6b7280 62.50%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×13",
-    "color-mix(in srgb, #6b7280 81.25%, transparent) ×36",
-    "color-mix(in srgb, #6b7280 87.50%, transparent) ×28",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×20",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×7",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 81.25%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 87.50%, transparent) ×17",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×10",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×9",
     "color-mix(in srgb, #7c3aed 18.75%, transparent) ×15",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×26",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×17",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×6",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×8",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×10",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×10",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×17",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×47",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×43",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×25",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×19",
-    "transparent ×28",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×17",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×7",
+    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×4",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×24",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×12",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×21",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×26",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×6",
+    "transparent ×220",
   ],
-  "text": "      ,:: ,=*xX$$$X*=: ;::.     
-    ,::,*$$$XXX$$XX$#%$*:;:,.   
-  ,:::x$$$$XX$$$$XXXX$$$$x:;:,  
- ,: +$$$$$#%@%@@@@%###$XXX$= :, 
-,: *####%@@@@@@@@@@@@@@%XxX#+ :.
-:;+$$$%@@@@%%####$$$#%@@@$X$$=:,
-;,X$$#@@@@%$$$$$#$$XxX#@@@#$$x.:
-;;###@@@@%####%@@#XXX$#%%%$XXX::
-:;$$$%@@%$$$$$#@%%$XX$$#%%#XxX::
-:,$%$#@@%$XXXXXX$X$$###@@@#X$X,:
-:;+%%#%@@@%#$$$$$#%#%%@@%$xX#=;:
-,;.*###%@@@@@@@@@@@@%%%$x*X#+ :,
-.,; +$$XX$#%%%%%%##$$$x*x$$+ ;,.
- .,:;:x#$XxXxXXX$XXX**x$$*:;:,  
-   .::;:*$%#$$$XXxxx$$X+:;;:.   
-     .,:: ,=*xXXXXx+;, ;:,.     ",
+  "text": "                                
+            .,,,::,,.           
+         .:: :=**+:.;:,         
+       ,: *#$XXXXX$##*.:,       
+      : *#$X#$#%%$X$$X$+ ,      
+     : X###@@@@@@@@@@#x$x ,     
+    ,;*##@@@%$$X#X$$%@%X#+:.    
+    :.#$%@@%#$#%%$XX#@@$Xx ,    
+    : #$#@%$$X$%#$$$$#%$xX ,    
+    ,;x%#@@%$XXx$###@@%xX*;,    
+     : X##%@@@@@@@@%%$*Xx :     
+     .: *$XxX$$$$$Xxxx$+ :.     
+       ,;.*#%$$XXxx$$+.;,       
+         ,:: :=++=: ;:,         
+            ..,,,,,.            
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders oracle exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×17",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×23",
-    "color-mix(in srgb, #64748b 25.00%, transparent) ×4",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×7",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×3",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×6",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×16",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×40",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×28",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×51",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×24",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×24",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×11",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×38",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×8",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×9",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×14",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×8",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×1",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×5",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×9",
+    "color-mix(in srgb, #64748b 25.00%, transparent) ×2",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×8",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×2",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×5",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×21",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×38",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×29",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×14",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×8",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×6",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×22",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×4",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×10",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×6",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×5",
     "color-mix(in srgb, #7c3aed 43.75%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×33",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×19",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×23",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×30",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×21",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×11",
-    "transparent ×28",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×35",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×12",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×6",
+    "transparent ×228",
   ],
-  "text": "       ... .:;iI1I;:, ,,.       
-     .. :ItLLt111ttLCLI: ,.     
-   .. ;CCL1I1tt11111t111t; ,.   
-  .,,1LLLCCCCOQOCOCCL1ii1L1,,.  
- .,:CCLCQ###QOQ#Q####Ct11111,.. 
-.,,LCLC###QC11tLtCCOCOQOCt1tI,. 
-, IQOQ##QCt1tt1LtCLI1tC##O1I1; .
-,.tCLO##Ot111LQO#CL111tCQC1i1I .
-..tCLC##OLttLOOQQCLtttLOQO1i1i .
-. iLLLQ#QOCLLtLLtLt1tLCOOC11L; .
-.,,tt1tO##QOCCLL1LLCOCOCL11t1,..
- .,:tLttLO####QQQQ###QCtIIt1:,. 
-  .,:LCt1tttLCLCOOOCL1ii1t1,,.  
-   ., ;tttIiIIII11IiiI1t1; ,.   
-     ., :Itttt1III11ttI: ,..    
-       ... .:;iiii;:, ,,.       ",
+  "text": "                                
+                                
+           .  ,::,  ,.          
+        . :1ttt11ttC1: .        
+      .,:CCLttLLtLttIIL:,.      
+     .,ICLQ##QO#Q##Qt11t;.      
+     ,;OCQ#OLtIttLLLQQC11:.     
+    . tCO#QtI1CCQtt1LQOIII      
+    . 1LC#QLtCCOQtttLOO1Ii      
+     ,:LtC##CLLt1tLLCOL1L:.     
+     .,iLtLO###QQ##QC1It;,.     
+      .,:Lt1I11tLt1Ii1t:,.      
+        . :ttt1IIIIt1: .        
+          ..  ,,,,  ,.          
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders pulse exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×6",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×18",
-    "color-mix(in srgb, #64748b 25.00%, transparent) ×18",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×3",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×3",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×5",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×7",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×4",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×14",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×12",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×42",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×54",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×46",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×32",
-    "color-mix(in srgb, #64748b 93.75%, transparent) ×16",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×51",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×10",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×11",
+    "color-mix(in srgb, #64748b 25.00%, transparent) ×9",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×1",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×2",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×3",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×5",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×3",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×32",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×4",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×21",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×28",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×22",
+    "color-mix(in srgb, #64748b 87.50%, transparent) ×11",
+    "color-mix(in srgb, #64748b 93.75%, transparent) ×8",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×26",
     "color-mix(in srgb, #6b7280 93.75%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×11",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×19",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×18",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×19",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×6",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×22",
     "color-mix(in srgb, #7c3aed 62.50%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×14",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×25",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×19",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×9",
-    "transparent ×28",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×3",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×15",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×3",
+    "transparent ×220",
   ],
-  "text": "      ':I ,[fUOwm0Yn)l +i;'     
-    "I!;nwbppdbbpqwqdaqnl+i:    
-  'IiIuqqZQQOpkkpwZO0Owbpul~I'  
- ,! \\mZQQwdko&$$@W#obmOOZmQ) l' 
-,i nobwp*B$$@%$$$@$$$&*kwQQw* I 
-!+|bkb*B$%WM*bqo*phoa*B$&qLmd}l,
-~:Lbqo$$$oqmphho*kbLCp&$$*mZbz I
-+?dhk8$$@#hkh#$@$*kdpqpaM*pOOXll
-i+b**B$$8ahoMW8$$B#kddbo&&hZLXll
-i,OMh*@$$Wkwmbbdp*bqpdk#8Md00X'l
-l+|kdwaB$@#hhbwqdhMW##MW*d0Qw)iI
-,i xbpwb*8@$$$%B$$$@%W*kwLQqf !"
- :i /kobqqk*&&MMWM*bqm0JYLZ| i, 
-  ,!+!YakwOOZOLJJLOZZQCLZzl+!,  
-   \`:!~ItLwmZZO00OZZZmQxl+i;'   
-      ,I! :}nJ00CXn/[: ~!:'     ",
+  "text": "                                
+             \`":::,'            
+          :l l1tt)~ +!,         
+       'I xbpwddqmwbhx i"       
+      ;i*m00Oq*WodqO0wq*i:      
+     I 0kmhB$@B$$@$Bob00U ,     
+    :+ubb%$#bhdbkpdw8$*Qb*l     
+    I pbM$$#hh8%@pqdkMMwZY "    
+    : b*8$@aaoo%@#oahM8kQY ,    
+    "~vap&$8pqpmqoabaWoOOxi'    
+     l Ldqa&$$$B$$@&*dQ0C I     
+      l+u#bmqkdwwqwOCYOf+I      
+       ,i tZmO0LQOZZZx ~,       
+         ';! l{|([l il"         
+              '""^'             
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders quasar exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×7",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×15",
-    "color-mix(in srgb, #64748b 25.00%, transparent) ×16",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×3",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×7",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×6",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×6",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×19",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×10",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×40",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×49",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×28",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×17",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×6",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×53",
-    "color-mix(in srgb, #6b7280 12.50%, transparent) ×11",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×17",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×21",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×5",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×22",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×8",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×38",
-    "color-mix(in srgb, #6b7280 81.25%, transparent) ×28",
-    "color-mix(in srgb, #6b7280 87.50%, transparent) ×25",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×16",
-    "transparent ×28",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×9",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×9",
+    "color-mix(in srgb, #64748b 25.00%, transparent) ×9",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×1",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×2",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×5",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×4",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×8",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×25",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×24",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×26",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×16",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×31",
+    "color-mix(in srgb, #6b7280 12.50%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×12",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×7",
+    "color-mix(in srgb, #6b7280 37.50%, transparent) ×1",
+    "color-mix(in srgb, #6b7280 43.75%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 50.00%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×31",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×3",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×11",
+    "color-mix(in srgb, #6b7280 81.25%, transparent) ×18",
+    "color-mix(in srgb, #6b7280 87.50%, transparent) ×10",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×7",
+    "transparent ×220",
   ],
-  "text": "      ... .:=*xXXx*=;. ,,..     
-    ..,.=xXx*xxxXXXXXXx+.,,.    
-  ..,.+xxxx***xxxxxxXx*xX+.,..  
- ., ;xx*xXX$$$$###$$$Xx**xx; .. 
-., =$XXX$#@@@@#@@@#@@@#x*xxx; ..
-,,;xxX$@@@#$$XxxXXX$####$Xxxx;,.
-,.xXx$@@@#XxxxxXXxXXxXX$@@$xx+ .
-,:XXX$@@#$XXXX##@#$XXxxX##X**x..
-,,XXX$@#$xxxxX$@@@$Xx*x$##x+**.,
-,.x$X$@@#XxxXX$X$$xxxx$@@#xxX*.,
-.,;$$$$@@@##$$XxX$XXX#@@$x*xx:,.
-., +XXX$#@@@@##$##@@@@$x**xx= ,.
- ., =XX**xxX$X$$##$$X*+*xx*; ,. 
-  .,,.+XXxxxxxXxxx*++*xxx+,,,.  
-   ..,,.=xXXx*****xxxx*=.,,..   
-      .., .:=+*xx*+=:. ,,..     ",
+  "text": "                                
+             .......            
+          .. .;==;, ,,.         
+       .. =Xx*xxxXXXX+ ,.       
+      . =XxxxXx$XXXX*xX; .      
+     . *$XX#@@@#@@@@#**X+ .     
+    .,+XX@@#XXxxxxX$$#$Xx=,     
+    . Xx$@@$XxX$#$XxX$#x+* .    
+    . XX$#$XxxX@@#Xxx$#x** .    
+    .,+$$#@#XX$xXXxX#@X*X=,.    
+     . *XX$@@@##@@@@$**x+ .     
+      . +Xx**xXX$Xx*+xX= .      
+       ., =XXx**+*xxx= ,.       
+         .., .:;;:. ,..         
+             ......             
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders rift exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×24",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×20",
-    "color-mix(in srgb, #64748b 25.00%, transparent) ×5",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×7",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×4",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×4",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×5",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×13",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×47",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×38",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×35",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×49",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×21",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×25",
-    "color-mix(in srgb, #64748b 93.75%, transparent) ×17",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×29",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×9",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×8",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×13",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×14",
+    "color-mix(in srgb, #64748b 25.00%, transparent) ×4",
+    "color-mix(in srgb, #64748b 31.25%, transparent) ×5",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×2",
+    "color-mix(in srgb, #64748b 50.00%, transparent) ×3",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×5",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×49",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×16",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×15",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×29",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×14",
+    "color-mix(in srgb, #64748b 87.50%, transparent) ×6",
+    "color-mix(in srgb, #64748b 93.75%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×19",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×5",
     "color-mix(in srgb, #7c3aed 18.75%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×6",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×27",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×11",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×28",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×23",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×8",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×5",
-    "transparent ×32",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×3",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×3",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×22",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×14",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×6",
+    "transparent ×228",
   ],
-  "text": "        ..  :==+++=-. ...       
-      . :=+**#****###*+- ..     
-    . -*#*++**#*****++***- .    
-  ...+***##%%@@@%###*++++*+...  
- ..:***#%@@%%%%%%%@@%#*+++**:.  
- ..*#*#%@@%#**#***##%%%#****+ . 
-. =#*#%@%####********#@@%#++*-  
-. *###@@@#***#####****#%%*+=++ .
-. *##%@@%#***###%######%%#+=+= .
-. +%##%@@@#**+***###***#%#++*=  
- .:*#**#%%%%####**##**#%#**#*.. 
- .::**+++*#%@@@%%%%%%%#**+**:.. 
-  ..:*#*+***#%%#%%%##*****+:..  
-    . -*##*++++++++++++**- ..   
-     .. :+**++++++**#*+: ..     
-        ..  :-=++=-:. ...       ",
+  "text": "                                
+                                
+           .. .::: ...          
+         .:+*********-:.        
+       .:#***#%%#**++**:.       
+      .=**#@%%%%%%@#*++*=.      
+     .-#*#@%##***#*%%%#+*:.     
+     .+##@@#*####***#%#+++.     
+     .*##@@#**###*###%#++=.     
+     .-#*#@@#****#**#%#*#:.     
+      :=*++*%@@%%%%%#*+*=.      
+       .:#*********++**:.       
+        ..:**+++++*#+::.        
+           .. .::. ..           
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders sigil exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #64748b 12.50%, transparent) ×16",
-    "color-mix(in srgb, #64748b 18.75%, transparent) ×19",
+    "color-mix(in srgb, #64748b 12.50%, transparent) ×9",
+    "color-mix(in srgb, #64748b 18.75%, transparent) ×9",
     "color-mix(in srgb, #64748b 25.00%, transparent) ×3",
-    "color-mix(in srgb, #64748b 31.25%, transparent) ×4",
-    "color-mix(in srgb, #64748b 37.50%, transparent) ×4",
-    "color-mix(in srgb, #64748b 43.75%, transparent) ×7",
-    "color-mix(in srgb, #64748b 50.00%, transparent) ×2",
-    "color-mix(in srgb, #64748b 56.25%, transparent) ×12",
-    "color-mix(in srgb, #64748b 6.25%, transparent) ×37",
-    "color-mix(in srgb, #64748b 62.50%, transparent) ×21",
-    "color-mix(in srgb, #64748b 68.75%, transparent) ×45",
-    "color-mix(in srgb, #64748b 75.00%, transparent) ×49",
-    "color-mix(in srgb, #64748b 81.25%, transparent) ×21",
-    "color-mix(in srgb, #64748b 87.50%, transparent) ×18",
-    "color-mix(in srgb, #64748b 93.75%, transparent) ×12",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×61",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×10",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×15",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×26",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×1",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×10",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×22",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×22",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×20",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×11",
-    "transparent ×28",
+    "color-mix(in srgb, #64748b 37.50%, transparent) ×6",
+    "color-mix(in srgb, #64748b 43.75%, transparent) ×5",
+    "color-mix(in srgb, #64748b 56.25%, transparent) ×2",
+    "color-mix(in srgb, #64748b 6.25%, transparent) ×43",
+    "color-mix(in srgb, #64748b 62.50%, transparent) ×13",
+    "color-mix(in srgb, #64748b 68.75%, transparent) ×21",
+    "color-mix(in srgb, #64748b 75.00%, transparent) ×22",
+    "color-mix(in srgb, #64748b 81.25%, transparent) ×15",
+    "color-mix(in srgb, #64748b 87.50%, transparent) ×6",
+    "color-mix(in srgb, #64748b 93.75%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×35",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×4",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×3",
+    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×31",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×6",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×10",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×14",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×4",
+    "transparent ×228",
   ],
-  "text": "        .. :*xXXooX*- :::.      
-     .: *oOOOOooooOO00o*.::     
-   .: x00OooooOoXoooooooOx.:.   
-  : +O0OO00QQQ##00Q0OoXxoOo- .  
- : *0OO0######Q######QOooooo+ . 
-.:+000Q###Q0OXooOO0QQQ#Q0Oooo-. 
-: oQ0Q###0OOooXOo0OooO0##QoXox .
-::O00####0oooO00#OOoooO0#QoXoo .
-::OQ0Q##0OoooO0QQ0OOooOQ#QoXoX .
-: X0OO###0OOoOOOoOoXoO0Q#0ooOx .
-.:-OOoo0###QQ00OoOO00QQQ0ooOo-:.
- : *OoXo0Q#####QQQ####QOooOO+ . 
-  : +O0OOoOOO000QQQQ0oXXoOo- :  
-   .:.xOOoXXxXXXoooXxXoOO*.:.   
-     .: +XOOooooXXooOOX+ ::.    
-       ..: -*xXXXxx*- ::.       ",
+  "text": "                                
+                                
+           .  -+*-. :.          
+        . *OOOOoXoO0O* :        
+      .:*0OOOO00oOOoXXO+:       
+     . XOOQ#########OoXox       
+     :xQ0##QOoXoo000##0oo+.     
+    . O0Q##OooOOQOooO#QXXo      
+    . O0Q##OoOO00OooOQQoXX      
+     :*Oo0##0OOOXoOO0Q0oO+:     
+     . XOoOQ###QQ###QOoOx .     
+      .:*QOooXooOOoXXoO+:.      
+        : +oOoooXXooo+ :        
+          ..  -++-. :.          
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders veil exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #6b7280 12.50%, transparent) ×24",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×14",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×4",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×8",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×40",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×42",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×48",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×71",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×31",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×8",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×2",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×10",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×6",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×6",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×21",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×15",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×20",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×40",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×25",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×18",
+    "color-mix(in srgb, #6b7280 12.50%, transparent) ×14",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×12",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 31.25%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 37.50%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 43.75%, transparent) ×13",
+    "color-mix(in srgb, #6b7280 50.00%, transparent) ×28",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×20",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×53",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×20",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×5",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×3",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×23",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×12",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×7",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×16",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×7",
     "color-mix(in srgb, #7c3aed 93.75%, transparent) ×3",
-    "transparent ×32",
+    "transparent ×232",
   ],
-  "text": "        ..  .:----:.  :..       
-     .. .-=++++++=====-. :.     
-    . :=+==++++++======+=: .    
-  .: =+++++*****++++=====+- ..  
- .:.=++**##****+++**++++==== .  
- : =+++****+++++=+*****++===- . 
-. -*++****+*+++*+*+++***++===:  
-. =******++++********++++==-=- .
-. =*++**+++++***#****+++++=--: .
-. -++++****++******+++++++===:  
- : ====++*******+**++==+===== . 
- .:.-====++**#**+++*++++==+=..  
-  .: =++++++++++++++++===+= ..  
-    . :+++===============: .    
-     .. .-============-. :.     
-        ..   ::---:.  :..       ",
+  "text": "                                
+                                
+           ..  ..  :.           
+        ...-+++++====.:.        
+       ..+++++*+++=====..       
+      ::++*#***++**++===:.      
+     ..++***+++++*+***+== .     
+     :=****++********++==-.     
+     .=*+**++***#**++++=-:.     
+     ..+=+***+****+==+===..     
+      ::===++*#*++*++==+:.      
+       ..++++++========..       
+        ...-========-.:.        
+           ..   .  ..           
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders void exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #57606a 12.50%, transparent) ×5",
-    "color-mix(in srgb, #57606a 18.75%, transparent) ×3",
-    "color-mix(in srgb, #57606a 25.00%, transparent) ×11",
-    "color-mix(in srgb, #57606a 31.25%, transparent) ×30",
-    "color-mix(in srgb, #57606a 37.50%, transparent) ×39",
-    "color-mix(in srgb, #57606a 43.75%, transparent) ×63",
-    "color-mix(in srgb, #57606a 50.00%, transparent) ×44",
-    "color-mix(in srgb, #57606a 56.25%, transparent) ×42",
-    "color-mix(in srgb, #57606a 6.25%, transparent) ×121",
-    "color-mix(in srgb, #57606a 62.50%, transparent) ×18",
-    "color-mix(in srgb, #57606a 68.75%, transparent) ×12",
-    "color-mix(in srgb, #6b7280 100.00%, transparent) ×29",
-    "color-mix(in srgb, #6b7280 12.50%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×2",
+    "color-mix(in srgb, #57606a 18.75%, transparent) ×4",
+    "color-mix(in srgb, #57606a 25.00%, transparent) ×1",
+    "color-mix(in srgb, #57606a 31.25%, transparent) ×13",
+    "color-mix(in srgb, #57606a 37.50%, transparent) ×27",
+    "color-mix(in srgb, #57606a 43.75%, transparent) ×21",
+    "color-mix(in srgb, #57606a 50.00%, transparent) ×27",
+    "color-mix(in srgb, #57606a 56.25%, transparent) ×21",
+    "color-mix(in srgb, #57606a 6.25%, transparent) ×98",
+    "color-mix(in srgb, #57606a 62.50%, transparent) ×9",
+    "color-mix(in srgb, #57606a 68.75%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 100.00%, transparent) ×16",
     "color-mix(in srgb, #6b7280 25.00%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×2",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×1",
     "color-mix(in srgb, #6b7280 50.00%, transparent) ×1",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×7",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×16",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×9",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 75.00%, transparent) ×3",
-    "color-mix(in srgb, #6b7280 93.75%, transparent) ×8",
-    "transparent ×40",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×18",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×6",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×4",
+    "color-mix(in srgb, #6b7280 75.00%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 93.75%, transparent) ×1",
+    "transparent ×236",
   ],
-  "text": "             .::::.             
-         :-===--------:         
-      .===-------:::::-=-.      
-     -+===+*###*++==-:::-=-     
-    -=-=*##+=====+##*=--:---    
-   -=-=*##=-::----+*##*=-::-:   
-  .==-=##=-----=-====*##=-:--.  
-  -=--=**=---=========+**-::-:  
-  :=--=#*=--====+===--=+*=::-.  
-  .=--=+##*+=======---=**=::-.  
-   -=---+###+===------=+=-:-:   
-    -=-:--=*###*===+***=--=-    
-     -=--:---==+++*++=---=-     
-      .-=--::.:::---::---.      
-         :---:::---==-:         
-             ..::..             ",
+  "text": "                                
+                                
+                                
+           -==-------           
+         ==-=++==-:::-=         
+       .==+#*+===##=-:-=.       
+       =-=#*--:--=+*#=-:-       
+      -=-=*=--======+#=:-:      
+      :--+#=-===+==-=*=::.      
+       =--+##===---:=*=:-       
+       .=::-+##*==***=-=.       
+         =--::--===-:-=         
+           ---::---=-           
+                                
+                                
+                                ",
 }
 `;
 
 exports[`renderOrbFrame > characterization: chars and colors per built-in variant > renders wraith exactly as before 1`] = `
 {
   "colors": [
-    "color-mix(in srgb, #6b7280 12.50%, transparent) ×15",
-    "color-mix(in srgb, #6b7280 18.75%, transparent) ×19",
-    "color-mix(in srgb, #6b7280 25.00%, transparent) ×15",
-    "color-mix(in srgb, #6b7280 31.25%, transparent) ×16",
-    "color-mix(in srgb, #6b7280 37.50%, transparent) ×5",
-    "color-mix(in srgb, #6b7280 43.75%, transparent) ×27",
-    "color-mix(in srgb, #6b7280 50.00%, transparent) ×46",
-    "color-mix(in srgb, #6b7280 56.25%, transparent) ×48",
-    "color-mix(in srgb, #6b7280 6.25%, transparent) ×43",
-    "color-mix(in srgb, #6b7280 62.50%, transparent) ×42",
-    "color-mix(in srgb, #6b7280 68.75%, transparent) ×17",
-    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×9",
-    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×8",
-    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×5",
-    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×4",
-    "color-mix(in srgb, #7c3aed 50.00%, transparent) ×3",
-    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×7",
-    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×24",
-    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×16",
-    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×20",
-    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×24",
-    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×26",
-    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×22",
-    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×8",
-    "transparent ×36",
+    "color-mix(in srgb, #6b7280 12.50%, transparent) ×17",
+    "color-mix(in srgb, #6b7280 18.75%, transparent) ×6",
+    "color-mix(in srgb, #6b7280 25.00%, transparent) ×17",
+    "color-mix(in srgb, #6b7280 31.25%, transparent) ×6",
+    "color-mix(in srgb, #6b7280 37.50%, transparent) ×2",
+    "color-mix(in srgb, #6b7280 43.75%, transparent) ×11",
+    "color-mix(in srgb, #6b7280 50.00%, transparent) ×25",
+    "color-mix(in srgb, #6b7280 56.25%, transparent) ×21",
+    "color-mix(in srgb, #6b7280 6.25%, transparent) ×38",
+    "color-mix(in srgb, #6b7280 62.50%, transparent) ×22",
+    "color-mix(in srgb, #6b7280 68.75%, transparent) ×8",
+    "color-mix(in srgb, #7c3aed 12.50%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 18.75%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 25.00%, transparent) ×4",
+    "color-mix(in srgb, #7c3aed 31.25%, transparent) ×5",
+    "color-mix(in srgb, #7c3aed 37.50%, transparent) ×3",
+    "color-mix(in srgb, #7c3aed 43.75%, transparent) ×1",
+    "color-mix(in srgb, #7c3aed 56.25%, transparent) ×2",
+    "color-mix(in srgb, #7c3aed 6.25%, transparent) ×22",
+    "color-mix(in srgb, #7c3aed 62.50%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 68.75%, transparent) ×13",
+    "color-mix(in srgb, #7c3aed 75.00%, transparent) ×9",
+    "color-mix(in srgb, #7c3aed 81.25%, transparent) ×16",
+    "color-mix(in srgb, #7c3aed 87.50%, transparent) ×14",
+    "color-mix(in srgb, #7c3aed 93.75%, transparent) ×2",
+    "transparent ×232",
   ],
-  "text": "       .\`\`  .':;::\`.  ''.       
-     .\` .:;iiiIiiiiiii:. '\`     
-   .' .;iiiiIIIiii;;;iii;\` '.   
-  .' ;iiiiIttfttIIiiiiiiii; '.  
- .'.;iitfffttttIiItttIii;ii; '. 
-.' ;iiitffttIiiIiItttttIii;;: \`.
-\` :IIItfftttIiIIitItttffti;;;\` .
-\` ;ttttftIiiItttfftttIIIi;;;;: \`
-\` ;ttttttiiiItttLtfttIiIIi;;;' \`
-\` :tIIIttttIItIttttIiiiiii;;;\` .
-.' ;iiiiItttttttItIiiiiIiiii; \`.
- .'.;;;;;iIttfftIIttIIiiiii;.'. 
-  .' ;iiiiIIIIIIiiIIIii;;i: '.  
-   .' \`iIiii;;;;;;;;;iii;\` '.   
-     .' .:;i;;;;;iiii;:. '\`.    
-       .\`\`  .\`':::\`.  '\`.       ",
+  "text": "                                
+                                
+          .\`\`  ..  ''.          
+        .'.;iiiiiiii;.'\`        
+      .'.iiiittIii;;iii.'.      
+     .''iItfttttIttIi;ii\`'.     
+     '.IitfttIiIittttti;; \`     
+    .';ttttIiIttfttttti;;:\`     
+    .';ttttiitttftttIIi;;'\`     
+     '.IiittttItttIiiiiii.\`     
+     .'\`;;;ittftIItIiiii''.     
+      .'.iiiIiiiiiiiiii.'.      
+        .'.;i;;;;iii;.'\`        
+          .\`\`   .  '\`.          
+                                
+                                ",
 }
 `;

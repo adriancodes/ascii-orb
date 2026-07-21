@@ -7,6 +7,8 @@ import { resolveVariantDefinition } from "./variants";
 const GAMMA_LUT_SIZE = 1024;
 const GAMMA_LUT_MAX = GAMMA_LUT_SIZE - 1;
 const GAMMA_EXPONENT = 0.84;
+// Keep the r <= 1.2 corona inside the frame even at maximum breathing.
+const FRAME_EXTENT = 1.42;
 const RIPPLE_SAMPLE_STEP = 0.025;
 const RIPPLE_REFRACTION = 0.28;
 const gammaLut = new Float32Array(GAMMA_LUT_SIZE);
@@ -35,7 +37,11 @@ export function renderOrbFrame(options: OrbRenderOptions): OrbFrame {
   const orbSpaceRipples =
     ripples.length === 0
       ? ripples
-      : ripples.map((ripple) => ({ ...ripple, x: ripple.x * xScale }));
+      : ripples.map((ripple) => ({
+          ...ripple,
+          x: ripple.x * xScale * FRAME_EXTENT,
+          y: ripple.y * FRAME_EXTENT
+        }));
 
   const frame: OrbFrame = [];
   const resolvedVariant = resolveVariantDefinition(
@@ -67,8 +73,8 @@ export function renderOrbFrame(options: OrbRenderOptions): OrbFrame {
     const line: OrbFrame[number] = [];
 
     for (let col = 0; col < width; col += 1) {
-      const nx = (col / (width - 1)) * 2 - 1;
-      const ny = (row / (height - 1)) * 2 - 1;
+      const nx = ((col / (width - 1)) * 2 - 1) * FRAME_EXTENT;
+      const ny = ((row / (height - 1)) * 2 - 1) * FRAME_EXTENT;
 
       // Terminal character cells are wider than tall.
       const x = (nx * xScale) / breath;

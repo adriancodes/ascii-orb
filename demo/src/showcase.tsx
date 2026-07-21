@@ -207,9 +207,9 @@ export function App() {
                         enableRipples={false}
                         fps={12}
                         reducedMotion="system"
-                        width={30}
-                        height={14}
-                        style={{ fontSize: 7, lineHeight: "7px" }}
+                        width={38}
+                        height={18}
+                        style={{ fontSize: 9, lineHeight: "9px" }}
                       />
                     </span>
                     <strong>{meta.label}</strong>

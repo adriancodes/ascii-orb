@@ -234,7 +234,7 @@ select:focus-visible {
 
 .variant-card__preview {
   display: block;
-  height: 112px;
+  height: 162px;
   margin-bottom: 8px;
   pointer-events: none;
   width: 100%;

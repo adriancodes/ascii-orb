@@ -205,7 +205,8 @@ export function App() {
                         variant={variant}
                         palette={theme.palette}
                         enableRipples={false}
-                        reducedMotion="always"
+                        fps={12}
+                        reducedMotion="system"
                         width={30}
                         height={14}
                         style={{ fontSize: 7, lineHeight: "7px" }}

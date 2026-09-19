@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createRipple, pruneRipples, rippleContribution } from "./ripple";
+import { createRipple, prepareRipples, pruneRipples, rippleContribution, sampleRippleField } from "./ripple";
 
 describe("createRipple", () => {
   it("carries position, start time, and optional envelope fields", () => {
@@ -41,6 +41,26 @@ describe("pruneRipples", () => {
 });
 
 describe("rippleContribution", () => {
+  it("computes refraction slopes consistently with the wave brightness", () => {
+    const ripples = [
+      createRipple({ x: 0, y: 0, timeSeconds: 0 }),
+      createRipple({ x: 0.2, y: -0.1, timeSeconds: 0.1 })
+    ];
+    const waves = prepareRipples(ripples, 0.4);
+    const step = 0.00001;
+    for (const [x, y] of [[0.3, 0.4], [-0.5, 0.1], [0.8, -0.3]]) {
+      const field = sampleRippleField(x, y, waves);
+      const dx = (rippleContribution(x + step, y, 0.4, ripples) - rippleContribution(x - step, y, 0.4, ripples)) / (2 * step);
+      const dy = (rippleContribution(x, y + step, 0.4, ripples) - rippleContribution(x, y - step, 0.4, ripples)) / (2 * step);
+      expect(field.dx).toBeCloseTo(dx, 5);
+      expect(field.dy).toBeCloseTo(dy, 5);
+    }
+    const center = sampleRippleField(0, 0, prepareRipples([ripples[0]], 0));
+    expect(center.dx).toBe(0);
+    expect(center.dy).toBe(0);
+    expect(rippleContribution(0, 0, 0, [createRipple({ x: 0, y: 0, timeSeconds: 0, duration: 0 })])).toBe(0);
+  });
+
   it("peaks on the expanding ring and is zero outside a ripple's life", () => {
     const ripple = createRipple({
       x: 0,

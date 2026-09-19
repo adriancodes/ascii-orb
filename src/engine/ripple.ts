@@ -52,36 +52,54 @@ export function rippleContribution(
   timeSeconds: number,
   ripples: OrbRipple[]
 ): number {
-  let value = 0;
+  return sampleRippleField(x, y, prepareRipples(ripples, timeSeconds)).value;
+}
 
+type RippleWave = { x: number; y: number; radius: number; amplitude: number };
+
+// Lifetime, radius, and fade are shared by every cell in a frame.
+export function prepareRipples(ripples: OrbRipple[], timeSeconds: number): RippleWave[] {
+  const waves: RippleWave[] = [];
   for (const ripple of ripples) {
     const duration = ripple.duration ?? 1.9;
-    const speed = ripple.speed ?? 1.25;
-    const strength = ripple.strength ?? 0.56;
-
     const age = timeSeconds - ripple.start;
-    if (age < 0 || age > duration) {
-      continue;
-    }
+    if (!(duration > 0) || age < 0 || age > duration) continue;
+    const fade = clamp(1 - age / duration, 0, 1);
+    waves.push({
+      x: ripple.x,
+      y: ripple.y,
+      radius: age * (ripple.speed ?? 1.25),
+      amplitude: fade * fade * (ripple.strength ?? 0.56)
+    });
+  }
+  return waves;
+}
 
-    const radius = age * speed;
-    const distance = Math.sqrt((x - ripple.x) ** 2 + (y - ripple.y) ** 2);
-    // Ease-out-quadratic envelope: ripple starts at full intensity, decays
-    // softly instead of the old linear fade. Matches how real surface waves
-    // attenuate — most of the energy is visible in the first third of life.
-    const linearFade = clamp(1 - age / duration, 0, 1);
-    const envelope = linearFade * linearFade;
-    const leadingRing = Math.exp(-Math.pow(distance - radius, 2) / 0.013);
-    // A dark trough behind the bright crest makes the wave readable against
-    // the orb's own animated texture instead of looking like extra turbulence.
-    const troughRadius = radius - 0.11;
+// The radial derivative gives refraction in the same pass as brightness,
+// avoiding four extra wave samples per cell. Symmetry gives zero slope at the center.
+export function sampleRippleField(x: number, y: number, waves: RippleWave[]) {
+  let value = 0;
+  let dx = 0;
+  let dy = 0;
+  for (const wave of waves) {
+    const offsetX = x - wave.x;
+    const offsetY = y - wave.y;
+    const distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
+    const crestOffset = distance - wave.radius;
+    const leadingRing = Math.exp(-(crestOffset * crestOffset) / 0.013);
+    const troughRadius = wave.radius - 0.11;
+    const troughOffset = distance - troughRadius;
     const trailingTrough =
       troughRadius > 0
-        ? Math.exp(-Math.pow(distance - troughRadius, 2) / 0.009) * 0.78
+        ? Math.exp(-(troughOffset * troughOffset) / 0.009) * 0.78
         : 0;
-
-    value += (leadingRing - trailingTrough) * envelope * strength;
+    value += (leadingRing - trailingTrough) * wave.amplitude;
+    if (distance > 0) {
+      const slope = (-2 * crestOffset * leadingRing / 0.013 +
+        2 * troughOffset * trailingTrough / 0.009) * wave.amplitude / distance;
+      dx += slope * offsetX;
+      dy += slope * offsetY;
+    }
   }
-
-  return value;
+  return { value, dx, dy };
 }

@@ -83,7 +83,7 @@ export const COLOR_SCHEMES = {
       surface: "#073642",
       border: "#586e75",
       text: "#93a1a1",
-      muted: "#839496",
+      muted: "#93a1a1",
       accent: "#268bd2"
     }
   },

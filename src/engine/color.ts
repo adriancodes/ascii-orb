@@ -32,6 +32,8 @@ export function mergePalette(palette?: Partial<OrbPalette>): OrbPalette {
 // nearly-equal intensity produce the same color string. Enables color-run
 // batching in the DOM renderer. 16 steps is well below perceptual threshold.
 const ALPHA_STEPS = 16;
+// ponytail: retain at most 64 color ramps; use LRU only if theme churn matters.
+const alphaColors = new Map<string, string[]>();
 
 function quantizeAlpha(alpha: number): number {
   return Math.round(clamp(alpha, 0, 1) * ALPHA_STEPS) / ALPHA_STEPS;
@@ -39,17 +41,25 @@ function quantizeAlpha(alpha: number): number {
 
 export function withAlpha(color: string, alpha: number): string {
   const quantized = quantizeAlpha(alpha);
+  let ramp = alphaColors.get(color);
+  if (!ramp) {
+    if (alphaColors.size >= 64) alphaColors.clear();
+    ramp = [];
+    alphaColors.set(color, ramp);
+  }
+  const index = quantized * ALPHA_STEPS;
+  if (ramp[index] !== undefined) return ramp[index];
   if (/^--[-\w]+$/.test(color)) {
-    return `hsl(var(${color}) / ${quantized.toFixed(3)})`;
+    return ramp[index] = `hsl(var(${color}) / ${quantized.toFixed(3)})`;
   }
 
   const hslVarMatch = color.match(/^hsl\(var\((--[-\w]+)\)\)$/);
   if (hslVarMatch) {
-    return `hsl(var(${hslVarMatch[1]}) / ${quantized.toFixed(3)})`;
+    return ramp[index] = `hsl(var(${hslVarMatch[1]}) / ${quantized.toFixed(3)})`;
   }
 
   const percentage = quantized * 100;
-  return `color-mix(in srgb, ${color} ${percentage.toFixed(2)}%, transparent)`;
+  return ramp[index] = `color-mix(in srgb, ${color} ${percentage.toFixed(2)}%, transparent)`;
 }
 
 // One formula, zero variant knowledge: the variant's color spec arrives in

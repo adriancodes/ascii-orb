@@ -23,7 +23,7 @@ export function App() {
 
   return hash.startsWith("#playground") ? (
     <Playground
-      key={`${playgroundVariant}-${colorScheme}`}
+      key={playgroundVariant}
       initialVariant={playgroundVariant}
       colorScheme={colorScheme}
       onColorSchemeChange={setColorScheme}

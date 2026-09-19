@@ -214,6 +214,7 @@ export function Playground({
           >
             <div className="playground-preview__stage">
               <AsciiOrb
+                ariaHidden={false}
                 variant={variant}
                 customVariants={customVariants}
                 palette={palette}

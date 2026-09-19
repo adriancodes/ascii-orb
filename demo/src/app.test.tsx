@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
-import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { orbVariants } from "ascii-orb";
+import * as core from "ascii-orb/core";
 import { App } from "./app";
 
 beforeAll(() => {
@@ -29,7 +30,31 @@ beforeEach(() => {
   window.location.hash = "";
 });
 
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+});
+
 describe("showcase (landing view)", () => {
+  it("adds a fresh ripple for every click on every orb without nesting buttons", () => {
+    const matchMedia = window.matchMedia;
+    vi.spyOn(window, "matchMedia").mockImplementation(query => ({ ...matchMedia(query), matches: false }));
+    const draw = vi.spyOn(core, "renderOrbFrame");
+    const { container } = render(<App />);
+    const orbs = [...container.querySelectorAll<HTMLPreElement>('pre[role="button"]')];
+    expect(orbs).toHaveLength(orbVariants.length + 1);
+    expect(container.querySelector('button [role="button"]')).toBeNull();
+    for (const orb of orbs) {
+      orb.getBoundingClientRect = () => ({ left: 0, top: 0, width: 100, height: 100 }) as DOMRect;
+      for (let click = 1; click <= 6; click += 1) {
+        draw.mockClear();
+        fireEvent.click(orb, { clientX: 50, clientY: 50 });
+        expect(draw).toHaveBeenCalledOnce();
+        expect(draw.mock.calls[0][0].ripples).toHaveLength(Math.min(click, 5));
+      }
+    }
+  });
+
   it("renders an interactive hero and every built-in variant as a selector", () => {
     const { container } = render(<App />);
     expect(
@@ -54,7 +79,7 @@ describe("showcase (landing view)", () => {
     const readOrbMarkup = () =>
       [
         ...container.querySelectorAll(
-          '.hero-orb pre, button[data-variant] pre'
+          '.hero-orb pre, .variant-card__preview pre'
         )
       ].map((pre) => pre.innerHTML);
     const readUiStyles = () =>
@@ -110,7 +135,10 @@ describe("showcase (landing view)", () => {
     });
     const { container } = render(<App />);
 
+    const scrollIntoView = vi.fn();
+    container.querySelector<HTMLDivElement>('[data-testid="hero-orb"]')!.scrollIntoView = scrollIntoView;
     fireEvent.click(container.querySelector('button[data-variant="pulse"]')!);
+    expect(scrollIntoView).toHaveBeenCalledWith({ block: "center", behavior: "instant" });
     expect(container.querySelector('[data-testid="hero-orb"]')!.textContent).toContain(
       "Pulse"
     );
@@ -180,6 +208,18 @@ describe("showcase (landing view)", () => {
 });
 
 describe("playground (#playground)", () => {
+  it("preserves orb settings when only the site theme changes", () => {
+    window.location.hash = "#playground/nova";
+    const { container } = render(<App />);
+    const variant = container.querySelector<HTMLSelectElement>('select:not([aria-label])')!;
+    fireEvent.change(variant, { target: { value: "nebula" } });
+    fireEvent.click(container.querySelectorAll('input[type="radio"]')[2]);
+    fireEvent.change(container.querySelector('[aria-label="accent hex"]')!, { target: { value: "#ff0000" } });
+    const before = container.querySelector('[aria-label="implementation code"]')!.textContent;
+    fireEvent.change(container.querySelector('[aria-label="color scheme"]')!, { target: { value: "dracula" } });
+    expect(container.querySelector('[aria-label="implementation code"]')!.textContent).toBe(before);
+  });
+
   it("shows one orb with palette, ripple, motion, and fps controls", () => {
     window.location.hash = "#playground";
     const { container } = render(<App />);

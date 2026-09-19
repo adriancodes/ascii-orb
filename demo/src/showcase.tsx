@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 import {
   AsciiOrb,
   getVariantMeta,
@@ -6,8 +6,6 @@ import {
   type OrbVariantId
 } from "ascii-orb";
 import {
-  cardStyle,
-  mutedStyle,
   pageStyle,
   type ColorScheme,
   type DemoTheme
@@ -30,6 +28,7 @@ export function Showcase({
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "copied" | "failed"
   >("idle");
+  const previewRef = useRef<HTMLDivElement>(null);
   const selectedMeta = getVariantMeta(selectedVariant);
   const usageCode = `import { AsciiOrb } from "ascii-orb";
 
@@ -48,11 +47,16 @@ export function App() {
 
   return (
     <main
+      className="showcase-page"
       style={{
         ...pageStyle,
+        padding: "var(--showcase-page-padding)",
+        "--showcase-border": theme.ui.border,
+        "--showcase-surface": theme.ui.surface,
+        "--showcase-muted": `color-mix(in srgb, ${theme.ui.muted} 80%, ${theme.ui.text})`,
         background: theme.ui.background,
         color: theme.ui.text
-      }}
+      } as CSSProperties}
     >
       <div className="page-shell">
         <SiteHeader
@@ -64,15 +68,30 @@ export function App() {
 
         <section
           className="showcase-hero"
-          style={{
-            ...cardStyle,
-            background: theme.ui.surface,
-            border: `1px solid ${theme.ui.border}`
-          }}
+          aria-labelledby="showcase-heading"
+          style={{ borderColor: theme.ui.border }}
         >
-          <div className="hero-orb" data-testid="hero-orb">
+          <div className="hero-copy">
+            <span className="eyebrow">Animated ASCII for React</span>
+            <h2 className="hero-title" id="showcase-heading">
+              Small characters.<br /><span>Big presence.</span>
+            </h2>
+            <p>
+              Sixteen living textures, made entirely of type. Click an orb to
+              send a ripple through its surface. Then make it your own.
+            </p>
+          </div>
+
+          <div className="hero-orb" data-testid="hero-orb" ref={previewRef}>
+            <div className="hero-orb__toolbar">
+              <span className="eyebrow">Interactive preview</span>
+              <span className="hero-orb__index">
+                {String(orbVariants.findIndex(variant => variant === selectedVariant) + 1).padStart(2, "0")} / 16
+              </span>
+            </div>
             <div className="hero-orb__stage">
               <AsciiOrb
+                ariaHidden={false}
                 key={selectedVariant}
                 variant={selectedVariant}
                 palette={theme.palette}
@@ -80,150 +99,135 @@ export function App() {
                 rippleDuration={1.9}
                 rippleSpeed={1.25}
                 rippleStrength={1.1}
-                width={56}
-                height={27}
-                style={{ fontSize: 10, lineHeight: "10px" }}
+                width={64}
+                height={34}
+                style={{ fontSize: "clamp(6px, 2.35cqw, 14px)", lineHeight: "1" }}
               />
             </div>
-            <div
-              className="hero-orb__hint"
-              style={{ background: theme.ui.background, color: theme.ui.text }}
-            >
-              Click or tap inside the orb
+            <div className="hero-orb__caption" aria-live="polite">
+              <div><strong>{selectedMeta.label}</strong><span>{selectedMeta.description}</span></div>
+              <span className="hero-orb__hint">Click or tap inside the orb</span>
             </div>
-            <strong style={{ fontSize: 18 }}>{selectedMeta.label}</strong>
-            <span style={{ ...mutedStyle, color: theme.ui.muted }}>
-              {selectedMeta.description}
-            </span>
           </div>
-
-          <div className="hero-copy">
-            <span className="eyebrow" style={{ color: theme.ui.accent }}>
-              React component · zero required CSS
-            </span>
-            <h2 className="hero-title">Animated ASCII orbs that react.</h2>
-            <p style={{ ...mutedStyle, color: theme.ui.muted }}>
-              Sixteen built-in variants, click-driven surface ripples, responsive
-              sizing, and copy-ready configuration.
-            </p>
-
-            <div
-              className="install-command"
-              style={{
-                background: theme.ui.background,
-                border: `1px solid ${theme.ui.border}`
-              }}
-            >
-              <code>{INSTALL_COMMAND}</code>
-              <button
-                aria-label="Copy install command"
-                className="button button--quiet touch-target"
-                onClick={() => void copyInstallCommand()}
-                style={{ color: theme.ui.accent }}
-                type="button"
-              >
-                copy
-              </button>
-            </div>
-            <div aria-live="polite" role="status" className="copy-status">
-              {copyStatus === "copied"
-                ? "Install command copied."
-                : copyStatus === "failed"
-                  ? "Copy failed. Select the command manually."
-                  : ""}
-            </div>
-
+          <div className="hero-setup">
             <div className="hero-actions">
               <a
                 className="button button--primary touch-target"
                 data-testid="hero-customize"
                 href={`#playground/${selectedVariant}`}
-                style={{ background: theme.ui.accent, color: theme.ui.background }}
+                style={{ background: theme.ui.text, color: theme.ui.background }}
               >
-                Customize this orb
+                Customize this orb <span aria-hidden="true">↗</span>
               </a>
               <a
-                className="button button--secondary touch-target"
+                className="button button--quiet touch-target"
                 href="https://github.com/adriancodes/ascii-orb#readme"
                 rel="noreferrer"
-                style={{ borderColor: theme.ui.border, color: theme.ui.text }}
                 target="_blank"
               >
-                View documentation
+                Documentation <span aria-hidden="true">→</span>
               </a>
             </div>
-
-            <pre
-              className="usage-code"
-              style={{
-                background: theme.ui.background,
-                border: `1px solid ${theme.ui.border}`,
-                color: theme.ui.text
-              }}
-            >
-              <code>{usageCode}</code>
-            </pre>
+            <div className="hero-install">
+              <div className="install-command">
+                <code><span aria-hidden="true">$ </span>{INSTALL_COMMAND}</code>
+                <button
+                  aria-label="Copy install command"
+                  className="button button--quiet touch-target"
+                  onClick={() => void copyInstallCommand()}
+                  type="button"
+                >
+                  {copyStatus === "copied" ? "Copied ✓" : "Copy"}
+                </button>
+              </div>
+              <div aria-live="polite" role="status" className="copy-status">
+                {copyStatus === "copied"
+                  ? "Install command copied."
+                  : copyStatus === "failed"
+                    ? "Copy failed. Select the command manually."
+                    : ""}
+              </div>
+            </div>
+            <div className="hero-facts">
+              <span>16 variants</span><span>Zero required CSS</span><span>MIT licensed</span>
+            </div>
           </div>
         </section>
+
+        <div className="showcase-snippet">
+          <span className="eyebrow">A few lines. A little life.</span>
+          <pre className="usage-code"><code>{usageCode}</code></pre>
+          <span className="showcase-snippet__note">Real text.<br />Ready for your interface.</span>
+        </div>
 
         <section aria-labelledby="variant-heading" className="section-block">
           <div className="section-heading">
             <div>
-              <span className="eyebrow" style={{ color: theme.ui.accent }}>
-                Choose
-              </span>
-              <h2 id="variant-heading">Pick a starting point</h2>
+              <span className="eyebrow">The collection / 16 variants</span>
+              <h2 id="variant-heading">Find your atmosphere.</h2>
             </div>
-            <p style={{ ...mutedStyle, color: theme.ui.muted }}>
-              Select a card to update the live hero preview.
-            </p>
+            <p>Every orb is interactive. Click to ripple.<br />Preview a favorite, or jump straight into customizing.</p>
           </div>
           <div className="variant-grid">
-            {orbVariants.map((variant) => {
+            {orbVariants.map((variant, index) => {
               const meta = getVariantMeta(variant);
               const selected = variant === selectedVariant;
               return (
                 <figure
                   key={variant}
+                  className="variant-tile"
+                  data-selected={selected}
                   style={{
-                    ...cardStyle,
                     background: theme.ui.surface,
                     border: `1px solid ${selected ? theme.ui.accent : theme.ui.border}`
                   }}
                 >
-                  <button
-                    aria-label={`Preview ${meta.label}`}
-                    aria-pressed={selected}
-                    className="variant-card"
-                    data-variant={variant}
-                    onClick={() => setSelectedVariant(variant)}
-                    style={{ color: theme.ui.text }}
-                    type="button"
-                  >
-                    <span className="variant-card__preview">
-                      <AsciiOrb
-                        variant={variant}
-                        palette={theme.palette}
-                        enableRipples={false}
-                        fps={12}
-                        reducedMotion="system"
-                        width={38}
-                        height={18}
-                        style={{ fontSize: 9, lineHeight: "9px" }}
-                      />
-                    </span>
-                    <strong>{meta.label}</strong>
-                    <span style={{ color: theme.ui.muted }}>
-                      {meta.description}
-                    </span>
-                  </button>
-                  <a
-                    className="variant-customize touch-target"
-                    href={`#playground/${variant}`}
-                    style={{ color: theme.ui.accent }}
-                  >
-                    Customize →
-                  </a>
+                  <div className="variant-card__toolbar">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    {selected && <span className="variant-card__selected">✓ In preview</span>}
+                  </div>
+                  <div className="variant-card__preview">
+                    <AsciiOrb
+                      ariaHidden={false}
+                      variant={variant}
+                      palette={theme.palette}
+                      rippleStrength={1.1}
+                      fps={30}
+                      reducedMotion="system"
+                      width={44}
+                      height={23}
+                      style={{ fontSize: "clamp(8px, 3.5cqw, 10px)", lineHeight: "1" }}
+                    />
+                  </div>
+                  <figcaption>
+                    <button
+                      aria-label={`Preview ${meta.label}`}
+                      aria-pressed={selected}
+                      className="variant-card"
+                      data-variant={variant}
+                      onClick={() => {
+                        setSelectedVariant(variant);
+                        previewRef.current?.scrollIntoView({
+                          block: "center",
+                          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                            ? "instant"
+                            : "smooth"
+                        });
+                      }}
+                      type="button"
+                    >
+                      <strong>{meta.label}</strong>
+                      <span className="variant-card__preview-label">Preview ↑</span>
+                    </button>
+                    <p>{meta.description}</p>
+                    <a
+                      aria-label={`Customize ${meta.label}`}
+                      className="variant-customize touch-target"
+                      href={`#playground/${variant}`}
+                    >
+                      Customize <span aria-hidden="true">↗</span>
+                    </a>
+                  </figcaption>
                 </figure>
               );
             })}
@@ -244,18 +248,17 @@ export function App() {
               }}
             >
               <strong>{title}</strong>
-              <span style={{ color: theme.ui.muted }}>{description}</span>
+              <span>{description}</span>
             </div>
           ))}
         </section>
 
         <footer className="site-footer" style={{ borderColor: theme.ui.border }}>
-          <span style={{ color: theme.ui.muted }}>MIT licensed · built for React</span>
+          <span>Made of characters. Built for React.</span>
           <div>
             <a
               href="https://github.com/adriancodes/ascii-orb"
               rel="noreferrer"
-              style={{ color: theme.ui.accent }}
               target="_blank"
             >
               GitHub
@@ -263,7 +266,6 @@ export function App() {
             <a
               href="https://www.npmjs.com/package/ascii-orb"
               rel="noreferrer"
-              style={{ color: theme.ui.accent }}
               target="_blank"
             >
               npm

@@ -6,6 +6,7 @@ import {
   DEFAULT_ORB_SIZING,
   pruneRipples,
   renderOrbFrame,
+  resolveVariantDefinition,
   type OrbColorizer,
   type OrbCustomVariants,
   type OrbFrame,
@@ -15,6 +16,7 @@ import {
   type OrbVariantId,
   type OrbVariantConfig
 } from "./core";
+import { getOrbBreath, projectOrbPoint } from "./engine/render";
 import {
   useCallback,
   useEffect,
@@ -113,11 +115,15 @@ function useSystemReducedMotion(enabled: boolean): boolean {
 // as raw whitespace with no wrapper — they need to preserve layout but carry
 // no color. This trims DOM node count by ~5× vs one <span> per cell.
 function frameToHtml(frame: OrbFrame): string {
+  const escapedColors = new Map<string, string>();
   const rows: string[] = new Array(frame.length);
   for (let r = 0; r < frame.length; r += 1) {
     const row = frame[r];
-    let html = "<div>";
+    // Frames replace their spans between pointerdown and pointerup. Keep
+    // the stable <pre> as the hit target so those replacements cannot lose clicks.
+    let html = '<div style="pointer-events:none">';
     let runColor = "";
+    let runStyle = "";
     let runChars = "";
     for (let c = 0; c < row.length; c += 1) {
       const cell = row[c];
@@ -126,9 +132,15 @@ function frameToHtml(frame: OrbFrame): string {
           html +=
             runColor === "transparent"
               ? runChars
-              : `<span style="color:${runColor}">${runChars}</span>`;
+              : `<span style="color:${runStyle}">${runChars}</span>`;
         }
         runColor = cell.color;
+        runStyle = escapedColors.get(runColor) ?? runColor
+          .replaceAll("&", "&amp;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;");
+        escapedColors.set(runColor, runStyle);
         runChars = "";
       }
       const ch = cell.char;
@@ -141,7 +153,7 @@ function frameToHtml(frame: OrbFrame): string {
       html +=
         runColor === "transparent"
           ? runChars
-          : `<span style="color:${runColor}">${runChars}</span>`;
+          : `<span style="color:${runStyle}">${runChars}</span>`;
     }
     html += "</div>";
     rows[r] = html;
@@ -202,7 +214,7 @@ export function AsciiOrb({
   });
 
   useEffect(() => {
-    if (!active) {
+    if (!active || !responsive || (typeof width === "number" && typeof height === "number")) {
       return;
     }
 
@@ -251,6 +263,7 @@ export function AsciiOrb({
 
     const observer = new ResizeObserver(updateGrid);
     observer.observe(container);
+    observer.observe(pre);
     window.addEventListener("resize", updateGrid);
 
     return () => {
@@ -259,6 +272,7 @@ export function AsciiOrb({
     };
   }, [
     active,
+    className,
     height,
     maxCells,
     maxScale,
@@ -268,6 +282,12 @@ export function AsciiOrb({
     resolvedBaseHeight,
     resolvedBaseWidth,
     responsive,
+    style?.font,
+    style?.fontFamily,
+    style?.fontSize,
+    style?.fontWeight,
+    style?.letterSpacing,
+    style?.lineHeight,
     width
   ]);
 
@@ -321,6 +341,7 @@ export function AsciiOrb({
 
     if (shouldReduceMotion) {
       timeRef.current = 0;
+      ripplesRef.current = [];
       drawFrame();
       return;
     }
@@ -329,7 +350,7 @@ export function AsciiOrb({
 
     let raf = 0;
     let lastTickAt = performance.now();
-    let lastRenderAt = 0;
+    let lastRenderAt = lastTickAt;
     const minFrameGap = 1000 / Math.max(1, fps);
     const maxFrameDelta = 0.1;
 
@@ -338,33 +359,45 @@ export function AsciiOrb({
       lastTickAt = now;
       timeRef.current += deltaSeconds;
 
-      if (now - lastRenderAt >= minFrameGap) {
+      const elapsed = now - lastRenderAt;
+      if (elapsed >= minFrameGap) {
         if (ripplesRef.current.length > 0) {
           ripplesRef.current = pruneRipples(ripplesRef.current, timeRef.current);
         }
         drawFrame();
-        lastRenderAt = now;
+        // Preserve the fractional interval so rounding at 60/120 Hz does
+        // not turn the requested 30 fps into an irregular ~20 fps spin.
+        lastRenderAt = now - (elapsed % minFrameGap);
       }
 
       raf = window.requestAnimationFrame(tick);
     };
 
+    let inView = true;
     const handleVisibilityChange = () => {
-      if (document.hidden) {
+      if (document.hidden || !inView) {
         if (raf !== 0) {
           window.cancelAnimationFrame(raf);
           raf = 0;
         }
       } else if (raf === 0) {
         lastTickAt = performance.now();
+        lastRenderAt = lastTickAt;
         raf = window.requestAnimationFrame(tick);
       }
     };
 
+    const observer = typeof IntersectionObserver === "undefined" ? undefined :
+      new IntersectionObserver(([entry]) => {
+        inView = entry.isIntersecting;
+        handleVisibilityChange();
+      });
+    if (preRef.current) observer?.observe(preRef.current);
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    raf = window.requestAnimationFrame(tick);
+    handleVisibilityChange();
 
     return () => {
+      observer?.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (raf !== 0) {
         window.cancelAnimationFrame(raf);
@@ -374,6 +407,7 @@ export function AsciiOrb({
 
   const addRipple = useCallback(
     (x: number, y: number) => {
+      if (maxRipples < 1) return;
       const ripple = createRipple({
         x,
         y,
@@ -383,7 +417,7 @@ export function AsciiOrb({
         strength: rippleStrength
       });
 
-      const keepCount = Math.max(0, maxRipples - 1);
+      const keepCount = Math.max(0, Math.floor(maxRipples) - 1);
       const current = ripplesRef.current;
       ripplesRef.current =
         keepCount === 0
@@ -396,18 +430,21 @@ export function AsciiOrb({
     [drawFrame, maxRipples, rippleDuration, rippleSpeed, rippleStrength]
   );
 
-  const canRipple = enableRipples && !shouldReduceMotion;
+  const canRipple = enableRipples && maxRipples >= 1 && !shouldReduceMotion;
+  const accessibleRipple = canRipple && !ariaHidden;
   const onOrbClick = useCallback(
     (event: MouseEvent<HTMLPreElement>) => {
       if (!canRipple) return;
       const bounds = event.currentTarget.getBoundingClientRect();
       const localX = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
       const localY = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
-      const orbX = localX * (xScale ?? 1.08);
-      if (orbX * orbX + localY * localY > 1) return;
+      const innerPulse = variantConfig?.innerPulse ??
+        resolveVariantDefinition(variant ?? "aether", customVariants, fallbackVariant).config.innerPulse;
+      const point = projectOrbPoint(localX, localY, getOrbBreath(timeRef.current, innerPulse), xScale);
+      if (point.x * point.x + point.y * point.y > 1) return;
       addRipple(localX, localY);
     },
-    [addRipple, canRipple, xScale]
+    [addRipple, canRipple, customVariants, fallbackVariant, variant, variantConfig?.innerPulse, xScale]
   );
   const onOrbKeyDown = useCallback(
     (event: KeyboardEvent<HTMLPreElement>) => {
@@ -439,18 +476,18 @@ export function AsciiOrb({
       >
         <pre
           ref={preRef}
-          aria-hidden={canRipple ? undefined : ariaHidden}
-          aria-label={canRipple ? "Ripple ASCII orb" : undefined}
+          aria-hidden={ariaHidden}
+          aria-label={accessibleRipple ? "Ripple ASCII orb" : undefined}
           className={className}
           onClick={canRipple ? onOrbClick : undefined}
-          onKeyDown={canRipple ? onOrbKeyDown : undefined}
-          role={canRipple ? "button" : undefined}
+          onKeyDown={accessibleRipple ? onOrbKeyDown : undefined}
+          role={accessibleRipple ? "button" : undefined}
           style={{
             ...PRE_BASE_STYLE,
             cursor: canRipple ? "crosshair" : undefined,
             ...style
           }}
-          tabIndex={canRipple ? 0 : undefined}
+          tabIndex={accessibleRipple ? 0 : undefined}
         />
       </div>
     </div>

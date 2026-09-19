@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { renderOrbFrame, frameToText } from "./render";
 import { createRipple } from "./ripple";
+import { orbVariantConfig } from "./variants";
 import { orbVariants, type OrbFrame, type OrbRenderOptions } from "./types";
 
 const BASE_OPTIONS: OrbRenderOptions = {
@@ -69,7 +70,7 @@ describe("renderOrbFrame", () => {
   });
 
   describe("ripple coordinate space", () => {
-    it("draws the expanding crest at full foreground contrast", () => {
+    it("deforms the existing orb using its own characters", () => {
       const options: OrbRenderOptions = {
         timeSeconds: 0.4,
         width: 81,
@@ -87,14 +88,46 @@ describe("renderOrbFrame", () => {
       const base = renderOrbFrame(options);
       const rippled = renderOrbFrame({ ...options, ripples: [ripple] });
 
-      const foregroundCells = (frame: OrbFrame) =>
-        frame.flat().filter((cell) => cell.color.includes("#ff00ff 100.00%"))
-          .length;
-      expect(foregroundCells(rippled)).toBeGreaterThan(
-        foregroundCells(base) + 10
-      );
-      expect(frameToText(base)).not.toContain("@");
-      expect(frameToText(rippled)).toContain("@");
+      expect(frameToText(rippled)).not.toBe(frameToText(base));
+      expect(frameToText(rippled)).not.toContain("@");
+      expect([...frameToText(rippled)].every(char => " \n.,:;iI1tfLCG8#".includes(char))).toBe(true);
+    });
+
+    it("leaves the halo unchanged as impacts reach and cross the surface edge", () => {
+      for (const variant of orbVariants) {
+        for (const timeSeconds of [0.3, 0.7, 1.1]) {
+          const options = { timeSeconds, width: 81, height: 41, variant };
+          const base = renderOrbFrame(options);
+          const impact = renderOrbFrame({ ...options, ripples: [
+            createRipple({ x: 0.3, y: 0, timeSeconds: 0, speed: 2, strength: 2 })
+          ] });
+          const pulse = orbVariantConfig[variant].innerPulse;
+          const breath = 1 + 0.045 * Math.sin(timeSeconds * pulse * 0.72) +
+            0.018 * Math.sin(timeSeconds * pulse * 0.17 + 1.3);
+          const exteriorBase = [];
+          const exteriorImpact = [];
+          for (let row = 0; row < options.height; row += 1) {
+            const y = (row / (options.height - 1) * 2 - 1) * 1.42 / breath;
+            const latitude = y * (1 - 0.055 * Math.pow(Math.abs(y), 1.6));
+            for (let col = 0; col < options.width; col += 1) {
+              const x = (col / (options.width - 1) * 2 - 1) * 1.42 * 1.08 / breath;
+              if (x * x + latitude * latitude >= 1) {
+                exteriorBase.push(base[row][col]);
+                exteriorImpact.push(impact[row][col]);
+              }
+            }
+          }
+          expect(exteriorImpact, `${variant} at ${timeSeconds}`).toEqual(exteriorBase);
+        }
+      }
+    });
+
+    it("ignores impacts that start outside the planet", () => {
+      const options = { ...BASE_OPTIONS, timeSeconds: 0.3 };
+      const base = renderOrbFrame(options);
+      expect(renderOrbFrame({ ...options, ripples: [
+        createRipple({ x: 0.9, y: 0, timeSeconds: 0, strength: 2 })
+      ] })).toEqual(base);
     });
 
     it("warps the sphere texture around an expanding ripple", () => {
@@ -126,7 +159,7 @@ describe("renderOrbFrame", () => {
     // cells the ripple changed.
     function rippleCentroidCol(xScale: number): number {
       const options: OrbRenderOptions = {
-        timeSeconds: 0.4,
+        timeSeconds: 0,
         width: 121,
         height: 61,
         variant: "ion",
@@ -160,7 +193,7 @@ describe("renderOrbFrame", () => {
 
     // Ripple coordinates are unit screen space, so where a click lands
     // must not depend on the render's aspect correction.
-    it("centers a ripple at the same click point for any xScale", () => {
+    it("centers a new impact at the same click point for any xScale", () => {
       const narrow = rippleCentroidCol(1);
       const wide = rippleCentroidCol(1.5);
       expect(Math.abs(narrow - wide)).toBeLessThan(2.5);
